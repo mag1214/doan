@@ -77,29 +77,24 @@ public class KeHoachTour
         {
             System.out.print("Nhap ma tour: ");
             MaTour=sc.nextLine();
-            if(dst.TimKiemMaTour(MaTour)!=1)
+            dst.DocDuLieuTuFile();
+            if(dst.TimKiemMaTour(MaTour)==-1)
                 System.out.println("Khong tim thay ma tour trong du lieu!!Vui long nhap lai");
-        }while(dst.TimKiemMaTour(MaTour)!=1);
-        
-        do
-        {
-            System.out.print("Nhap ma nhan vien tour: ");
-            MaNhanVien=sc.nextLine();
-            dsnv.readDataFromFile();
-            if(dsnv.timkiemma(MaNhanVien)!=-1)
-                System.out.println("Khong tim thay ma nhan vien trong danh sach!!Vui long nhap lai");
-        }while(MaNhanVien.length()==0);
+        }while(dst.TimKiemMaTour(MaTour)==-1);
+
+        MaNhanVien=sc.nextLine();
+        dsnv.readDataFromFile();
+        // do
+        // {
+        //     System.out.print("Nhap ma nhan vien tour: ");
+        //     MaNhanVien=sc.nextLine();
+        //     dsnv.readDataFromFile();
+        //     if(dsnv.timkiemma(MaNhanVien)!=-1)
+        //         System.out.println("Khong tim thay ma nhan vien trong danh sach!!Vui long nhap lai");
+        // }while(dsnv.timkiemma(MaNhanVien)!=-1);
 
         NgayThangNam validator = new KiemTraDinhDang("dd/MM/yyyy");
-        do 
-        {
-            System.out.println("Vui long nhap theo dinh dang dd/MM/yyyy");
-            System.out.print("Nhap ngay di: ");
-            NgayDi=sc.nextLine();
-            if (!validator.Check(NgayDi)) {
-                System.out.println("Nhap sai dinh dang vui long nhap lai");
-            }
-        }while (!validator.Check(NgayDi));
+        NgayDi = dst.NgayDiTimThay(MaTour);
         do
         {
             System.out.println("Vui long nhap theo dinh dang DD/MM/YYYY");

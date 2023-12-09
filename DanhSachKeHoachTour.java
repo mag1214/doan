@@ -333,6 +333,7 @@ public class DanhSachKeHoachTour {
 
             } finally {
                 a = i;
+                n = i;
                 kht = Arrays.copyOf(kht, n);
                 in.close();
             }
@@ -370,6 +371,16 @@ public class DanhSachKeHoachTour {
         String[] NgayThangNam = s.split("/");
         String Nam=NgayThangNam[NgayThangNam.length-1];
         return Nam;
+    }
+    public void Nhapcung()
+    {
+        kht = new KeHoachTour[10];
+        kht[0] = new KeHoachTour("KH1","T3","NV1","19/08/2023","22/08/2023");
+        kht[1] = new KeHoachTour("KH2","N2","NV6","22/02/2023","01/03/2023");
+        kht[2] = new KeHoachTour("KH3","N5","NV2","15/05/2023","22/05/2023");
+        kht[3] = new KeHoachTour("KH4","T1","NV4","12/05/2023","14/05/2023");
+        kht[4] = new KeHoachTour("KH5","T4","NV3","22/11/2023","25/11/2023");
+        GhiDuLieuVaoFile();
     }
    
 }
