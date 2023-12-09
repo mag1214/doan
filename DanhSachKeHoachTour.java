@@ -365,39 +365,6 @@ public class DanhSachKeHoachTour {
         System.out.println("| So Tour tu nam 2015 den 2020 | " +Count4+ " |");
         System.out.println("=====================================");
     }
-
-    public void TimKiemNamToChuc()
-    {
-        int Nam, Nam1, Nam2,flag=0 ;
-        System.out.println("Nhap nam muon tim kiem tu");
-        Nam1=sc.nextInt();
-        System.out.println("Den Nam");
-        Nam2=sc.nextInt();
-        sc.nextLine();
-        if(Nam2<Nam1)
-        {
-            int Temp = Nam1;
-            Nam1 = Nam2;
-            Nam2 = Temp;
-        }
-        System.out.println("==================DANH SACH KE HOACH TOUR TIM THAY===============");
-        System.out.format("|| %9s |%9s |%7s |%12s |%12s ||\n",
-        "MaKeHoach", "MaTour", "MaNhanVien", "NgayDi", "NgayVe");
-        for(int i=0; i<n; i++)
-        {
-            Nam =  Integer.parseInt(TachNam(kht[i].getNgaydi()));
-            
-            if(Nam>=Nam1 && Nam<=Nam2)
-            {
-                kht[i].Xuat();
-                System.out.println();
-                flag=1;
-            }
-        }
-        if(flag==0)
-                System.out.println("Khong tim thay tour nao!\n");
-        System.out.println("==================================================================");
-    }
     public String TachNam(String s)
     {
         String[] NgayThangNam = s.split("/");

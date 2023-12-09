@@ -104,7 +104,7 @@ public class DanhSachTour {
     
     public void Xuat()
     {
-        System.out.println("============================================DANH SACH TOUR=====================================================================");
+        System.out.println("====================================================DANH SACH TOUR=============================================================");
         System.out.format("||%5s |%18s        |%10s |%13s |%5s |%10s |%15s |%15s ||\n",
                   "MaTour", "TenTour", "NoiKhoiHanh", "Noiden", "ThoiDiem Di","PhuongTien", "TinhThanh/QuocGia", "ThoiHanViSa");
         try
@@ -324,8 +324,8 @@ public class DanhSachTour {
         String MaSo;
         System.out.print("Nhap ma tour can tim: ");
         MaSo=sc.nextLine();
-        System.out.println("============================================DANH SACH TOUR==============================================");
-        System.out.format("||%5s |%5s |%10s |%8s |%5s |%10s |%15s |%15s ||\n",
+        System.out.println("====================================================DANH SACH TOUR=============================================================");
+        System.out.format("||%5s |%18s        |%10s |%13s |%5s |%10s |%15s |%15s ||\n",
                   "MaTour", "TenTour", "NoiKhoiHanh", "Noiden", "ThoiDiem Di","PhuongTien", "TinhThanh/QuocGia", "ThoiHanViSa");
         for(int i=0; i<n; i++)
         {
@@ -339,7 +339,7 @@ public class DanhSachTour {
         {
             System.out.println("khong tim thay tour");
         }
-    System.out.println("============================================================================================================");
+    System.out.println("===================================================================================================================================");
     }
         //Tim kiem tour theo ma so co tham so int
     public int TimKiemMaTour(String Ma)
@@ -361,8 +361,8 @@ public class DanhSachTour {
     {
         n=dst.length;
         Tour flag=null;
-        System.out.println("============================================DANH SACH TOUR==============================================");
-        System.out.format("||%5s |%5s |%10s |%8s |%5s |%10s |%15s |%15s ||\n",
+        System.out.println("====================================================DANH SACH TOUR=============================================================");
+        System.out.format("||%5s |%18s        |%10s |%13s |%5s |%10s |%15s |%15s ||\n",
                   "MaTour", "TenTour", "NoiKhoiHanh", "Noiden", "ThoiDiem Di","PhuongTien", "TinhThanh/QuocGia", "ThoiHanViSa");
         for(int i=0; i<n; i++)
         {
@@ -372,7 +372,7 @@ public class DanhSachTour {
                 flag=dst[i];
             }
         }
-        System.out.println("========================================================================================================");
+        System.out.println("===============================================================================================================================");
         return flag;
     }
     public void LoaiTour()
@@ -423,8 +423,8 @@ public class DanhSachTour {
         int flag=0;
         System.out.println("Nhap noi den can tim trong danh sach");
         NoiDen=sc.nextLine();
-        System.out.println("============================================DANH SACH TOUR==============================================");
-        System.out.format("||%5s |%5s |%10s |%8s |%5s |%10s |%15s |%15s ||\n",
+        System.out.println("====================================================DANH SACH TOUR=============================================================");
+        System.out.format("||%5s |%18s        |%10s |%13s |%5s |%10s |%15s |%15s ||\n",
                   "MaTour", "TenTour", "NoiKhoiHanh", "Noiden", "ThoiDiem Di","PhuongTien", "TinhThanh/QuocGia", "ThoiHanViSa");
         for(int i = 0; i<n; i++)
         {
@@ -539,17 +539,5 @@ public class DanhSachTour {
         }
         catch (IOException e) {}
     }
-    public void NhapCung()
-    {
-        n=10;
-        dst =new Tour[10];
-        dst[0] = new TourTrongNuoc("T1","Du Thuyen Ha Long","TPHCM","Vinh Ha Long","12/05/2023","Quang Ninh");
-        dst[1] = new TourTrongNuoc("T2","Kham Pha Da Lat Ngan Hoa","TPHCM","Da Lat","15/03/2023","Lam Dong");
-        dst[2] = new TourTrongNuoc("T3","Du Lich Nam Du","TPHCM","Nam Du","19/08/2023","Kieng Giang");
-        dst[3] = new TourTrongNuoc("T4","Du Lich Hon Son","TPHCM","Hon Son","22/11/2023","Kieng Giang");
-        dst[4] = new TourTrongNuoc("T5","Du Lich Mui Ne","TPHCM","Mui Ne","16/02/2023","Binh Thuan");
-        dst[5] = new TourNgoaiNuoc("N1","Truot tuyet-Notte Word","TPHCM","Seoul","15/06/2020","Han Quoc","10/07/2020");
-        dst[6] = new TourNgoaiNuoc("N2","Co Bac Thuy Tran","TPHCM","Bac Kinh","22/02/2022","Trung Quoc","20/03/2022");
-        dst[7] = new TourNgoaiNuoc("N2","Bo Tay Hoa Ky","TPHCM","Los angeles","21/12/2023","Hoa Ky","20/01/2024");
-    }
+    
 }
