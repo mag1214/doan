@@ -53,7 +53,7 @@ public class DanhSachTour {
                         System.out.println();
                         dst[i]=new TourTrongNuoc();
                         dst[i].Nhap();
-                        GhiDuLieuVaoFile();
+                       readDataFromFile();
                         if(i>1)
                             MaDuyNhat(i);
                         i++;
@@ -63,7 +63,7 @@ public class DanhSachTour {
                         System.out.println();
                         dst[i]=new TourNgoaiNuoc();
                         dst[i].Nhap();
-                        GhiDuLieuVaoFile();
+                       readDataFromFile();
                         if(i>0)
                             MaDuyNhat(i);
                         i++;
@@ -77,7 +77,7 @@ public class DanhSachTour {
         }
     }
     public void MaDuyNhat(int i) {
-		DocDuLieuTuFile();
+		readDataFromFile();
 		String MaTour;
 		String mkh = dst[i].getMaTour();
 		do {
@@ -89,7 +89,7 @@ public class DanhSachTour {
 				System.err.print("Nhap Lai Ma: ");
 				MaTour = sc.nextLine();
 				dst[i].setMaTour(MaTour);
-				GhiDuLieuVaoFile();
+				writeDataToFile();
 				mkh = dst[i].getMaTour();
 			}
 		}while(KiemTraMT(mkh, i));
@@ -104,6 +104,7 @@ public class DanhSachTour {
 	}
     public void Xuat()
     {
+        readDataFromFile();
         System.out.println("====================================================DANH SACH TOUR=============================================================");
         System.out.format("||%5s |%18s        |%10s |%13s |%5s |%10s |%15s |%15s ||\n",
                   "MaTour", "TenTour", "NoiKhoiHanh", "Noiden", "ThoiDiem Di","PhuongTien", "TinhThanh/QuocGia", "ThoiHanViSa");
@@ -147,7 +148,7 @@ public class DanhSachTour {
                         dst[i]=new TourTrongNuoc();
                         dst[i].Nhap();
                         n++;
-                        GhiDuLieuVaoFile();
+                       readDataFromFile();
                         MaDuyNhat(i);
                         System.out.println("dA THEM TOUR VAO DANH SACH");
                     break;
@@ -158,7 +159,7 @@ public class DanhSachTour {
                         dst[i]=new TourNgoaiNuoc();
                         dst[i].Nhap();
                         n++;
-                        GhiDuLieuVaoFile();
+                       readDataFromFile();
                         MaDuyNhat(i);
                         System.out.println("DA THEM TOUR VAO DANH SACH");
                 case 0:
@@ -172,7 +173,7 @@ public class DanhSachTour {
         dst[n]=new TourTrongNuoc();
         dst[n]=x;
         n++;
-        GhiDuLieuVaoFile();
+       readDataFromFile();
         MaDuyNhat(i);
         System.out.println("DA THEM TOUR VAO DANH SACH");
     }
@@ -183,7 +184,7 @@ public class DanhSachTour {
         dst[i]=new TourNgoaiNuoc();
         dst[i]=x;
         n++;
-        GhiDuLieuVaoFile();
+       readDataFromFile();
         MaDuyNhat(i);
         System.out.println("DA THEM TOUR VAO DANH SACH");
     }
@@ -201,7 +202,7 @@ public class DanhSachTour {
                 dst[i]=dst[i+1];
             dst = Arrays.copyOf(dst,n-1);
             n--;
-            GhiDuLieuVaoFile();
+           readDataFromFile();
         }
         else
         {
@@ -219,7 +220,7 @@ public class DanhSachTour {
                 dst[i]=dst[i+1];
             dst = Arrays.copyOf(dst,n-1);
             n--;
-            GhiDuLieuVaoFile();
+           readDataFromFile();
         }
         else 
             System.out.println("Khong tim thay tour");
@@ -248,22 +249,22 @@ public class DanhSachTour {
                         System.out.println("NHAP THONG TIN CAN SUA");
                         TrongNuoc.Nhap();
                         dst[ViTri]=TrongNuoc;
-                        GhiDuLieuVaoFile();
+                       readDataFromFile();
                         MaDuyNhat(ViTri);  
-                        kht.DocDuLieuTuFile();
+                        kht.readDataFromFile();
                         kht.swapMa(MaSo, TrongNuoc.getMaTour());
-                        kht.GhiDuLieuVaoFile();
+                        kht.writeDataToFile();
                     break;
                 case 2:
                     TourNgoaiNuoc NgoaiNuoc= new TourNgoaiNuoc();;
                         System.out.println("NHAP THONG TIN CAN SUA");
                         NgoaiNuoc.Nhap();
                         dst[ViTri]=NgoaiNuoc;    
-                        GhiDuLieuVaoFile();
+                       readDataFromFile();
                         MaDuyNhat(ViTri);   
-                        kht.DocDuLieuTuFile();
+                        kht.readDataFromFile();
                         kht.swapMa(MaSo, NgoaiNuoc.getMaTour());
-                        kht.GhiDuLieuVaoFile();      
+                        kht.writeDataToFile();      
                     break;
                 case 0:
                     break;
@@ -297,7 +298,7 @@ public class DanhSachTour {
                     TrongNuoc.Nhap();
                     dst[ViTri]=TrongNuoc;
 
-                    GhiDuLieuVaoFile();
+                   readDataFromFile();
                     if(ViTri>1)
                         MaDuyNhat(ViTri);
                     break;
@@ -441,12 +442,12 @@ public class DanhSachTour {
         if(flag==0)
             System.out.println("Khong tim thay tour nao!!!");
     }
-    public void GhiDuLieuVaoFile()
+    public void writeDataToFile()
     {
         n=dst.length;
         try
         {
-            DataOutputStream out = new DataOutputStream(new FileOutputStream("Tour.txt"));
+            DataOutputStream out = new DataOutputStream(new FileOutputStream("doan/Tour.txt"));
             try
             {
                 for (int i = 0; i < n; i++) 
@@ -487,15 +488,17 @@ public class DanhSachTour {
             e.printStackTrace();    
         }
     }
-    public void DocDuLieuTuFile() 
+    public void readDataFromFile()
     {
         int i=0;
-        dst = new Tour[100];
         try 
         {
-            DataInputStream in = new DataInputStream(new FileInputStream("Tour.txt"));
+            DataInputStream in = new DataInputStream(new FileInputStream("doan/Tour.txt"));
             try
             {
+                if (dst == null) {
+                    dst = new Tour[100];
+                }
                 while (in.available() > 0) 
                 {
                     int kieuDuLieu = in.readInt();
@@ -509,7 +512,7 @@ public class DanhSachTour {
                             ttn.setNoiDen(in.readUTF());
                             ttn.setThoiDiemDi(in.readUTF());
                             ttn.setTinhThanh(in.readUTF());
-                            dst[i]=(Tour)ttn;
+                            dst[i]=ttn;
                             i++;
                             break;
                         case 2:
@@ -521,7 +524,7 @@ public class DanhSachTour {
                             tnc.setThoiDiemDi(in.readUTF());
                             tnc.setQuocGia(in.readUTF());
                             tnc.setThoiHanVisa(in.readUTF());
-                            dst[i]=(Tour)tnc;
+                            dst[i]=tnc;
                             i++;
                             break;
                         default:
@@ -541,5 +544,5 @@ public class DanhSachTour {
         }
         catch (IOException e) {}
     }
-   
+    
 }

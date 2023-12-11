@@ -44,8 +44,4 @@ public class TourTrongNuoc extends Tour{
     public String PhuongTien() {
        return "Xe khach";
     }
-    @Override
-    public String toString() {
-        return "Tour ngoai nuoc\n" + super.toString() +"\nTinh thah den: " + getTinhThanh()+"\n"+ PhuongTien();
-    }
 }

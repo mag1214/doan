@@ -60,8 +60,4 @@ public class TourNgoaiNuoc extends Tour{
     @Override public String PhuongTien() {
         return "May Bay";
     }
-    @Override
-    public String toString() {
-        return "Tour ngoai nuoc\n" + super.toString() +"\nQuoc gia den: " + getQuocGia() + "\nThoi han visa: "+getThoiHanVisa()+"\n" + PhuongTien();
-    }
 }

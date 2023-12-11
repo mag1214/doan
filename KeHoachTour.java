@@ -4,7 +4,7 @@ public class KeHoachTour
 {
     private String MaKeHoach, MaTour, MaNhanVien, NgayDi, NgayVe;
     DanhSachTour dst = new DanhSachTour();
-    DanhSachNhanVien dsnv = new DanhSachNhanVien();
+   // DanhSachNhanVien dsnv = new DanhSachNhanVien();
     Scanner sc = new Scanner(System.in);
     public KeHoachTour(){}
     public KeHoachTour(String MaKeHoach, String MaTour, String MaNhanVien, String NgayDi, String NgayVe)
@@ -77,13 +77,13 @@ public class KeHoachTour
         {
             System.out.print("Nhap ma tour: ");
             MaTour=sc.nextLine();
-            dst.DocDuLieuTuFile();
+            dst.readDataFromFile();
             if(dst.TimKiemMaTour(MaTour)==-1)
                 System.out.println("Khong tim thay ma tour trong du lieu!!Vui long nhap lai");
         }while(dst.TimKiemMaTour(MaTour)==-1);
 
         MaNhanVien=sc.nextLine();
-        dsnv.readDataFromFile();
+        //dsnv.readDataFromFile();
         // do
         // {
         //     System.out.print("Nhap ma nhan vien tour: ");

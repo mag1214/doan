@@ -47,10 +47,10 @@ public class MenuDoAn {
                         tour.QuocGiaDen();
                         break;
                     case 7:
-                        tour.GhiDuLieuVaoFile();
+                        tour.writeDataToFile();
                         break;
                     case 8:
-                        tour.DocDuLieuTuFile();
+                        tour.readDataFromFile();
                         break;
                     case 10:
                         kht.Xuat();

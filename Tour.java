@@ -120,8 +120,4 @@ public abstract class Tour implements Serializable{
         System.out.format("%12s | ", NoiDen);
         System.out.format("%10s |", ThoiDiemDi);
     }
-    public String toString() {
-        return "Ma: " + getMaTour() + "\nTen: " + getTenTour() + "\nNoi khoi hah: " + getNoiKhoiHanh() + "\nNoi den:"+getNoiDen()
-        + "\nThoi diem di: "+ getThoiDiemDi()+"\n"+ PhuongTien();
-    }
 }

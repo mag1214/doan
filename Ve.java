@@ -35,7 +35,7 @@ public class Ve {
         System.out.print("Nhap ma tour: ");
         matour = sc.nextLine();
         while(true) {
-            tour.DocDuLieuTuFile();
+            tour.readDataFromFile();;
             if(tour.TimKiemMaTour(matour) != -1) {
                 break;
             }

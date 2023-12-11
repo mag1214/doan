@@ -41,13 +41,13 @@ public class DanhSachKeHoachTour {
             System.out.print("NHAP LAI KE HOACH THU "+(i+1)+"\n");
             kht[i]=new KeHoachTour();
             kht[i].Nhap();
-            GhiDuLieuVaoFile();
+             writeDataToFile();
             if(i>0)
                 MaDuyNhat(i);
         }
     }
     public void MaDuyNhat(int i) {
-		DocDuLieuTuFile();
+		readDataFromFile();
 		String MaKeHoach;
 		String mkh = kht[i].getMaKeHoach();
 		do {
@@ -59,7 +59,7 @@ public class DanhSachKeHoachTour {
 				System.err.print("Nhap Lai Ma: ");
 				MaKeHoach = sc.nextLine();
 				kht[i].setMaKeHoach(MaKeHoach);
-				GhiDuLieuVaoFile();
+				 writeDataToFile();
 				mkh = kht[i].getMaKeHoach();
 			}
 		}while(KiemTraMKH(mkh, i));
@@ -75,8 +75,9 @@ public class DanhSachKeHoachTour {
     
     public void Xuat()
     {   
+        readDataFromFile();
         n=kht.length;
-        System.out.println("======================DANH SACH KE HOACH TOUR===================");
+        System.out.println("=======================DANH SACH KE HOACH TOUR====================");
         System.out.format("|| %9s |%9s |%7s |%12s |%12s ||\n",
                   "MaKeHoach", "MaTour", "MaNhanVien", "NgayDi", "NgayVe");
         try
@@ -90,7 +91,7 @@ public class DanhSachKeHoachTour {
 			
 		}
         
-        System.out.println("================================================================");
+        System.out.println("==================================================================");
     }
     public String NgayDiTimThay(String Ma)
     {
@@ -108,7 +109,7 @@ public class DanhSachKeHoachTour {
         kht[n]= new KeHoachTour();
         kht[n].Nhap();
         n++;
-        GhiDuLieuVaoFile();
+         writeDataToFile();
         MaDuyNhat(i);
         System.out.println("======Da them ke hoach vao danh sach======");
     } 
@@ -120,7 +121,7 @@ public class DanhSachKeHoachTour {
         KeHoachTour kh = new KeHoachTour(x);
         kht[n] = kh;
         n++;
-        GhiDuLieuVaoFile();
+         writeDataToFile();
         MaDuyNhat(i);
         System.out.println("======Da them ke hoach vao danh sach======");
     }
@@ -138,7 +139,7 @@ public class DanhSachKeHoachTour {
             System.out.println("======NHAP THONG TIN KE HOACH CAN SUA======");
             SuaSv.Nhap();
             kht[a]=SuaSv;
-            GhiDuLieuVaoFile();
+             writeDataToFile();
             MaDuyNhat(a);
         }
         else
@@ -156,9 +157,9 @@ public class DanhSachKeHoachTour {
         {
             System.out.println("======NHAP THONG TIN KE HOACH CAN SUA======");
             SuaSv.Nhap();
-            GhiDuLieuVaoFile();
+            writeDataToFile();
             kht[a]=SuaSv;
-            GhiDuLieuVaoFile();
+            writeDataToFile();
             MaDuyNhat(a);
         }
         else
@@ -178,7 +179,7 @@ public class DanhSachKeHoachTour {
                 kht[i]=kht[i+1];
             kht = Arrays.copyOf(kht,n-1);
             n--;
-            GhiDuLieuVaoFile();
+             writeDataToFile();
         }
         else
         {
@@ -196,7 +197,7 @@ public class DanhSachKeHoachTour {
                 kht[i]=kht[i+1];
             kht = Arrays.copyOf(kht,n-1);
             n--;
-            GhiDuLieuVaoFile();
+             writeDataToFile();
         }
         else 
             System.out.println("Khong tim thay ");
@@ -289,12 +290,12 @@ public class DanhSachKeHoachTour {
         }
         System.out.println("================================================================");
     }
-    public void GhiDuLieuVaoFile()
+    public void writeDataToFile()
     {
         n = kht.length;
         try
         {
-            DataOutputStream out = new DataOutputStream(new FileOutputStream("KeHoachTour.txt"));
+            DataOutputStream out = new DataOutputStream(new FileOutputStream("doan/KeHoachTour.txt"));
             try
             {
                 for(int i = 0; i < n; i++) {
@@ -314,11 +315,11 @@ public class DanhSachKeHoachTour {
         }
     }
 
-    public void DocDuLieuTuFile() {
+    public void readDataFromFile() {
        kht = new KeHoachTour[100];
         int i = 0;
         try {
-            DataInputStream in = new DataInputStream(new FileInputStream("KeHoachTour.txt"));
+            DataInputStream in = new DataInputStream(new FileInputStream("doan/KeHoachTour.txt"));
             try {
                 while(true) {
                     kht[i] = new KeHoachTour();
@@ -372,6 +373,4 @@ public class DanhSachKeHoachTour {
         String Nam=NgayThangNam[NgayThangNam.length-1];
         return Nam;
     }
-    
-   
 }

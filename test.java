@@ -1,11 +1,10 @@
+import java.io.IOException;
 
 public class test {
-    public static void main(String [] args)
+    public static void main(String [] args) throws IOException
     {
-      String a = "con ";
-      String b = a + "cac";
-      String c = a + b;
-      System.out.println(b);
+        DSChiTietHDT dsct = new DSChiTietHDT();
+        dsct.nhap();
     }
 }
 
