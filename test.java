@@ -2,17 +2,10 @@
 public class test {
     public static void main(String [] args)
     {
-        DanhSachTour dst = new DanhSachTour();
-        DanhSachKeHoachTour kht = new DanhSachKeHoachTour();
-        dst.DocDuLieuTuFile();
-        kht.DocDuLieuTuFile();
-        //dst.DocDuLieuTuFile();
-        dst.Xuat();
-        kht.Xuat();
-       //dst.DocDuLieuTuFile();
-        //dst.Xuat();
-        //dst.TimKiemNoiDen();
-      // dst.Them();
+      String a = "con ";
+      String b = a + "cac";
+      String c = a + b;
+      System.out.println(b);
     }
 }
 

@@ -75,7 +75,7 @@ public class DSVe {
     public void xuat() {
         System.out.println("----------------------------Danh sach ve----------------------------");
         System.out.println("--------------------------------------------------------------------");
-		System.out.format("|| %5s | %10s | %10s | %10s | %15s ||\n", "Stt", "Ma tour", "Ma ve", "Loai ve", "Gia ve");
+		System.out.format("|| %5s | %10s | %10s | %10s | %15s | %8s ||\n", "Stt", "Ma tour", "Ma ve", "Loai ve", "Gia ve", "So luong");
         for(int i = 0; i < n; i++) {
             System.out.format("|| %5d |", i + 1);
             a[i].xuat();

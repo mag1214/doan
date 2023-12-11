@@ -70,6 +70,15 @@ public class DSChiTietHDT {
         writeDataToFile();
     }
 
+    public void themhd(String mahd) throws IOException {
+        a = Arrays.copyOf(a, n + 1);
+        a[n] = new ChiTietHDT();
+        System.out.println("Nhap thong tin chi tiet hoa don can them: ");
+        a[n].nhap();
+        a[n].setMahd(mahd);
+        n++;
+    }
+
     public void them(ChiTietHDT x) throws IOException{
         n = a.length;
         a = Arrays.copyOf(a, n + 1);
