@@ -61,6 +61,7 @@ public class KhachSan {
         System.out.print("Nhap ma khach san: ");
         makhachsan= scanner.nextLine();
         while ( true ) {
+            dsks.docFile();
             if(dsks.timkiemma(makhachsan)!=-1){
                 break;
             }

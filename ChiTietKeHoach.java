@@ -2,7 +2,8 @@ import java.util.Scanner;
 import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.io.IOException;
+
+
 
 public class ChiTietKeHoach{
     private String makht;
@@ -43,7 +44,7 @@ public class ChiTietKeHoach{
 
     }
 
-    public void HoatDong() throws IOException {
+    public void HoatDong() {
         tongchiphi=0;
         System.out.println("Chon nha hang");
         manhahang=sc.nextLine();
@@ -153,7 +154,7 @@ public class ChiTietKeHoach{
         System.out.print("Nhap ma ke hoach tour: ");
         makht=sc.nextLine();
         while(true){
-            dskht.DocDuLieuTuFile();
+            dskht.writeDataToFile();
             if(dskht.TimKiem(makht)!= -1 ){
                 break;
 
@@ -177,8 +178,8 @@ public class ChiTietKeHoach{
             setNgay(ngay);
         }
         while (true){
-            dskht.DocDuLieuTuFile();
-            if(changeday(ngay).compareTo(dskht.getNgayDiTimThay())>0 && changeday(ngay).compareTo(dskht.getNgayVeTimThay())<0){
+            dskht.readDataFromFile();
+            if(changeday(ngay).compareTo(changeday(dskht.NgayDiTimThay((ngay))))>0 && changeday(ngay).compareTo(changeday(dskht.NgayVeTimThay(ngay)))<0){
                 break;
             }
             System.err.println("Ngay ban nhap khong ton tai hoac khong dung");
@@ -188,7 +189,7 @@ public class ChiTietKeHoach{
             setNgay(ngay);
         }
 
-        while(true){
+        while(true) {
             d.docFile();
             if(d.FindDay(ngay)!=-1){
                 break;
@@ -199,7 +200,9 @@ public class ChiTietKeHoach{
             System.out.println("Nhap lai ngay :");
             setNgay(ngay);
         }
+        
         HoatDong();
+        
         System.out.println("Nhap ma hoa don chi");
         mahoadonchi=sc.nextLine();
          while(true){

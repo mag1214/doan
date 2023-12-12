@@ -62,6 +62,7 @@ public class VuiChoi {
         System.out.print("Nhap ma khu vui choi: ");
         makhuvuichoi= scanner.nextLine();
         while(true){
+            dsvc.docFile();
             if(dsvc.timkiemma(makhuvuichoi)!=-1){
                 break;
             }

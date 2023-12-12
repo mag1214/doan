@@ -263,7 +263,7 @@ public class DSNH {
 
      public void ghiFile() throws IOException {
         n=a.length;
-        DataOutputStream  output = new DataOutputStream(new FileOutputStream("nh.txt"));
+        DataOutputStream  output = new DataOutputStream(new FileOutputStream("doan/datanh.txt"));
         for (int i=0;i<n;i++){
             output.writeUTF(a[i].getManhahang());
             output.writeUTF(a[i].getDiadiem());
@@ -273,11 +273,11 @@ public class DSNH {
         output.close();
     }
 
-    public void docFile() throws IOException{
+    public void docFile(){
        a= new NhaHang[100];
        int i=0;
        try {
-            DataInputStream input =new DataInputStream(new FileInputStream("nh.txt"));
+            DataInputStream input =new DataInputStream(new FileInputStream("doan/datanh.txt"));
             try{
                 while ( true ){
                     a[i]=new NhaHang();

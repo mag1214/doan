@@ -59,6 +59,7 @@ public class NhaHang {
         System.out.print("Nhap ma nha hang: ");
         manhahang= scanner.nextLine();
         while(true) {
+            dsnh.docFile();
             if(dsnh.timkiemma(manhahang)!=-1){
                 break;
             }

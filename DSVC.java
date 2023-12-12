@@ -5,7 +5,6 @@ import java.util.Map;
 import java.util.Scanner;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
-import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 public class DSVC {
@@ -273,7 +272,7 @@ public class DSVC {
 
     public void ghiFile() throws IOException {
         n=a.length;
-        DataOutputStream  output = new DataOutputStream(new FileOutputStream("vc.txt"));
+        DataOutputStream  output = new DataOutputStream(new FileOutputStream("doan/datavc.txt"));
         for (int i=0;i<n;i++){
             output.writeUTF(a[i].getMakhuvuichoi());
             output.writeUTF(a[i].getDiadiem());
@@ -283,11 +282,11 @@ public class DSVC {
         output.close();
     }
 
-    public void docFile() throws IOException{
+    public void docFile() {
        a= new VuiChoi[100];
        int i=0;
        try {
-            DataInputStream input =new DataInputStream(new FileInputStream("vc.txt"));
+            DataInputStream input =new DataInputStream(new FileInputStream("doan/datavc.txt"));
             try{
                 while ( true ){
                     a[i]=new VuiChoi();

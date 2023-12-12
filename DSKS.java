@@ -248,7 +248,7 @@ public class DSKS {
     
      public void ghiFile() throws IOException {
         n=a.length;
-        DataOutputStream  output = new DataOutputStream(new FileOutputStream("ks.txt"));
+        DataOutputStream  output = new DataOutputStream(new FileOutputStream("doan/dataks.txt"));
         for (int i=0;i<n;i++){
             output.writeUTF(a[i].getMakhachsan());
             output.writeUTF(a[i].getDiadiem());
@@ -258,11 +258,11 @@ public class DSKS {
         output.close();
     }
 
-    public void docFile() throws IOException{
+    public void docFile() {
        a= new KhachSan[100];
        int i=0;
        try {
-            DataInputStream input =new DataInputStream(new FileInputStream("ks.txt"));
+            DataInputStream input =new DataInputStream(new FileInputStream("doan/dataks.txt"));
             try{
                 while ( true ){
                     a[i]=new KhachSan();
