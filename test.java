@@ -3,8 +3,9 @@ import java.io.IOException;
 public class test {
     public static void main(String [] args) throws IOException
     {
-        DSChiTietHDT dsct = new DSChiTietHDT();
-        dsct.nhap();
+        DSHDT ds1 = new DSHDT();
+        ds1.nhap();
+        ds1.xuat();
     }
 }
 

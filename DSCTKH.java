@@ -87,7 +87,7 @@ public class DSCTKH {
             System.out.println("Khong tim thay ma !"); 
     }
 
-    public void them() {
+    public void them() throws IOException {
         n = a.length;
         a = Arrays.copyOf(a, n + 1);
         a[n] = new ChiTietKeHoach();

@@ -6,12 +6,13 @@ public class HoaDonChi {
     private String makehoachtua;//them ma duy nhat cho ma ke hoach tua
     private String manhanvien;
     private String mahoadon;
+    DSCTKH ctkh = new DSCTKH();
     private double tongchiphi = ctkh.Tongchiphitour(makehoachtua);
     // tongchiphi: = chitietkehoach.tongchiphicuatua(makehoachtua)
 
     DanhSachKeHoachTour kht = new DanhSachKeHoachTour();   
     DanhSachNhanVien nv = new DanhSachNhanVien();
-    DSCTKH ctkh = new DSCTKH();
+    
 
     Scanner sc = new Scanner(System.in);
     public HoaDonChi()
