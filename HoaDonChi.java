@@ -10,7 +10,7 @@ public class HoaDonChi {
     private double tongchiphi = ctkh.Tongchiphitour(makehoachtua);
     // tongchiphi: = chitietkehoach.tongchiphicuatua(makehoachtua)
 
-    DanhSachKeHoachTour kht = new DanhSachKeHoachTour();   
+    DanhSachKeHoachTour kht = new DanhSachKeHoachTour();
     DanhSachNhanVien nv = new DanhSachNhanVien();
     
 

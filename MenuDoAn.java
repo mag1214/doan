@@ -10,8 +10,11 @@ public class MenuDoAn {
         System.out.println("================-Option-==============");
         System.out.println("||         1.Lam viec voi tour      ||");
         System.out.println("||    2.Lam viec voi ke hoach tour  ||");
-        System.out.println("||      2.Lam viec voi khach hang   ||");
-        System.out.println("||      2.Lam viec voi nhan vien    ||");
+        System.out.println("||      3.Lam viec voi khach hang   ||");
+        System.out.println("||      4.Lam viec voi nhan vien    ||");
+        System.out.println("||          5.Lam viec voi Ve       ||");
+        System.out.println("||      6.Lam viec voi hoa don thu  ||");
+        System.out.println("||      7.Lam viec voi hoa don chi  ||");
         System.out.println("||               0.Exit             ||");
         System.out.println("======================================");
     }
@@ -25,9 +28,11 @@ public class MenuDoAn {
             choose = sc.nextLine();
             switch (choose) {
             case "1":
+                tour.readDataFromFile();
                 tour.Menu();
                 break;
             case "2":
+                kht.readDataFromFile();
                 kht.Menu();
                 break;
             case "3":
