@@ -79,13 +79,6 @@ public class DSHDT {
             if(i > 0) {
                 checkId(i);
             }
-            ct.readDataFromFile();
-            System.out.println("Nhap so loai ve muon mua: ");
-            int x = sc.nextInt();
-            sc.nextLine();
-            for(int j = 0; j < x; j++) {
-                ct.themhd(a[i].getMahd());
-            }
         }
         writeDataToFile();
     }
@@ -366,25 +359,25 @@ public class DSHDT {
     public void thongkecacquy() {
         System.out.println("Nhap nam can thong ke: ");
         String nam = sc.nextLine();
-        int count1 = 0 , count2 = 0, count3 = 0, count4 = 0;
+        int sum1 = 0 , sum2 = 0, sum3 = 0, sum4 = 0;
         for(int i = 0; i < n; i++) {
             if(changeDate(a[i].getNgaymua()).compareTo(changeDate("01/01/" + nam)) > 0 && changeDate(a[i].getNgaymua()).compareTo(changeDate("31/03/" + nam)) < 0) {
-                count1++;
+                sum1 += a[i].getTonggia();
             }
             if(changeDate(a[i].getNgaymua()).compareTo(changeDate("01/04/" + nam)) > 0 && changeDate(a[i].getNgaymua()).compareTo(changeDate("30/06/" + nam)) < 0) {
-                count2++;
+                sum2 += a[i].getTonggia();
             }
             if(changeDate(a[i].getNgaymua()).compareTo(changeDate("01/07/" + nam)) > 0 && changeDate(a[i].getNgaymua()).compareTo(changeDate("30/09/" + nam)) < 0) {
-                count3++;
+                sum3 += a[i].getTonggia();
             }
             if(changeDate(a[i].getNgaymua()).compareTo(changeDate("01/10/" + nam)) > 0 && changeDate(a[i].getNgaymua()).compareTo(changeDate("31/12/" + nam)) < 0) {
-                count4++;
+                sum4 += a[i].getTonggia();
             }
         }
-        System.out.println("Tong tien thu quy 1 nam " + nam + ": " + count1);
-        System.out.println("Tong tien thu quy 2 nam " + nam + ": " + count2);
-        System.out.println("Tong tien thu quy 3 nam " + nam + ": " + count3);
-        System.out.println("Tong tien thu quy 4 nam " + nam + ": " + count4);
+        System.out.println("Tong tien thu quy 1 nam " + nam + ": " + sum1);
+        System.out.println("Tong tien thu quy 2 nam " + nam + ": " + sum2);
+        System.out.println("Tong tien thu quy 3 nam " + nam + ": " + sum3);
+        System.out.println("Tong tien thu quy 4 nam " + nam + ": " + sum4);
     }
 
     public void writeDataToFile() throws IOException {
