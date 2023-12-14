@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class ChiTietHDT {
@@ -27,22 +28,13 @@ public class ChiTietHDT {
         soluong = a.soluong;
     }
 
-    public void nhap() {
-        System.out.println("Nhap ma hoa don: ");
-        mahd = sc.nextLine();
-        while(true) {
-            hd.readDataFromFile();
-            if(hd.timkiemma(mahd) != -1) {
-                break;
-            }
-            System.err.println("Ma hoa don vua nhap khong ton tai!!!");
-            System.err.println("Nhan Enter de nhap lai!!!");
-            sc.nextLine();
-            hd.xuat();
-            System.out.println("Nhap lai ma hoa don:");
-            String id = sc.nextLine();
-            setMahd(id);
-        }
+    public void updateTicket(String mave, String soluong) throws IOException {
+        ve.readDataFromFile();
+        ve.timkiem(mave).setSoluong(ve.timkiem(mave).getSoluong() - Integer.parseInt(soluong));
+        ve.writeDataToFile();
+    }
+
+    public void nhap() throws IOException {
         System.out.println("Nhap ma ve: ");
         mave = sc.nextLine();
         while(true) {
@@ -51,10 +43,22 @@ public class ChiTietHDT {
                 break;
             }
             System.err.println("Ma ve vua nhap khong ton tai!!!");
-            System.err.println("Nhan Enter de nhap lai!!!");
+            System.err.println("Nhan Enter de tiep tuc!!!");
             sc.nextLine();
             ve.xuat();
-            System.out.println("Nhap lai ma ve:");
+            System.out.print("Nhap lai ma ve: ");
+            String id = sc.nextLine();
+            setMave(id);
+        }
+        while(true) {
+            ve.readDataFromFile();
+            if(ve.timkiem(mave).getSoluong() != 0) {
+                break;
+            }
+            System.err.println("So luong ve da het!!! Vui long chon ma ve khac!!!");
+            System.err.println("Nhan Enter de tiep tuc: ");
+            sc.nextLine();
+            System.out.print("Nhap lai ma ve: ");
             String id = sc.nextLine();
             setMave(id);
         }
@@ -64,10 +68,23 @@ public class ChiTietHDT {
             System.err.println("Du lieu vua nhap la rong!!!");
             System.err.println("Nhan Enter de nhap lai!!!");
             sc.nextLine();
-            System.out.println("Nhap lai ma:");
+            System.out.print("Nhap lai ma :");
             String id = sc.nextLine();
             setSoluong(id);
         }
+        while(true) {
+            ve.readDataFromFile();
+            if(Integer.parseInt(soluong) < ve.timkiem(mave).getSoluong()) {
+                break;
+            }
+            System.err.println("So luong ve khong du!!! Ma ve nay chi con lai " + ve.timkiem(mave).getSoluong() + " ve!!!");
+            System.err.println("Nhan Enter de tiep tuc!!!");
+            sc.nextLine();
+            System.out.print("Nhap lai so luong: ");
+            String id = sc.nextLine();
+            setSoluong(id);
+        }
+        updateTicket(mave, soluong);
     }
 
     public void xuat() {

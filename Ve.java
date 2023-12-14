@@ -5,6 +5,7 @@ public class Ve {
     private String matour;
     private String loaive;
     private String giave;
+    private int soluong;
     DanhSachTour tour;
     DSVe ve;
 
@@ -14,11 +15,12 @@ public class Ve {
 
     }
 
-    public Ve(String mave, String matour, String loaive, String giave) {
+    public Ve(String mave, String matour, String loaive, String giave, int soluong) {
         this.mave = mave;
         this.matour = matour;
         this.loaive = loaive;
         this.giave = giave;
+        this.soluong = soluong;
     }
 
     public Ve(Ve v1) {
@@ -26,13 +28,14 @@ public class Ve {
         matour = v1.matour;
         loaive = v1.loaive;
         giave = v1.giave;
+        soluong = v1.soluong;
     }
 
     public void nhap() {
         System.out.print("Nhap ma tour: ");
         matour = sc.nextLine();
         while(true) {
-            tour.DocDuLieuTuFile();
+            tour.readDataFromFile();;
             if(tour.TimKiemMaTour(matour) != -1) {
                 break;
             }
@@ -89,10 +92,13 @@ public class Ve {
             String id = sc.nextLine();
             setMave(id);
         }
+        System.out.println("Nhap so luong ve: ");
+        soluong = sc.nextInt();
+        sc.nextLine();
     }
 
     public void xuat() {
-        System.out.format(" %10s | %10s | %10s | %15s ||\n", matour, mave, loaive, giave);
+        System.out.format(" %10s | %10s | %10s | %15s | %8d ||\n", matour, mave, loaive, giave, soluong);
     }
 
     public void setMatour(String matour) {
@@ -125,5 +131,13 @@ public class Ve {
 
     public String getGiave() {
         return giave;
+    }
+
+    public void setSoluong(int soluong) {
+        this.soluong = soluong;
+    }
+
+    public int getSoluong() {
+        return soluong;
     }
 }

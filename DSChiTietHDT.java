@@ -70,6 +70,15 @@ public class DSChiTietHDT {
         writeDataToFile();
     }
 
+    public void themhd(String mahd) throws IOException {
+        a = Arrays.copyOf(a, n + 1);
+        a[n] = new ChiTietHDT();
+        System.out.println("Nhap thong tin chi tiet hoa don can them: ");
+        a[n].nhap();
+        a[n].setMahd(mahd);
+        n++;
+    }
+
     public void them(ChiTietHDT x) throws IOException{
         n = a.length;
         a = Arrays.copyOf(a, n + 1);
@@ -193,7 +202,7 @@ public class DSChiTietHDT {
 
     public void writeDataToFile() throws IOException {
         n = a.length;
-        DataOutputStream out = new DataOutputStream(new FileOutputStream("dataCtHdt.txt"));
+        DataOutputStream out = new DataOutputStream(new FileOutputStream("doan/dataCtHdt.txt"));
         for(int i = 0; i < n; i++) {
             out.writeUTF(a[i].getMahd());
             out.writeUTF(a[i].getMave());
@@ -206,7 +215,7 @@ public class DSChiTietHDT {
         a = new ChiTietHDT[500];
         int i = 0;
         try {
-            DataInputStream in = new DataInputStream(new FileInputStream("dataCtHdt.txt"));
+            DataInputStream in = new DataInputStream(new FileInputStream("doan/dataCtHdt.txt"));
             try {
                 while(true) {
                     a[i] = new ChiTietHDT();
@@ -230,14 +239,14 @@ public class DSChiTietHDT {
     //Menu quan li
 
     public void showMenu() {
-        System.out.println("---------------Option---------------");
-        System.out.println("1. Them chi tiet hoa don.");
-        System.out.println("2. Xoa chi tiet hoa don.");
-        System.out.println("3. Sua thong tin chi tiet hoa don.");
-        System.out.println("4. Tim kiem chi tiet hoa don.");
-        System.out.println("5. Xem danh sach chi tiet hoa don.");
-        System.out.println("0. Thoat.");
-        System.out.println("------------------------------------");
+        System.out.println("==================Option===============");
+        System.out.println("||     1. Them chi tiet hoa don.     ||");
+        System.out.println("||      2. Xoa chi tiet hoa don.     ||");
+        System.out.println("|| 3. Sua thong tin chi tiet hoa don.||");
+        System.out.println("||   4. Tim kiem chi tiet hoa don.   ||");
+        System.out.println("|| 5. Xem danh sach chi tiet hoa don.||");
+        System.out.println("||             0. Thoat.             ||");
+        System.out.println("=======================================");
         System.out.print("Choose: ");
     }
 

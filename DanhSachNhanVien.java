@@ -38,7 +38,7 @@ public class DanhSachNhanVien {
     }
     public void xuat() {
         n=a.length;
-        System.out.println("======================DANH SACH HOA DON CHI===================");
+        System.out.println("=====================-DANH SACH HOA DON CHI-==================");
         System.out.format("|| %9s |%9s |%7s |%12s |%12|%12||\n",
                   "MaHuongDanVien", "Ho", "Ten", "GioiTinh", "NgaySinh", "TrinhDoNgonNgu");
         try
@@ -283,7 +283,7 @@ public class DanhSachNhanVien {
 
     public void writeDataToFile() throws IOException {
         n = a.length;
-        DataOutputStream out = new DataOutputStream(new FileOutputStream("dataKh.txt"));
+        DataOutputStream out = new DataOutputStream(new FileOutputStream("doan/dataNV.txt"));
         for(int i = 0; i < n; i++) {
             out.writeUTF(a[i].getMahuongdanvien());
             out.writeUTF(a[i].getHo());
@@ -300,7 +300,7 @@ public class DanhSachNhanVien {
         a = new NhanVien[500];
         int i = 0;
         try {
-            DataInputStream in = new DataInputStream(new FileInputStream("dataKh.txt"));
+            DataInputStream in = new DataInputStream(new FileInputStream("doan/dataNV.txt"));
             try {
                 while(true) {
                     a[i] = new NhanVien();

@@ -1,5 +1,4 @@
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class HoaDonThu {
@@ -33,7 +32,7 @@ public class HoaDonThu {
         manv = a.manv;
     }
 
-    public void nhap() {
+    public void nhap() throws IOException {
         System.out.print("Nhap ma hoa don: ");
         mahd = sc.nextLine();
         while(mahd.length() == 0) {
@@ -84,6 +83,13 @@ public class HoaDonThu {
             System.out.println("Nhap lai ma nhan vien:");
             String id = sc.nextLine();
             setManv(id);
+        }
+        ct.readDataFromFile();
+        System.out.println("Nhap so loai ve muon mua: ");
+        int x = sc.nextInt();
+        sc.nextLine();
+        for(int i = 0; i < x; i++) {
+            ct.themhd(mahd);
         }
     }
 

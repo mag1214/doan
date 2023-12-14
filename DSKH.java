@@ -76,13 +76,14 @@ public class DSKH {
     }
 
     public void xuat() {
-        System.out.println("--------------------------------------Danh sach khach hang---------------------------------------");
-        System.out.println("------------------------------------------------------------------------------------------------");
+        System.out.println("======================================Danh sach khach hang=======================================");
+        
 		System.out.format("|| %5s | %10s | %8s | %20s | %10s | %9s | %11s ||\n", "Stt", "Ma", "Ho", "Ten", "Ngay sinh", "Gioi Tinh", "Sdt");
         for(int i = 0; i < n; i++) {
             System.out.format("|| %5d |", i + 1);
             a[i].xuat();
         }
+        System.out.println("=================================================================================================");
     }
 
     public void them() throws IOException {
@@ -330,7 +331,7 @@ public class DSKH {
 
     public void writeDataToFile() throws IOException {
         n = a.length;
-        DataOutputStream out = new DataOutputStream(new FileOutputStream("dataKh.txt"));
+        DataOutputStream out = new DataOutputStream(new FileOutputStream("doan/dataKh.txt"));
         for(int i = 0; i < n; i++) {
             out.writeUTF(a[i].getMa());
             out.writeUTF(a[i].getHo());
@@ -345,7 +346,7 @@ public class DSKH {
         a = new KhachHang[500];
         int i = 0;
         try {
-            DataInputStream in = new DataInputStream(new FileInputStream("dataKh.txt"));
+            DataInputStream in = new DataInputStream(new FileInputStream("doan/dataKh.txt"));
             try {
                 while(true) {
                     a[i] = new KhachHang();
@@ -371,34 +372,34 @@ public class DSKH {
 //Menu quan li
 
     public void showMenu() {
-        System.out.println("-----------Option-----------");
-        System.out.println("1. Them khach hang.");
-        System.out.println("2. Xoa khach hang.");
-        System.out.println("3. Sua thong tin khach hang.");
-        System.out.println("4. Tim kiem khach hang.");
-        System.out.println("5. Thong ke khach hang.");
-        System.out.println("6. Xem danh sach khach hang.");
-        System.out.println("0. Thoat.");
-        System.out.println("----------------------------");
+        System.out.println("================Option==============");
+        System.out.println("||       1. Them khach hang.      ||");
+        System.out.println("||       2. Xoa khach hang.       ||");
+        System.out.println("||  3. Sua thong tin khach hang.  ||");
+        System.out.println("||    4. Tim kiem khach hang.     ||");
+        System.out.println("||    5. Thong ke khach hang.     ||");
+        System.out.println("||  6. Xem danh sach khach hang.  ||");
+        System.out.println("||           0. Thoat             ||");
+        System.out.println("====================================");
         System.out.print("Choose: ");
     }
 
     public void showMenutimkiem(){
-        System.out.println("-----------Option-----------");
-        System.out.println("1. Tim kiem bang ma.");
-        System.out.println("2. Tim kiem bang ho.");
-        System.out.println("3. Tim kiem bang ten.");
-        System.out.println("0. Thoat.");
-        System.out.println("----------------------------");
+        System.out.println("============Option==========");
+        System.out.println("||   1. Tim kiem bang ma. ||");
+        System.out.println("||  2. Tim kiem bang ho.  ||");
+        System.out.println("||  3. Tim kiem bang ten. ||");
+        System.out.println("||      0. Thoat.         ||");
+        System.out.println("============================");
         System.out.print("Choose: ");
     }
 
     public void showMenuthongke(){
-        System.out.println("-----------Option-----------");
-        System.out.println("1. Thong ke gioi tinh.");
-        System.out.println("2. Thong ke do tuoi.");
-        System.out.println("0. Thoat.");
-        System.out.println("----------------------------");
+        System.out.println("============Option==========");
+        System.out.println("|| 1. Thong ke gioi tinh. ||");
+        System.out.println("||  2. Thong ke do tuoi.  ||");
+        System.out.println("||       0. Thoat.        ||");
+        System.out.println("============================");
         System.out.print("Choose: ");
     }
 

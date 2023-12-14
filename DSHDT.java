@@ -84,13 +84,13 @@ public class DSHDT {
     }
 
     public void xuat() {
-        System.out.println("----------------------------------Danh sach hoa don-----------------------------------");
-        System.out.println("--------------------------------------------------------------------------------------");
+        System.out.println("=================================-Danh sach hoa don-==================================");
 		System.out.format("|| %5s | %10s | %13s | %12s | %10s | %15s ||\n", "Stt", "Ma hoa don", "Ma khach hang", "Ma nhan vien", "Ngay mua", "Tong tien");
         for(int i = 0; i < n; i++) {
             System.out.format("|| %5d |", i + 1);
             a[i].xuat();
         }
+        System.out.println("======================================================================================");
     }
 
     public void them() throws IOException {
@@ -356,9 +356,33 @@ public class DSHDT {
         }
     }
 
+    public void thongkecacquy() {
+        System.out.println("Nhap nam can thong ke: ");
+        String nam = sc.nextLine();
+        int sum1 = 0 , sum2 = 0, sum3 = 0, sum4 = 0;
+        for(int i = 0; i < n; i++) {
+            if(changeDate(a[i].getNgaymua()).compareTo(changeDate("01/01/" + nam)) > 0 && changeDate(a[i].getNgaymua()).compareTo(changeDate("31/03/" + nam)) < 0) {
+                sum1 += a[i].getTonggia();
+            }
+            if(changeDate(a[i].getNgaymua()).compareTo(changeDate("01/04/" + nam)) > 0 && changeDate(a[i].getNgaymua()).compareTo(changeDate("30/06/" + nam)) < 0) {
+                sum2 += a[i].getTonggia();
+            }
+            if(changeDate(a[i].getNgaymua()).compareTo(changeDate("01/07/" + nam)) > 0 && changeDate(a[i].getNgaymua()).compareTo(changeDate("30/09/" + nam)) < 0) {
+                sum3 += a[i].getTonggia();
+            }
+            if(changeDate(a[i].getNgaymua()).compareTo(changeDate("01/10/" + nam)) > 0 && changeDate(a[i].getNgaymua()).compareTo(changeDate("31/12/" + nam)) < 0) {
+                sum4 += a[i].getTonggia();
+            }
+        }
+        System.out.println("Tong tien thu quy 1 nam " + nam + ": " + sum1);
+        System.out.println("Tong tien thu quy 2 nam " + nam + ": " + sum2);
+        System.out.println("Tong tien thu quy 3 nam " + nam + ": " + sum3);
+        System.out.println("Tong tien thu quy 4 nam " + nam + ": " + sum4);
+    }
+
     public void writeDataToFile() throws IOException {
         n = a.length;
-        DataOutputStream out = new DataOutputStream(new FileOutputStream("dataHdt.txt"));
+        DataOutputStream out = new DataOutputStream(new FileOutputStream("doan/dataHdt.txt"));
         for(int i = 0; i < n; i++) {
             out.writeUTF(a[i].getMahd());
             out.writeUTF(a[i].getMakh());
@@ -372,7 +396,7 @@ public class DSHDT {
         a = new HoaDonThu[500];
         int i = 0;
         try {
-            DataInputStream in = new DataInputStream(new FileInputStream("dataHdt.txt"));
+            DataInputStream in = new DataInputStream(new FileInputStream("doan/dataHdt.txt"));
             try {
                 while(true) {
                     a[i] = new HoaDonThu();
@@ -397,26 +421,24 @@ public class DSHDT {
 //Menu quan li
 
 public void showMenu() {
-    System.out.println("-----------Option-----------");
-    System.out.println("1. Them hoa don.");
-    System.out.println("2. Xoa hoa don.");
-    System.out.println("3. Sua thong tin hoa don.");
-    System.out.println("4. Tim kiem hoa don.");
-    System.out.println("5. Xem danh sach hoa don.");
-    System.out.println("0. Thoat.");
-    System.out.println("----------------------------");
-    System.out.print("Choose: ");
+    System.out.println("============-Option-===========");
+    System.out.println("||     1. Them hoa don.      ||");
+    System.out.println("||      2. Xoa hoa don.      ||");
+    System.out.println("|| 3. Sua thong tin hoa don. ||");
+    System.out.println("||   4. Tim kiem hoa don.    ||");
+    System.out.println("|| 5. Xem danh sach hoa don. ||");
+    System.out.println("||         0. Thoat.         ||");
+    System.out.println("===============================");
 }
-
 public void showMenutimkiem(){
-    System.out.println("--------------Option--------------");
-    System.out.println("1. Tim kiem theo ma hoa don.");
-    System.out.println("2. Tim kiem theo ma khach hang.");
-    System.out.println("3. Tim kiem theo ma nhan vien.");
-    System.out.println("4. Tim kiem theo khung gia.");
-    System.out.println("5. Tim kiem theo khung thoi gian.");
-    System.out.println("0. Thoat.");
-    System.out.println("----------------------------------");
+    System.out.println("==================-Option-================");
+    System.out.println("||      1. Tim kiem theo ma hoa don.    ||");
+    System.out.println("||     2. Tim kiem theo ma khach hang.  ||");
+    System.out.println("||    3. Tim kiem theo ma nhan vien.    ||");
+    System.out.println("||     4. Tim kiem theo khung gia.      ||");
+    System.out.println("||   5. Tim kiem theo khung thoi gian.  ||");
+    System.out.println("||              0. Thoat.               ||");
+    System.out.println("==========================================");
     System.out.print("Choose: ");
 }
 

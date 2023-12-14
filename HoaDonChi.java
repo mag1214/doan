@@ -6,12 +6,13 @@ public class HoaDonChi {
     private String makehoachtua;//them ma duy nhat cho ma ke hoach tua
     private String manhanvien;
     private String mahoadon;
+    DSCTKH ctkh = new DSCTKH();
     private double tongchiphi = ctkh.Tongchiphitour(makehoachtua);
     // tongchiphi: = chitietkehoach.tongchiphicuatua(makehoachtua)
 
-    DanhSachKeHoachTour kht = new DanhSachKeHoachTour();   
+    DanhSachKeHoachTour kht = new DanhSachKeHoachTour();
     DanhSachNhanVien nv = new DanhSachNhanVien();
-    DSCTKH ctkh = new DSCTKH();
+    
 
     Scanner sc = new Scanner(System.in);
     public HoaDonChi()
@@ -64,13 +65,13 @@ public class HoaDonChi {
         makehoachtua = sc.nextLine();
         while (true) {
             kht.readDataFromFile();
-            if (kht.timkiemmakehoachtua(makehoachtua) != -1) {
+            if (kht.TimKiem(makehoachtua) != -1) {
                 break;
             }
             System.err.println("Ma ke hoach tour vua nhap khong ton tai!!");
             System.err.println("Nhan Enter de tiep tuc: ");
             sc.nextLine();
-            kht.xuat();
+            kht.Xuat();
             System.out.println("Nhap lai ma ke hoach tour: ");
             String id = sc.nextLine();
             setMakehoachtua(id);      

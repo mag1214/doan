@@ -7,7 +7,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;
-
 public class DanhSachKeHoachTour {
     int n,a=0;
     static KeHoachTour[] kht;
@@ -41,13 +40,13 @@ public class DanhSachKeHoachTour {
             System.out.print("NHAP LAI KE HOACH THU "+(i+1)+"\n");
             kht[i]=new KeHoachTour();
             kht[i].Nhap();
-            GhiDuLieuVaoFile();
+             writeDataToFile();
             if(i>0)
                 MaDuyNhat(i);
         }
     }
     public void MaDuyNhat(int i) {
-		DocDuLieuTuFile();
+		readDataFromFile();
 		String MaKeHoach;
 		String mkh = kht[i].getMaKeHoach();
 		do {
@@ -59,7 +58,7 @@ public class DanhSachKeHoachTour {
 				System.err.print("Nhap Lai Ma: ");
 				MaKeHoach = sc.nextLine();
 				kht[i].setMaKeHoach(MaKeHoach);
-				GhiDuLieuVaoFile();
+				writeDataToFile();
 				mkh = kht[i].getMaKeHoach();
 			}
 		}while(KiemTraMKH(mkh, i));
@@ -75,8 +74,9 @@ public class DanhSachKeHoachTour {
     
     public void Xuat()
     {   
+        readDataFromFile();
         n=kht.length;
-        System.out.println("======================DANH SACH KE HOACH TOUR===================");
+        System.out.println("======================-DANH SACH KE HOACH TOUR-===================");
         System.out.format("|| %9s |%9s |%7s |%12s |%12s ||\n",
                   "MaKeHoach", "MaTour", "MaNhanVien", "NgayDi", "NgayVe");
         try
@@ -90,7 +90,7 @@ public class DanhSachKeHoachTour {
 			
 		}
         
-        System.out.println("================================================================");
+        System.out.println("==================================================================");
     }
     public String NgayDiTimThay(String Ma)
     {
@@ -108,7 +108,7 @@ public class DanhSachKeHoachTour {
         kht[n]= new KeHoachTour();
         kht[n].Nhap();
         n++;
-        GhiDuLieuVaoFile();
+        writeDataToFile();
         MaDuyNhat(i);
         System.out.println("======Da them ke hoach vao danh sach======");
     } 
@@ -120,7 +120,7 @@ public class DanhSachKeHoachTour {
         KeHoachTour kh = new KeHoachTour(x);
         kht[n] = kh;
         n++;
-        GhiDuLieuVaoFile();
+        writeDataToFile();
         MaDuyNhat(i);
         System.out.println("======Da them ke hoach vao danh sach======");
     }
@@ -138,7 +138,7 @@ public class DanhSachKeHoachTour {
             System.out.println("======NHAP THONG TIN KE HOACH CAN SUA======");
             SuaSv.Nhap();
             kht[a]=SuaSv;
-            GhiDuLieuVaoFile();
+             writeDataToFile();
             MaDuyNhat(a);
         }
         else
@@ -156,9 +156,9 @@ public class DanhSachKeHoachTour {
         {
             System.out.println("======NHAP THONG TIN KE HOACH CAN SUA======");
             SuaSv.Nhap();
-            GhiDuLieuVaoFile();
+            writeDataToFile();
             kht[a]=SuaSv;
-            GhiDuLieuVaoFile();
+            writeDataToFile();
             MaDuyNhat(a);
         }
         else
@@ -178,7 +178,7 @@ public class DanhSachKeHoachTour {
                 kht[i]=kht[i+1];
             kht = Arrays.copyOf(kht,n-1);
             n--;
-            GhiDuLieuVaoFile();
+             writeDataToFile();
         }
         else
         {
@@ -196,16 +196,16 @@ public class DanhSachKeHoachTour {
                 kht[i]=kht[i+1];
             kht = Arrays.copyOf(kht,n-1);
             n--;
-            GhiDuLieuVaoFile();
+             writeDataToFile();
         }
         else 
             System.out.println("Khong tim thay ");
     }
     public void TimKiem()
     {
-        n=kht.length;
         int flag=0;
         String MaSo;
+        Xuat();
         System.out.print("Nhap ma so can tim: ");
         MaSo=sc.nextLine();
         System.out.println("==================DANH SACH KE HOACH TOUR TIM THAY===============");
@@ -216,6 +216,7 @@ public class DanhSachKeHoachTour {
             if(kht[i].getMaKeHoach().equals(MaSo))
             {
                 kht[i].Xuat();
+                System.out.println();
                 flag=1;
             }
         }
@@ -269,6 +270,7 @@ public class DanhSachKeHoachTour {
     {
         n=kht.length;
         int flag=0;
+        Xuat();
         String Ngay;
         System.out.print("Nhap ngay di: ");
         Ngay=sc.nextLine();
@@ -280,6 +282,7 @@ public class DanhSachKeHoachTour {
             if(kht[i].getNgaydi().contains(Ngay))
             {
                 kht[i].Xuat();
+                System.out.println();
                 flag=1;
             }
         }
@@ -289,7 +292,7 @@ public class DanhSachKeHoachTour {
         }
         System.out.println("================================================================");
     }
-    public void GhiDuLieuVaoFile()
+    public void writeDataToFile()
     {
         n = kht.length;
         try
@@ -314,7 +317,7 @@ public class DanhSachKeHoachTour {
         }
     }
 
-    public void DocDuLieuTuFile() {
+    public void readDataFromFile() {
        kht = new KeHoachTour[100];
         int i = 0;
         try {
@@ -373,5 +376,88 @@ public class DanhSachKeHoachTour {
         return Nam;
     }
     
-   
+    public void showMenutimkiem()
+    {
+        System.out.println("==============-Option-=========");
+        System.out.println("||   1. Tim kiem ma ke hoach ||");
+        System.out.println("||     2. Tim kiem ngay di   ||");
+        System.out.println("||           0.Thoat         ||");
+        System.out.println("===============================");
+    }
+    public void MenuTimKiem()
+    {
+        String choose = null;
+        boolean exit = false;
+        showMenutimkiem();
+        while (true) {
+            System.out.print("Nhap so de lam viec: ");
+            choose = sc.nextLine();
+            switch (choose) {
+            case "1":
+                TimKiem();
+                break;
+            case "2":
+                TimKiemNgayDi();
+                break;
+            case "0":
+                System.out.println("Da thoat!");
+                exit = true;
+                break;
+            default:
+                System.err.println("Loi! Hay chon lai:");
+                break;
+            }
+            if (exit) {
+                break;
+            }
+            showMenutimkiem();
+        }
+    }
+    public void showMenu() {
+        System.out.println("================-Option-================");
+        System.out.println("||        1. Them ke hoach tour.      ||");
+        System.out.println("||        2. Xoa ke hoach tour.       ||");
+        System.out.println("||    3. Sua thong tin ke hoach tour. ||");
+        System.out.println("||      4. Tim kiem ke hoach tour.    ||");
+        System.out.println("||    5. Xem danh sach ke hoach tour. ||");
+        System.out.println("||             0. Thoat.              ||");
+        System.out.println("========================================");
+    }
+    public void Menu(){
+        String choose = null;
+        boolean exit = false;
+        showMenu();
+        while (true) {
+            System.out.print("Nhap so de lam viec: ");
+            choose = sc.nextLine();
+            switch (choose) {
+            case "1":
+                Them();
+                break;
+            case "2":
+                XoaMa();
+                break;
+            case "3":
+                Sua();
+                break;
+            case "4":
+                MenuTimKiem();
+                break;
+            case "5":
+                Xuat();
+                break;
+            case "0":
+                System.out.println("Da thoat!");
+                exit = true;
+                break;
+            default:
+                System.err.println("Loi! Hay chon lai:");
+                break;
+            }
+            if (exit) {
+                break;
+            }
+            showMenu();
+        }
+    }
 }
