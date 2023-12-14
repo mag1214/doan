@@ -25,9 +25,11 @@ public class MenuDoAn {
             choose = sc.nextLine();
             switch (choose) {
             case "1":
+                tour.readDataFromFile();
                 tour.Menu();
                 break;
             case "2":
+                kht.readDataFromFile();
                 kht.Menu();
                 break;
             case "3":
