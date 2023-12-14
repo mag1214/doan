@@ -7,9 +7,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;
-
-import javax.swing.text.Style;
-
 public class DanhSachKeHoachTour {
     int n,a=0;
     static KeHoachTour[] kht;
@@ -300,7 +297,7 @@ public class DanhSachKeHoachTour {
         n = kht.length;
         try
         {
-            DataOutputStream out = new DataOutputStream(new FileOutputStream("doan/KeHoachTour.txt"));
+            DataOutputStream out = new DataOutputStream(new FileOutputStream("KeHoachTour.txt"));
             try
             {
                 for(int i = 0; i < n; i++) {
@@ -324,7 +321,7 @@ public class DanhSachKeHoachTour {
        kht = new KeHoachTour[100];
         int i = 0;
         try {
-            DataInputStream in = new DataInputStream(new FileInputStream("doan/KeHoachTour.txt"));
+            DataInputStream in = new DataInputStream(new FileInputStream("KeHoachTour.txt"));
             try {
                 while(true) {
                     kht[i] = new KeHoachTour();

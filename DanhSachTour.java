@@ -468,7 +468,7 @@ public class DanhSachTour {
         n=dst.length;
         try
         {
-            DataOutputStream out = new DataOutputStream(new FileOutputStream("doan/Tour.txt"));
+            DataOutputStream out = new DataOutputStream(new FileOutputStream("Tour.txt"));
             try
             {
                 for (int i = 0; i < n; i++) 
@@ -514,7 +514,7 @@ public class DanhSachTour {
         int i=0;
         try 
         {
-            DataInputStream in = new DataInputStream(new FileInputStream("doan/Tour.txt"));
+            DataInputStream in = new DataInputStream(new FileInputStream("Tour.txt"));
             try
             {
                 if (dst == null) {
