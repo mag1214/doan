@@ -2,8 +2,7 @@ import java.util.Scanner;
 
 public class KhachSan {
     private String makhachsan;
-    private String diadiem;
-    private double chiphi;
+    private int chiphi;
     private String ten;
     DSKS dsks;
     Scanner scanner =new Scanner (System.in);
@@ -11,15 +10,13 @@ public class KhachSan {
     public KhachSan(){
 
     }
-    public KhachSan(String makhachsan, String diadiem, double chiphi, String ten) {
+    public KhachSan(String makhachsan, int chiphi, String ten) {
         this.makhachsan=makhachsan;
-        this.diadiem = diadiem;
-        this.chiphi = chiphi;
+        this.chiphi=chiphi;
         this.ten=ten;
     }
     public KhachSan(KhachSan ks){
         this.makhachsan=ks.makhachsan;
-        this.diadiem=ks.diadiem;
         this.chiphi=ks.chiphi;
         this.ten=ks.ten;
     }
@@ -33,19 +30,11 @@ public class KhachSan {
         this.makhachsan = makhachsan;
     }
 
-    public String getDiadiem() {
-        return diadiem;
-    }
-
-    public void setDiadiem(String diadiem) {
-        this.diadiem = diadiem;
-    }
-
-    public double getChiphi() {
+    public int getChiPhi() {
         return chiphi;
     }
 
-    public void setChiphi(double chiphi) {
+    public void setChiPhi(int chiphi) {
         this.chiphi = chiphi;
     }
 
@@ -61,8 +50,7 @@ public class KhachSan {
         System.out.print("Nhap ma khach san: ");
         makhachsan= scanner.nextLine();
         while ( true ) {
-            dsks.docFile();
-            if(dsks.timkiemma(makhachsan)!=-1){
+            if(makhachsan.length()!=0){
                 break;
             }
             System.err.println(" Ma ban nhap khong dung hoac khong ton tai ");
@@ -74,19 +62,6 @@ public class KhachSan {
             
         }
 
-        System.out.print("Nhap dia diem: ");
-        diadiem = scanner.nextLine();
-        while (true){
-            if(diadiem.length()!=0){
-                break;
-            }
-            System.err.println(" dia diem khong duoc de trong ");
-            System.err.println(" vui long nhan Enter de nhap lai ");
-            scanner.nextLine();
-            System.out.println("Nhap lai");
-            String dd=scanner.nextLine();
-            setDiadiem(dd);
-        }
 
         System.out.print("Nhap ten : ");
         ten= scanner.nextLine();
@@ -103,14 +78,11 @@ public class KhachSan {
         }
 
         System.out.print("Nhap chi phi: ");
-        chiphi = scanner.nextDouble();
+        chiphi = scanner.nextInt();
         scanner.nextLine();
     }
 
     public void xuat() {
-        System.out.format("%10s | ", makhachsan);
-        System.out.format("%10s | ", diadiem);
-        System.out.format("%10s | ",ten);
-        System.out.format("%15s%n", chiphi);
+        System.out.format(" %12s | %15s | %10d ||\n", makhachsan, ten, chiphi);
 }
 }

@@ -3,9 +3,9 @@ import java.io.IOException;
 public class test {
     public static void main(String [] args) throws IOException
     {
-        DSHDT ds1 = new DSHDT();
-        ds1.nhap();
-        ds1.xuat();
+        DSNH ds = new DSNH();
+        ds.nhap();
+        ds.xuat();
     }
 }
 

@@ -16,14 +16,14 @@ public class ChiTietKeHoach{
     private DSVC c;
     private DSNH a;
     private DanhSachKeHoachTour dskht;  
-    private double tongchiphi;
+    private int tongchiphi;
     private DSCTKH d;
     private DanhSachHoaDonChi e;
     Scanner sc= new Scanner(System.in);
 
     public ChiTietKeHoach(){}
 
-    public ChiTietKeHoach(String makht, String manhahang, String makhachsan, String makhuvuichoi, String mahoadonchi,double tongchiphi,String ngay){
+    public ChiTietKeHoach(String makht, String manhahang, String makhachsan, String makhuvuichoi, String mahoadonchi,int tongchiphi,String ngay){
         this.makht=makht;
         this.manhahang=manhahang;
         this.makhachsan=makhachsan;
@@ -92,7 +92,7 @@ public class ChiTietKeHoach{
            String makvc=sc.nextLine();
            setMakhuvuichoi(makvc);
         }
-        tongchiphi=(a.timkiem(manhahang).getChiPhi())+(b.timkiem(makhachsan).getChiphi())+(c.timkiem(makhuvuichoi).getChiphi());
+        tongchiphi=(a.timkiem(manhahang).getChiPhi())+(b.timkiem(makhachsan).getChiPhi())+(c.timkiem(makhuvuichoi).getChiphi());
     }
 
     public String getMaKht(){
@@ -134,11 +134,11 @@ public class ChiTietKeHoach{
         this.mahoadonchi=mahoadonchi;
     }
 
-    public Double getTongchiphi(){
+    public int getTongchiphi(){
         return tongchiphi;
     }
 
-    public void setTongchiphi(Double tongchiphi){
+    public void setTongchiphi(int tongchiphi){
         this.tongchiphi=tongchiphi;
     }
 
@@ -151,6 +151,51 @@ public class ChiTietKeHoach{
     }
 
     public void nhap() {
+        System.out.println("Chon nha hang");
+        manhahang=sc.nextLine();
+        while (true){
+           a.docFile();
+           if(a.timkiemma(manhahang)!=-1){
+               break;
+           }
+           System.err.println("Ma nha hang ban nhap chua chinh xac :");
+           System.err.println(" Vui long nhan Enter để nhập lại ");
+           sc.nextLine();
+           System.out.println("Nhap lai ma nha hang:");
+           String manh=sc.nextLine();
+           setManhahang(manh);
+        }
+
+        System.out.println("Chon ma khach san");
+        String makhachsan=sc.nextLine();
+        while(true){
+           b.docFile();
+           if(b.timkiemma(makhachsan)!=-1){
+               break;
+           }
+           System.err.println("ma khach san ban chon chua dung");
+           System.err.println("Vui long nhan Entern de nhap lai ma khach san");
+           sc.nextLine();
+           System.out.println("Nhap lai ma khach san");
+           String maks=sc.nextLine();
+           setMakhachsan(maks);
+        }
+
+        System.out.println("Chon ma khu vui choi ");
+        String makhuvuichoi=sc.nextLine();
+        while ( true ){
+           c.docFile();
+           if(c.timkiemma(makhuvuichoi)!=-1){
+               break;
+           }
+           System.err.println("ma khu vui choi ban chon chua chinh xac !");
+           System.err.println(" Vui long nhan Enter de nhap lai ");
+           sc.nextLine();
+           System.out.println("Nhap lai ma khu vui choi");
+           String makvc=sc.nextLine();
+           setMakhuvuichoi(makvc);
+        }
+        
         System.out.print("Nhap ma ke hoach tour: ");
         makht=sc.nextLine();
         while(true){
@@ -179,7 +224,7 @@ public class ChiTietKeHoach{
         }
         while (true){
             dskht.readDataFromFile();
-            if(changeday(ngay).compareTo(changeday(dskht.NgayDiTimThay((ngay))))>0 && changeday(ngay).compareTo(changeday(dskht.NgayVeTimThay(ngay)))<0){
+            if(changeday(ngay).compareTo(changeday(dskht.NgayDiTimThay((makht))))>0 && changeday(ngay).compareTo(changeday(dskht.NgayVeTimThay(makht)))<0){
                 break;
             }
             System.err.println("Ngay ban nhap khong ton tai hoac khong dung");

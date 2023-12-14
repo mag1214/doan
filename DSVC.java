@@ -20,7 +20,7 @@ public class DSVC {
     }
 
     public void nhap() throws IOException{
-        System.out.print("Nhap n hoa don dau tien: ");
+        System.out.print("Nhap n vui choi dau tien: ");
         n = sc.nextInt();
         sc.nextLine();
         a = new VuiChoi[n];
@@ -72,7 +72,7 @@ public class DSVC {
         System.out.println("======================Danh sach vui choi=======================");
         
         
-        System.out.format("|| %5s | %10s | %15s | %15s | %15s ||\n", "Stt", "Ma khu vui choi", "Dia diem", "Ten", "Chi phi");
+        System.out.format("|| %5s | %15s | %12s | %10s ||\n", "Stt", "Ma khu vui choi", "Ten", "Chi phi");
         for(int i = 0; i < n; i++) {
             System.out.format("|| %5d |", i + 1);
             a[i].xuat();
@@ -93,7 +93,7 @@ public class DSVC {
         ghiFile();
 
     }
-    public void them(VuiChoi vcc) throws IOException{
+    public void them(VuiChoi vcc) throws IOException {
         n = a.length;
         a = Arrays.copyOf(a, n + 1);
         a[n] = new VuiChoi(vcc);
@@ -254,9 +254,11 @@ public class DSVC {
         }
     }
     
-    public void timKiemTheoTen(String tenCanTim) {
+    public void timKiemTheoTen() {
+        String tenCanTim =sc.nextLine();
         System.out.println("Ket qua tim kiem theo ten: " + tenCanTim);
         System.out.format("%10s | %10s | %10s | %15s%n", "Ma ", "Dia Diem", "Ten", "Chi Phi");
+        n=a.length;
         boolean result = false;
         
         for (int i = 0; i < n; i++) {
@@ -273,12 +275,11 @@ public class DSVC {
 
     public void ghiFile() throws IOException {
         n=a.length;
-        DataOutputStream  output = new DataOutputStream(new FileOutputStream("doan/datavc.txt"));
+        DataOutputStream  output = new DataOutputStream(new FileOutputStream("datavc.txt"));
         for (int i=0;i<n;i++){
             output.writeUTF(a[i].getMakhuvuichoi());
-            output.writeUTF(a[i].getDiadiem());
             output.writeUTF(a[i].getTen());
-            output.writeDouble(a[i].getChiphi());
+            output.writeInt(a[i].getChiphi());
         }
         output.close();
     }
@@ -287,14 +288,13 @@ public class DSVC {
        a= new VuiChoi[100];
        int i=0;
        try {
-            DataInputStream input =new DataInputStream(new FileInputStream("doan/datavc.txt"));
+            DataInputStream input =new DataInputStream(new FileInputStream("datavc.txt"));
             try{
                 while ( true ){
                     a[i]=new VuiChoi();
                     a[i].setMakhuvuichoi(input.readUTF());
-                    a[i].setDiadiem(input.readUTF());
                     a[i].setTen(input.readUTF());
-                    a[i].setChiphi(input.readDouble());
+                    a[i].setChiphi(input.readInt());
                     i++;
 
                 }
@@ -310,6 +310,94 @@ public class DSVC {
 
     }
     
+    public void showMenu() {
+        System.out.println("===========-Option-==========");
+        System.out.println("|| 1. Them khu vui choi.    ||");
+        System.out.println("|| 2. Xoa khu vui choi.     ||");
+        System.out.println("|| 3. Sua thong tin         ||");
+        System.out.println("|| 4. Tim kiem khu vui choi.||");
+        System.out.println("|| 5. Xem danh sach     .   ||");
+        System.out.println("|| 0. Thoat.                ||");
+        System.out.println("=============================");
+    }
+    public void showMenutimkiem()
+    {
+        System.out.println("============-Option-==========");
+        System.out.println("||   1. Tim kiem ma khu vui choi  ||");
+        System.out.println("||   2. Tim kiem ten khu vui choi ||");
+        System.out.println("||   3. Tim kiem chi phi lon hon  ||");
+        System.out.println("||   0. Thoát                     ||");
+        System.out.println("==============================");
+    }
+    public void MenuTimKiem()
+    {
+        String choose = null;
+        boolean exit = false;
+        showMenutimkiem();
+        while (true) {
+            System.out.print("Nhap so de lam viec: ");
+            choose = sc.nextLine();
+            switch (choose) {
+            case "1":
+                timkiem();
+                break;
+            case "2":
+                timKiemTheoTen();
+                break;
+            case "3":
+                timKiemChiPhiLonHon();
+                break;
+            case "0":
+                System.out.println("Da thoat!");
+                exit = true;
+                break;
+            default:
+                System.err.println("Loi! Hay chon lai:");
+                break;
+            }
+            if (exit) {
+                break;
+            }
+            showMenutimkiem();
+        }
+    }
+    public void Menu() throws IOException{
+        String choose = null;
+        boolean exit = false;
+        showMenu();
+        while (true) {
+            System.out.print("Nhap so de lam viec: ");
+            choose = sc.nextLine();
+            switch (choose) {
+            case "1":
+                them();
+                break;
+            case "2":
+                xoa();
+                break;
+            case "3":
+                sua();
+                break;
+            case "4":
+                MenuTimKiem();
+                break;
+            case "5":
+                xuat();
+                break;
+            case "0":
+                System.out.println("Da thoat!");
+                exit = true;
+                break;
+            default:
+                System.err.println("Loi! Hay chon lai:");
+                break;
+            }
+            if (exit) {
+                break;
+            }
+            showMenu();
+        }
+    }
 
 
 } 

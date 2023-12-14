@@ -69,7 +69,7 @@ public class DSNH {
 
     public void xuat() {
         System.out.println("=================================Danh sach nha hang===============================");
-        System.out.format("|| %5s | %10s | %15s | %15s | %15s ||\n", "Stt", "Ma nha hang", "Dia diem", "Ten", "Chi phi");
+        System.out.format("|| %5s | %15s | %12s | %10s ||\n", "Stt", "Ma nha hang", "Ten", "Chi phi");
         for(int i = 0; i < n; i++) {
             System.out.format("|| %5d |", i + 1);
             a[i].xuat();
@@ -224,7 +224,6 @@ public class DSNH {
                 a[i].xuat();
             }
         }
-        sc.close();
     }
     public void thongKeTen() {
         Map<String, Integer> thongKe = new HashMap<>();
@@ -246,9 +245,11 @@ public class DSNH {
         }
     }
     
-    public void timKiemTheoTen(String tenCanTim) {
+    public void timKiemTheoTen() {
+        String tenCanTim=sc.nextLine();
         System.out.println("Ket qua tim kiem theo ten: " + tenCanTim);
-        System.out.format("%10s | %10s | %10s | %15s%n", "Ma ", "Dia Diem", "Ten", "Chi Phi");
+        System.out.format("%5s | %12s | %13s | %12s%n", "STT","Ma nha hang", "Ten", "Chi Phi");
+        n=a.length;
         boolean result = false;
         
         for (int i = 0; i < n; i++) {
@@ -265,12 +266,11 @@ public class DSNH {
 
      public void ghiFile() throws IOException {
         n=a.length;
-        DataOutputStream  output = new DataOutputStream(new FileOutputStream("doan/datanh.txt"));
+        DataOutputStream  output = new DataOutputStream(new FileOutputStream("datanh.txt"));
         for (int i=0;i<n;i++){
             output.writeUTF(a[i].getManhahang());
-            output.writeUTF(a[i].getDiadiem());
             output.writeUTF(a[i].getTen());
-            output.writeDouble(a[i].getChiPhi());
+            output.writeInt(a[i].getChiPhi());
         }
         output.close();
     }
@@ -279,14 +279,13 @@ public class DSNH {
        a= new NhaHang[100];
        int i=0;
        try {
-            DataInputStream input =new DataInputStream(new FileInputStream("doan/datanh.txt"));
+            DataInputStream input =new DataInputStream(new FileInputStream("datanh.txt"));
             try{
                 while ( true ){
                     a[i]=new NhaHang();
                     a[i].setMaNhaHang(input.readUTF());
-                    a[i].setDiaDiem(input.readUTF());
                     a[i].setTen(input.readUTF());
-                    a[i].setChiPhi(input.readDouble());
+                    a[i].setChiPhi(input.readInt());
                     i++;
 
                 }
@@ -301,7 +300,95 @@ public class DSNH {
        catch (IOException e){}
 
     }
-    
+
+    public void showMenu() {
+        System.out.println("===========-Option-==========");
+        System.out.println("|| 1. Them nha hang .    ||");
+        System.out.println("|| 2. Xoa nha hang .     ||");
+        System.out.println("|| 3. Sua thong tin .    ||");
+        System.out.println("|| 4. Tim kiem nha hang .||");
+        System.out.println("|| 5. Xem danh sach .    ||");
+        System.out.println("|| 0. Thoat .            ||");
+        System.out.println("=============================");
+    }
+    public void showMenutimkiem()
+    {
+        System.out.println("============-Option-==========");
+        System.out.println("||   1. Tim kiem ma nha hang      ||");
+        System.out.println("||   2. Tim kiem ten nha hang     ||");
+        System.out.println("||   3. Tim kiem chi phi lon hon  ||");
+        System.out.println("||   0. Thoát                     ||");
+        System.out.println("==============================");
+    }
+    public void MenuTimKiem()
+    {
+        String choose = null;
+        boolean exit = false;
+        showMenutimkiem();
+        while (true) {
+            System.out.print("Nhap so de lam viec: ");
+            choose = sc.nextLine();
+            switch (choose) {
+            case "1":
+                timkiem();
+                break;
+            case "2":
+                timKiemTheoTen();
+                break;
+            case "3":
+                timKiemChiPhiLonHon();
+                break;
+            case "0":
+                System.out.println("Da thoat!");
+                exit = true;
+                break;
+            default:
+                System.err.println("Loi! Hay chon lai:");
+                break;
+            }
+            if (exit) {
+                break;
+            }
+            showMenutimkiem();
+        }
+    }
+    public void Menu() throws IOException{
+        String choose = null;
+        boolean exit = false;
+        showMenu();
+        while (true) {
+            System.out.print("Nhap so de lam viec: ");
+            choose = sc.nextLine();
+            switch (choose) {
+            case "1":
+                them();
+                break;
+            case "2":
+                xoa();
+                break;
+            case "3":
+                sua();
+                break;
+            case "4":
+                MenuTimKiem();
+                break;
+            case "5":
+                xuat();
+                break;
+            case "0":
+                System.out.println("Da thoat!");
+                exit = true;
+                break;
+            default:
+                System.err.println("Loi! Hay chon lai:");
+                break;
+            }
+            if (exit) {
+                break;
+            }
+            showMenu();
+        }
+    }
 }
 
 
