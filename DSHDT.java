@@ -91,13 +91,13 @@ public class DSHDT {
     }
 
     public void xuat() {
-        System.out.println("----------------------------------Danh sach hoa don-----------------------------------");
-        System.out.println("--------------------------------------------------------------------------------------");
+        System.out.println("=================================-Danh sach hoa don-==================================");
 		System.out.format("|| %5s | %10s | %13s | %12s | %10s | %15s ||\n", "Stt", "Ma hoa don", "Ma khach hang", "Ma nhan vien", "Ngay mua", "Tong tien");
         for(int i = 0; i < n; i++) {
             System.out.format("|| %5d |", i + 1);
             a[i].xuat();
         }
+        System.out.println("======================================================================================");
     }
 
     public void them() throws IOException {
@@ -428,26 +428,24 @@ public class DSHDT {
 //Menu quan li
 
 public void showMenu() {
-    System.out.println("-----------Option-----------");
-    System.out.println("1. Them hoa don.");
-    System.out.println("2. Xoa hoa don.");
-    System.out.println("3. Sua thong tin hoa don.");
-    System.out.println("4. Tim kiem hoa don.");
-    System.out.println("5. Xem danh sach hoa don.");
-    System.out.println("0. Thoat.");
-    System.out.println("----------------------------");
-    System.out.print("Choose: ");
+    System.out.println("============-Option-===========");
+    System.out.println("||     1. Them hoa don.      ||");
+    System.out.println("||      2. Xoa hoa don.      ||");
+    System.out.println("|| 3. Sua thong tin hoa don. ||");
+    System.out.println("||   4. Tim kiem hoa don.    ||");
+    System.out.println("|| 5. Xem danh sach hoa don. ||");
+    System.out.println("||         0. Thoat.         ||");
+    System.out.println("===============================");
 }
-
 public void showMenutimkiem(){
-    System.out.println("--------------Option--------------");
-    System.out.println("1. Tim kiem theo ma hoa don.");
-    System.out.println("2. Tim kiem theo ma khach hang.");
-    System.out.println("3. Tim kiem theo ma nhan vien.");
-    System.out.println("4. Tim kiem theo khung gia.");
-    System.out.println("5. Tim kiem theo khung thoi gian.");
-    System.out.println("0. Thoat.");
-    System.out.println("----------------------------------");
+    System.out.println("==================-Option-================");
+    System.out.println("||      1. Tim kiem theo ma hoa don.    ||");
+    System.out.println("||     2. Tim kiem theo ma khach hang.  ||");
+    System.out.println("||    3. Tim kiem theo ma nhan vien.    ||");
+    System.out.println("||     4. Tim kiem theo khung gia.      ||");
+    System.out.println("||   5. Tim kiem theo khung thoi gian.  ||");
+    System.out.println("||              0. Thoat.               ||");
+    System.out.println("==========================================");
     System.out.print("Choose: ");
 }
 

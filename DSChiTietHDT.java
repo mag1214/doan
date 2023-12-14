@@ -239,14 +239,14 @@ public class DSChiTietHDT {
     //Menu quan li
 
     public void showMenu() {
-        System.out.println("---------------Option---------------");
-        System.out.println("1. Them chi tiet hoa don.");
-        System.out.println("2. Xoa chi tiet hoa don.");
-        System.out.println("3. Sua thong tin chi tiet hoa don.");
-        System.out.println("4. Tim kiem chi tiet hoa don.");
-        System.out.println("5. Xem danh sach chi tiet hoa don.");
-        System.out.println("0. Thoat.");
-        System.out.println("------------------------------------");
+        System.out.println("==================Option===============");
+        System.out.println("||     1. Them chi tiet hoa don.     ||");
+        System.out.println("||      2. Xoa chi tiet hoa don.     ||");
+        System.out.println("|| 3. Sua thong tin chi tiet hoa don.||");
+        System.out.println("||   4. Tim kiem chi tiet hoa don.   ||");
+        System.out.println("|| 5. Xem danh sach chi tiet hoa don.||");
+        System.out.println("||             0. Thoat.             ||");
+        System.out.println("=======================================");
         System.out.print("Choose: ");
     }
 

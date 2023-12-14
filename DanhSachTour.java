@@ -378,6 +378,27 @@ public class DanhSachTour {
         System.out.println("===============================================================================================================================");
         return flag;
     }
+    public void TimKiemTen()
+    {
+        String Ten;
+        int flag=0;
+        System.out.println("Nhap ten tour can tim");
+        Ten=sc.nextLine();
+        System.out.println("====================================================DANH SACH TOUR=============================================================");
+        System.out.format("||%5s |%18s        |%10s |%13s |%5s |%10s |%15s |%15s ||\n",
+                  "MaTour", "TenTour", "NoiKhoiHanh", "Noiden", "ThoiDiem Di","PhuongTien", "TinhThanh/QuocGia", "ThoiHanViSa");
+        for(int i=0; i<n; i++)
+        {
+            if(dst[i].getTenTour().contains(Ten))
+            {
+                dst[i].Xuat();
+                flag=1;
+            }
+        }
+        if(flag==0)
+            System.out.println("Khong tim thay ten tour");
+        System.out.println("===============================================================================================================================");
+    }
     public void LoaiTour()
     {
         int Count1=0, Count2=0;
@@ -414,11 +435,11 @@ public class DanhSachTour {
                     Count3++;
             }
         }
-        System.out.println("------Cac_Nam_To_Chuc-------");
-        System.out.println("| So den nuoc Anh      | " +Count1+ " |");
-        System.out.println("| So den nuoc Phap     | " +Count2+ " |");
-        System.out.println("| So den nuoc An Do    | " +Count3+ " |");
-        System.out.println("----------------------------");
+        System.out.println("=======Cac_Nam_To_Chuc=======");
+        System.out.println("|| So den nuoc Anh      || " +Count1+ " |");
+        System.out.println("|| So den nuoc Phap     || " +Count2+ " |");
+        System.out.println("|| So den nuoc An Do    || " +Count3+ " |");
+        System.out.println("=============================");
     }
     public void TimKiemNoiDen()
     {
@@ -426,7 +447,7 @@ public class DanhSachTour {
         int flag=0;
         System.out.println("Nhap noi den can tim trong danh sach");
         NoiDen=sc.nextLine();
-        System.out.println("====================================================DANH SACH TOUR=============================================================");
+        System.out.println("===================================================-DANH SACH TOUR-============================================================");
         System.out.format("||%5s |%18s        |%10s |%13s |%5s |%10s |%15s |%15s ||\n",
                   "MaTour", "TenTour", "NoiKhoiHanh", "Noiden", "ThoiDiem Di","PhuongTien", "TinhThanh/QuocGia", "ThoiHanViSa");
         for(int i = 0; i<n; i++)
@@ -544,5 +565,86 @@ public class DanhSachTour {
         }
         catch (IOException e) {}
     }
-    
+    public void showMenu() {
+        System.out.println("===========-Option-==========");
+        System.out.println("||     1. Them tour.       ||");
+        System.out.println("||      2. Xoa tour.       ||");
+        System.out.println("||  3. Sua thong tin tour. ||");
+        System.out.println("||    4. Tim kiem tour.    ||");
+        System.out.println("|| 5. Xem danh sach tour.  ||");
+        System.out.println("||       0. Thoat.         ||");
+        System.out.println("=============================");
+    }
+    public void showMenutimkiem()
+    {
+        System.out.println("============-Option-==========");
+        System.out.println("||   1. Tim kiem ma tour    ||");
+        System.out.println("||   2. Tim kiem ten tour   ||");
+        System.out.println("==============================");
+    }
+    public void MenuTimKiem()
+    {
+        String choose = null;
+        boolean exit = false;
+        showMenutimkiem();
+        while (true) {
+            choose = sc.nextLine();
+            switch (choose) {
+            case "1":
+                TimKiemMaTour();
+                break;
+            case "2":
+                TimKiemTen();
+                break;
+            case "0":
+                System.out.println("Da thoat!");
+                exit = true;
+                break;
+            default:
+                System.err.println("Loi! Hay chon lai:");
+                break;
+            }
+            if (exit) {
+                break;
+            }
+            showMenutimkiem();
+        }
+    }
+    public void Menu(){
+        String choose = null;
+        boolean exit = false;
+        showMenu();
+        while (true) {
+            choose = sc.nextLine();
+            switch (choose) {
+            case "1":
+                Them();
+                break;
+            case "2":
+                XoaMa();
+                break;
+            case "3":
+                Sua();
+                break;
+            case "4":
+                showMenutimkiem();
+                break;
+            case "5":
+                Xuat();
+                break;
+            case "0":
+                System.out.println("Da thoat!");
+                exit = true;
+                break;
+            default:
+                System.err.println("Loi! Hay chon lai:");
+                break;
+            }
+            if (exit) {
+                break;
+            }
+            showMenu();
+        }
+    }
+
 }

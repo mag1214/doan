@@ -5,8 +5,6 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 public class DSCTKH {
     static ChiTietKeHoach [] a;
     private int n;
@@ -45,13 +43,14 @@ public class DSCTKH {
     }
     
     public void xuat() {
-        System.out.println("----------------------------Danh sach chi tiet ke hoach----------------------------");
-        System.out.println("----------------------------------------------------------------------------------");
+        System.out.println("===========================Danh sach chi tiet ke hoach============================");
+        
 		System.out.format("|| %5s | %10s | %10s | %10s | %10s | %10s | %8s | %15s ||\n", "Stt", "Makht", "manhahang", "makhachsan", "makhuvuichoi","mahoadonchi","tongchiphi","ngay");
         for(int i = 0; i < n; i++) {
             System.out.format("|| %5d |", i + 1);
             a[i].xuat();
         }
+        System.out.println("==================================================================================");
     }
 
     public void sua() throws IOException{
