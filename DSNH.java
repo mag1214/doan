@@ -68,11 +68,13 @@ public class DSNH {
     }
 
     public void xuat() {
+        System.out.println("=================================Danh sach nha hang===============================");
         System.out.format("|| %5s | %10s | %15s | %15s | %15s ||\n", "Stt", "Ma nha hang", "Dia diem", "Ten", "Chi phi");
         for(int i = 0; i < n; i++) {
             System.out.format("|| %5d |", i + 1);
             a[i].xuat();
         }
+        System.out.println("==================================================================================");
     }
     public void them() throws IOException {
         n = a.length;

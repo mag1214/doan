@@ -79,7 +79,7 @@ public class DanhSachHoaDonChi
         //     a[i].xuat();
         // }
         n=a.length;
-        System.out.println("======================DANH SACH HOA DON CHI===================");
+        System.out.println("=====================-DANH SACH HOA DON CHI-==================");
         System.out.format("|| %9s |%9s |%7s |%12s||\n",
                   "MaHoaDon", "MaKeHoachTour", "MaNhanVien", "TongChiPhi");
         try

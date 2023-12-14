@@ -77,7 +77,7 @@ public class DanhSachKeHoachTour {
     {   
         readDataFromFile();
         n=kht.length;
-        System.out.println("=======================DANH SACH KE HOACH TOUR====================");
+        System.out.println("======================-DANH SACH KE HOACH TOUR-===================");
         System.out.format("|| %9s |%9s |%7s |%12s |%12s ||\n",
                   "MaKeHoach", "MaTour", "MaNhanVien", "NgayDi", "NgayVe");
         try
@@ -270,6 +270,7 @@ public class DanhSachKeHoachTour {
     {
         n=kht.length;
         int flag=0;
+        Xuat();
         String Ngay;
         System.out.print("Nhap ngay di: ");
         Ngay=sc.nextLine();
@@ -372,5 +373,89 @@ public class DanhSachKeHoachTour {
         String[] NgayThangNam = s.split("/");
         String Nam=NgayThangNam[NgayThangNam.length-1];
         return Nam;
+    }
+    
+    public void showMenutimkiem()
+    {
+        System.out.println("============-Option-==========");
+        System.out.println("||   1. Tim kiem ma tour    ||");
+        System.out.println("||   2. Tim kiem ngay di    ||");
+        System.out.println("==============================");
+    }
+    public void MenuTimKiem()
+    {
+        String choose = null;
+        boolean exit = false;
+        showMenutimkiem();
+        while (true) {
+            System.out.print("Nhap so de lam viec: ");
+            choose = sc.nextLine();
+            switch (choose) {
+            case "1":
+                TimKiem();
+                break;
+            case "2":
+                TimKiemNgayDi();
+                break;
+            case "0":
+                System.out.println("Da thoat!");
+                exit = true;
+                break;
+            default:
+                System.err.println("Loi! Hay chon lai:");
+                break;
+            }
+            if (exit) {
+                break;
+            }
+            showMenutimkiem();
+        }
+    }
+    public void showMenu() {
+        System.out.println("================-Option-================");
+        System.out.println("||        1. Them ke hoach tour.      ||");
+        System.out.println("||        2. Xoa ke hoach tour.       ||");
+        System.out.println("||    3. Sua thong tin ke hoach tour. ||");
+        System.out.println("||      4. Tim kiem ke hoach tour.    ||");
+        System.out.println("||    5. Xem danh sach ke hoach tour. ||");
+        System.out.println("||             0. Thoat.              ||");
+        System.out.println("========================================");
+    }
+    public void Menu(){
+        String choose = null;
+        boolean exit = false;
+        showMenu();
+        while (true) {
+            System.out.print("Nhap so de lam viec: ");
+            choose = sc.nextLine();
+            switch (choose) {
+            case "1":
+                Them();
+                break;
+            case "2":
+                XoaMa();
+                break;
+            case "3":
+                Sua();
+                break;
+            case "4":
+                MenuTimKiem();
+                break;
+            case "5":
+                Xuat();
+                break;
+            case "0":
+                System.out.println("Da thoat!");
+                exit = true;
+                break;
+            default:
+                System.err.println("Loi! Hay chon lai:");
+                break;
+            }
+            if (exit) {
+                break;
+            }
+            showMenu();
+        }
     }
 }

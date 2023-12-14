@@ -22,11 +22,13 @@ public class DSKS {
     }
 
     public void xuat() {
+        System.out.println("===============================Danh sach khach san================================");
         System.out.format("|| %5s | %10s | %15s | %15s | %15s ||\n", "Stt", "Ma khach san", "Dia diem", "Ten", "Chi phi");
         for(int i = 0; i < n; i++) {
             System.out.format("|| %5d |", i + 1);
             a[i].xuat();
         }
+        System.out.println("==================================================================================");
     }
 
     public boolean isIdExist(String id, int x) {
