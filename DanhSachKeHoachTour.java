@@ -8,6 +8,8 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.Scanner;
 
+import javax.swing.text.Style;
+
 public class DanhSachKeHoachTour {
     int n,a=0;
     static KeHoachTour[] kht;
@@ -59,7 +61,7 @@ public class DanhSachKeHoachTour {
 				System.err.print("Nhap Lai Ma: ");
 				MaKeHoach = sc.nextLine();
 				kht[i].setMaKeHoach(MaKeHoach);
-				 writeDataToFile();
+				writeDataToFile();
 				mkh = kht[i].getMaKeHoach();
 			}
 		}while(KiemTraMKH(mkh, i));
@@ -109,7 +111,7 @@ public class DanhSachKeHoachTour {
         kht[n]= new KeHoachTour();
         kht[n].Nhap();
         n++;
-         writeDataToFile();
+        writeDataToFile();
         MaDuyNhat(i);
         System.out.println("======Da them ke hoach vao danh sach======");
     } 
@@ -121,7 +123,7 @@ public class DanhSachKeHoachTour {
         KeHoachTour kh = new KeHoachTour(x);
         kht[n] = kh;
         n++;
-         writeDataToFile();
+        writeDataToFile();
         MaDuyNhat(i);
         System.out.println("======Da them ke hoach vao danh sach======");
     }
@@ -204,9 +206,9 @@ public class DanhSachKeHoachTour {
     }
     public void TimKiem()
     {
-        n=kht.length;
         int flag=0;
         String MaSo;
+        Xuat();
         System.out.print("Nhap ma so can tim: ");
         MaSo=sc.nextLine();
         System.out.println("==================DANH SACH KE HOACH TOUR TIM THAY===============");
@@ -217,6 +219,7 @@ public class DanhSachKeHoachTour {
             if(kht[i].getMaKeHoach().equals(MaSo))
             {
                 kht[i].Xuat();
+                System.out.println();
                 flag=1;
             }
         }
@@ -282,6 +285,7 @@ public class DanhSachKeHoachTour {
             if(kht[i].getNgaydi().contains(Ngay))
             {
                 kht[i].Xuat();
+                System.out.println();
                 flag=1;
             }
         }
@@ -377,10 +381,11 @@ public class DanhSachKeHoachTour {
     
     public void showMenutimkiem()
     {
-        System.out.println("============-Option-==========");
-        System.out.println("||   1. Tim kiem ma tour    ||");
-        System.out.println("||   2. Tim kiem ngay di    ||");
-        System.out.println("==============================");
+        System.out.println("==============-Option-=========");
+        System.out.println("||   1. Tim kiem ma ke hoach ||");
+        System.out.println("||     2. Tim kiem ngay di   ||");
+        System.out.println("||           0.Thoat         ||");
+        System.out.println("===============================");
     }
     public void MenuTimKiem()
     {
