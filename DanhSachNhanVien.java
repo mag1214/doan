@@ -39,7 +39,7 @@ public class DanhSachNhanVien {
     }
     public void xuat() {
         n=a.length;
-        System.out.println("==================================-DANH SACH HOA DON CHI-==================================");
+        System.out.println("==================================-DANH SACH NHAN VIEN-=====================================");
         System.out.format("|| %9s |%9s |%20s |%10s |%12s |%12s ||\n",
                   "Manhanvien", "Ho", "Ten", "GioiTinh", "NgaySinh", "TrinhDoNgonNgu");
         try
@@ -141,6 +141,9 @@ public class DanhSachNhanVien {
         String ma = sc.nextLine();
         boolean isExisted = false;
         n = a.length;
+        System.out.println("==================================-DANH SACH NHAN VIEN-=====================================");
+        System.out.format("|| %9s |%9s |%20s |%10s |%12s |%12s ||\n",
+                  "Manhanvien", "Ho", "Ten", "GioiTinh", "NgaySinh", "TrinhDoNgonNgu");
         for (int i = 0; i < n; i++) {
             if(a[i].getManhanvien().equals(ma)) {
                 isExisted = true;
@@ -151,6 +154,7 @@ public class DanhSachNhanVien {
         }
         if(!isExisted) 
             System.out.println("Khong tim thay ma nhan vien!");
+        System.out.println("===========================================================================================");
     }
        public NhanVien timkiem(String ma){
         n = a.length;
@@ -180,6 +184,9 @@ public class DanhSachNhanVien {
         String ho = sc.nextLine();
         boolean isExisted = false;
         n = a.length;
+        System.out.println("==================================-DANH SACH NHAN VIEN-=====================================");
+        System.out.format("|| %9s |%9s |%20s |%10s |%12s |%12s ||\n",
+                  "Manhanvien", "Ho", "Ten", "GioiTinh", "NgaySinh", "TrinhDoNgonNgu");
         for(int i = 0; i < n; i++) {
             if (a[i].getHo().contains(ho)) {
                 isExisted = true;
@@ -188,6 +195,7 @@ public class DanhSachNhanVien {
         }
         if(!isExisted) 
             System.out.println("Khong co nhan vien nao mang ho "+ho+"!");
+        System.out.println("===========================================================================================");
     }
 
     public void timkiemho(String ho){
@@ -207,6 +215,9 @@ public class DanhSachNhanVien {
         String ten = sc.nextLine();
         boolean isExisted = false;
         n = a.length;
+        System.out.println("==================================-DANH SACH NHAN VIEN-=====================================");
+        System.out.format("|| %9s |%9s |%20s |%10s |%12s |%12s ||\n",
+                  "Manhanvien", "Ho", "Ten", "GioiTinh", "NgaySinh", "TrinhDoNgonNgu");
         for (int i = 0; i < n; i++) {
             if (a[i].getTen().contains(ten)) {
                 isExisted = true;
@@ -215,6 +226,7 @@ public class DanhSachNhanVien {
         }
         if (!isExisted) 
             System.out.println("Khong co nhan vien nao mang ten "+ten+"!");
+        System.out.println("=============================================================================================");
     }
     public void timkiemten(String ten){
         boolean isExisted = false;
@@ -364,7 +376,7 @@ public class DanhSachNhanVien {
         System.out.println("||  3. Sua thong tin nhan vien. ||");
         System.out.println("||    4. Tim kiem nhan vien.    ||");
         System.out.println("||  5. Xem danh sach nhan vien. ||");
-        System.out.println("||       0. Thoat.              ||");
+        System.out.println("||          0. Thoat.           ||");
         System.out.println("==================================");
     }
     public void showMenutimkiem()
@@ -384,7 +396,7 @@ public class DanhSachNhanVien {
             choose = sc.nextLine();
             switch (choose) {
             case "1":
-                timkiemma(choose);
+                timkiem();
                 break;
             case "2":
                 timkiemho();
