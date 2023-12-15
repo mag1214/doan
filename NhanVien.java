@@ -86,15 +86,40 @@ public class NhanVien
     }
     public void nhap()
     {
-        System.out.print("Nhap ma huong dan vien: ");
-        mahuongdanvien = sc.nextLine();
-        // khong duoc de trong
-        System.out.print("Nhap ho huong dan vien: ");
-        ho = sc.nextLine();
-        System.out.print("Nhap ten huong dan vien: ");
-        ten = sc.nextLine();
-        System.out.print("Nhap gioi tinh huong dan vien: ");
-        gioitinh = sc.nextLine();
+        do
+        {   
+            System.out.print("Nhap ma huong dan vien: ");
+            mahuongdanvien = sc.nextLine();
+            if(mahuongdanvien.length()==0)
+                System.out.println("Vui long khong de trong du lieu. Moi ban nhap lai!!");
+        }while(mahuongdanvien.length()==0);
+        do
+        {   
+            System.out.print("Nhap ho huong dan vien: ");
+            ho = sc.nextLine();
+            if(ho.length()==0)
+                System.out.println("Vui long khong de trong du lieu. Moi ban nhap lai!!");
+        }while(ho.length()==0);
+        
+        do
+        {   
+            System.out.print("Nhap ten huong dan vien: ");
+            ten = sc.nextLine();
+            if(ten.length()==0)
+                System.out.println("Vui long khong de trong du lieu. Moi ban nhap lai!!");
+        }while(ten.length()==0);
+        
+         do
+        {   
+            System.out.print("Nhap gioi tinh huong dan vien: ");
+            gioitinh = sc.nextLine();
+            if(gioitinh.length()==0)
+                System.out.println("Vui long khong de trong du lieu. Moi ban nhap lai!!");
+            else if(!gioitinh.equals("Nam") || !gioitinh.equals("Nu"))
+                System.out.println("Gioi vui long nhap gioi tinh 'Nam' hoac 'Nu'!!!");
+        }while(gioitinh.length()==0 && (!gioitinh.equals("Nam") || !gioitinh.equals("Nu")));
+
+        
         System.out.print("Nhap ngay thang nam sinh huong dan vien: ");
         ngaysinh = sc.nextLine();
 
