@@ -3,9 +3,9 @@ import java.io.IOException;
 public class test {
     public static void main(String [] args) throws IOException
     {
-        DSVe a = new DSVe();
+        DanhSachTour a = new DanhSachTour();
         a.readDataFromFile();
-        a.sua();
+        a.Sua();
     }
 }
 
