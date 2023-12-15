@@ -3,9 +3,9 @@ import java.io.IOException;
 public class test {
     public static void main(String [] args) throws IOException
     {
-        DanhSachNhanVien nv = new DanhSachNhanVien();
-        nv.readDataFromFile();
-        nv.xuat();
+        DSHDT a = new DSHDT();
+        a.nhap();
+        a.xuat();
     }
 }
 

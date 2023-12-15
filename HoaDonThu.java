@@ -7,7 +7,7 @@ public class HoaDonThu {
     private String ngaymua;
     private String manv;
     DSChiTietHDT ct = new DSChiTietHDT();
-    private int tonggia = ct.tongtien(mahd);
+    private int tonggia;
 
     DSKH kh = new DSKH();
     DanhSachNhanVien nv = new DanhSachNhanVien();
@@ -91,6 +91,7 @@ public class HoaDonThu {
         for(int i = 0; i < x; i++) {
             ct.themhd(mahd);
         }
+        tonggia = ct.tongtien(mahd);
     }
 
     public void xuat() {
