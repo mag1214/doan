@@ -1,4 +1,5 @@
 
+import java.io.IOException;
 import java.util.Scanner;
 
 public class MenuDoAn {
@@ -18,7 +19,7 @@ public class MenuDoAn {
         System.out.println("||               0.Exit             ||");
         System.out.println("======================================");
     }
-    public void Menu()
+    public void Menu() throws IOException
     {
         String choose = null;
         boolean exit = false;
