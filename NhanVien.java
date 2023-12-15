@@ -136,12 +136,12 @@ public class NhanVien
         }while(trinhdongonngu.length()==0);
     }
     public void xuat() {
-        System.out.format("%13s | ", manhanvien);
-        System.out.format("%10s | ", ho);
-        System.out.format("%15s | ",ten);
-        System.out.format("%5s | ", gioitinh);
-        System.out.format("%10s | ", ngaysinh);
-        System.out.format("%10s%n", trinhdongonngu);
+        System.out.format("||%11s | ", manhanvien);
+        System.out.format("%8s |", ho);
+        System.out.format("%20s |",ten);
+        System.out.format("%10s |", gioitinh);
+        System.out.format("%12s |", ngaysinh);
+        System.out.format("%14s ||", trinhdongonngu);
 
     }   
      

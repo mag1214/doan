@@ -39,8 +39,8 @@ public class DanhSachNhanVien {
     }
     public void xuat() {
         n=a.length;
-        System.out.println("=====================-DANH SACH HOA DON CHI-=====================");
-        System.out.format("|| %9s |%9s |%7s |%12s |%12s |%12s ||\n",
+        System.out.println("==================================-DANH SACH HOA DON CHI-==================================");
+        System.out.format("|| %9s |%9s |%20s |%10s |%12s |%12s ||\n",
                   "Manhanvien", "Ho", "Ten", "GioiTinh", "NgaySinh", "TrinhDoNgonNgu");
         try
         {
@@ -53,7 +53,7 @@ public class DanhSachNhanVien {
 			
 		}
         
-        System.out.println("================================================================");
+        System.out.println("===========================================================================================");
     }
 
     public void them() {
