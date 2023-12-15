@@ -4,8 +4,8 @@ public class test {
     public static void main(String [] args) throws IOException
     {
         DSVe a = new DSVe();
-        a.nhap();
-        a.xuat();
+        a.readDataFromFile();
+        a.sua();
     }
 }
 

@@ -18,8 +18,8 @@ public class DSCTKH {
         a=new ChiTietKeHoach[n];
     }
     
-    public double Tongchiphitour(String makht){
-        double sum=0;
+    public int Tongchiphitour(String makht){
+        int sum=0;
         n = a.length;
         for (int i=0;i<n;i++){
             if(a[i].getManhahang().equals(makht)){

@@ -7,7 +7,7 @@ public class HoaDonChi {
     private String manhanvien;
     private String mahoadon;
     DSCTKH ctkh = new DSCTKH();
-    private double tongchiphi = ctkh.Tongchiphitour(makehoachtua);
+    private int tongchiphi = ctkh.Tongchiphitour(makehoachtua);
     // tongchiphi: = chitietkehoach.tongchiphicuatua(makehoachtua)
 
     DanhSachKeHoachTour kht = new DanhSachKeHoachTour();
@@ -106,7 +106,7 @@ public class HoaDonChi {
     {
         System.out.format("%12s | ", mahoadon);
         System.out.format("%13s | ", makehoachtua);
-        System.out.format("%13s%n ", manhanvien);
-        System.out.format("%15s%n", tongchiphi);  // Hiển thị tổng chi phí
+        System.out.format("%13s ", manhanvien);
+        System.out.format("%15d%n", tongchiphi);  // Hiển thị tổng chi phí
     }
 }

@@ -47,18 +47,18 @@ public class Ve {
             String id = sc.nextLine();
             setMatour(id);
         }
-        // while(true) {
-        //     ve.readDataFromFile();
-        //     if(ve.timkiemmatour(matour) != 2) {
-        //         break;
-        //     }
-        //     System.err.println("Ma tour vua nhap da co du loai ve!!!");
-        //     System.err.println("Nhan Enter de nhap lai!!!");
-        //     sc.nextLine();
-        //     System.out.print("Nhap lai ma tour:");
-        //     String id = sc.nextLine();
-        //     setMatour(id);
-        // }
+        while(true) {
+            ve.readDataFromFile();
+            if(ve.timkiemmatour(matour) != 2) {
+                break;
+            }
+            System.err.println("Ma tour vua nhap da co du loai ve!!!");
+            System.err.println("Nhan Enter de nhap lai!!!");
+            sc.nextLine();
+            System.out.print("Nhap lai ma tour:");
+            String id = sc.nextLine();
+            setMatour(id);
+        }
         System.out.print("Nhap ma ve: ");
         mave = sc.nextLine();
         while(mave.length() == 0) {
