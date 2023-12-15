@@ -342,22 +342,22 @@ public class DanhSachHoaDonChi
         }
     }
     public void showMenu() {
-        System.out.println("===========-Option-==========");
+        System.out.println("=============-Option-===========");
         System.out.println("||     1. Them hoa don.       ||");
         System.out.println("||      2. Xoa hoa don.       ||");
         System.out.println("||  3. Sua thong tin hoa don. ||");
         System.out.println("||    4. Tim kiem hoa don.    ||");
-        System.out.println("|| 5. Xem danh sach hoa don.  ||");
-        System.out.println("||       0. Thoat.         ||");
-        System.out.println("=============================");
+        System.out.println("||  5. Xem danh sach hoa don. ||");
+        System.out.println("||       0. Thoat.            ||");
+        System.out.println("================================");
     }
     public void showMenutimkiem()
     {
-        System.out.println("============-Option-==========");
-        System.out.println("||   1. Tim kiem ma hoa don    ||");
-        System.out.println("||   2. Tim kiem ma ke hoach tua   ||");
+        System.out.println("==============-Option-============");
+        System.out.println("||    1. Tim kiem ma hoa don    ||");
+        System.out.println("||  2. Tim kiem ma ke hoach tua ||");
         System.out.println("||   3. Tim kiem ma nhan vien   ||");
-        System.out.println("==============================");
+        System.out.println("==================================");
     }
     public void MenuTimKiem()
     {

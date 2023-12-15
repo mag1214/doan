@@ -297,7 +297,7 @@ public class DanhSachKeHoachTour {
         n = kht.length;
         try
         {
-            DataOutputStream out = new DataOutputStream(new FileOutputStream("KeHoachTour.txt"));
+            DataOutputStream out = new DataOutputStream(new FileOutputStream("data/KeHoachTour.txt"));
             try
             {
                 for(int i = 0; i < n; i++) {
@@ -321,7 +321,7 @@ public class DanhSachKeHoachTour {
        kht = new KeHoachTour[100];
         int i = 0;
         try {
-            DataInputStream in = new DataInputStream(new FileInputStream("KeHoachTour.txt"));
+            DataInputStream in = new DataInputStream(new FileInputStream("data/KeHoachTour.txt"));
             try {
                 while(true) {
                     kht[i] = new KeHoachTour();
