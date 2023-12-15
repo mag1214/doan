@@ -2,8 +2,7 @@ import java.util.Scanner;
 
 public class VuiChoi {
     private String makhuvuichoi;
-    private String diadiem;
-    private double chiphi;
+    private int chiphi;
     private String ten;
     DSVC dsvc;
 
@@ -12,15 +11,13 @@ public class VuiChoi {
     public VuiChoi(){
 
     }
-    public VuiChoi(String makhuvuichoi, String diadiem,String ten, double chiphi) {
+    public VuiChoi(String makhuvuichoi,String ten, int chiphi) {
         this.makhuvuichoi=makhuvuichoi;
-        this.diadiem = diadiem;
         this.ten=ten;
         this.chiphi = chiphi;
     }
     public VuiChoi(VuiChoi vc){
         this.makhuvuichoi=vc.makhuvuichoi;
-        this.diadiem=vc.diadiem;
         this.ten=vc.ten;
         this.chiphi=vc.chiphi;
     }
@@ -34,19 +31,11 @@ public class VuiChoi {
         this.makhuvuichoi = makhuvuichoi;
     }
 
-    public String getDiadiem() {
-        return diadiem;
-    }
-
-    public void setDiadiem(String diadiem) {
-        this.diadiem = diadiem;
-    }
-
-    public double getChiphi() {
+    public int getChiphi() {
         return chiphi;
     }
 
-    public void setChiphi(double chiphi) {
+    public void setChiphi(int chiphi) {
         this.chiphi = chiphi;
     }
 
@@ -62,31 +51,18 @@ public class VuiChoi {
         System.out.print("Nhap ma khu vui choi: ");
         makhuvuichoi= scanner.nextLine();
         while(true){
-            dsvc.docFile();
-            if(dsvc.timkiemma(makhuvuichoi)!=-1){
+            if(makhuvuichoi.length() != 0){
                 break;
             }
-            System.err.println("Ma ban nhap khong dung hoac khong ton tai");
+            System.err.println("Du lieu ban nhap khong duoc de trong");
             System.err.println("Vui long nhap lai ma");
             scanner.nextLine();
             System.out.println("Nhap lai ma");
             String ma=scanner.nextLine();
             setMakhuvuichoi(ma);
         }
-
-        System.out.print("Nhap dia diem: ");
-        diadiem = scanner.nextLine();
-        while(true){
-            if(diadiem.length() !=0){
-                break;
-            }
-            System.err.println(" Dia diem khong duoc de trong");
-            System.err.println(" Vui long nhan Enter de nhap lai");
-            scanner.nextLine();
-            System.out.println(" Vui long nhap lai ");
-            String dd=scanner.nextLine();
-            setDiadiem(dd);
-        }
+    
+        
  
         System.out.print("Nhap ten: ");
         ten= scanner.nextLine();
@@ -104,12 +80,13 @@ public class VuiChoi {
 
 
         System.out.print("Nhap chi phi: ");
-        chiphi = scanner.nextDouble();
+        chiphi = scanner.nextInt();
         scanner.nextLine();
     }
 
+
     public void xuat() {
-        System.out.format(" %10s | %15s | %10s | %15s ||\n", makhuvuichoi, diadiem, ten, chiphi);
+        System.out.format(" %15s | %12s | %10d ||\n", makhuvuichoi, ten, chiphi);
 
     }
 }

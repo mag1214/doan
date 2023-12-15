@@ -341,4 +341,90 @@ public class DanhSachHoaDonChi
        
         }
     }
+    public void showMenu() {
+        System.out.println("===========-Option-==========");
+        System.out.println("||     1. Them hoa don.       ||");
+        System.out.println("||      2. Xoa hoa don.       ||");
+        System.out.println("||  3. Sua thong tin hoa don. ||");
+        System.out.println("||    4. Tim kiem hoa don.    ||");
+        System.out.println("|| 5. Xem danh sach hoa don.  ||");
+        System.out.println("||       0. Thoat.         ||");
+        System.out.println("=============================");
+    }
+    public void showMenutimkiem()
+    {
+        System.out.println("============-Option-==========");
+        System.out.println("||   1. Tim kiem ma hoa don    ||");
+        System.out.println("||   2. Tim kiem ma ke hoach tua   ||");
+        System.out.println("||   3. Tim kiem ma nhan vien   ||");
+        System.out.println("==============================");
+    }
+    public void MenuTimKiem()
+    {
+        String choose = null;
+        boolean exit = false;
+        showMenutimkiem();
+        while (true) {
+            choose = sc.nextLine();
+            switch (choose) {
+            case "1":
+                timkiemma(choose);
+                break;
+            case "2":
+                timkiemmakehoachtua();
+                break;
+            case "3":
+                timkiemmanhanvien();
+                break;
+            case "0":
+                System.out.println("Da thoat!");
+                exit = true;
+                break;
+            default:
+                System.err.println("Loi! Hay chon lai:");
+                break;
+            }
+            if (exit) {
+                break;
+            }
+            showMenutimkiem();
+        }
+    }
+    public void Menu() throws IOException{
+        String choose = null;
+        boolean exit = false;
+        showMenu();
+        while (true) {
+            choose = sc.nextLine();
+            switch (choose) {
+            case "1":
+                them();
+                break;
+            case "2":
+                xoa();
+                break;
+            case "3":
+                sua();
+                break;
+            case "4":
+                showMenutimkiem();
+                break;
+            case "5":
+                xuat();
+                break;
+            case "0":
+                System.out.println("Da thoat!");
+                exit = true;
+                break;
+            default:
+                System.err.println("Loi! Hay chon lai:");
+                break;
+            }
+            if (exit) {
+                break;
+            }
+            showMenu();
+        }
+    }
+
 }

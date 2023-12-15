@@ -21,9 +21,24 @@ public class DSKS {
         a=new KhachSan[n];
     }
 
+    public void nhap() throws IOException{
+        System.out.print("Nhap n khach san dau tien: ");
+        n = sc.nextInt();
+        sc.nextLine();
+        a = new KhachSan[n];
+        for(int i = 0; i < n; i++){
+            a[i]= new KhachSan();
+            a[i].nhap();
+            if(i > 0) {
+              checkId(i);
+            }
+        }
+        ghiFile();
+    }
+
     public void xuat() {
         System.out.println("===============================Danh sach khach san================================");
-        System.out.format("|| %5s | %10s | %15s | %15s | %15s ||\n", "Stt", "Ma khach san", "Dia diem", "Ten", "Chi phi");
+        System.out.format("|| %5s | %12s | %15s | %10s ||\n", "Stt", "Ma khach san", "Ten", "Chi phi");
         for(int i = 0; i < n; i++) {
             System.out.format("|| %5d |", i + 1);
             a[i].xuat();
@@ -193,7 +208,7 @@ public class DSKS {
         System.out.format("Cac khu vui choi co chi phi lon hon %.2f:%n", gioiHanChiphi);
         System.out.format("%10s | %10s | %10s | %15s%n", "Ma Khu", "Dia Diem", "Ten", "Chi Phi");
         for (int i = 0; i < n   ; i++) {
-            if (a[i].getChiphi() > gioiHanChiphi) {
+            if (a[i].getChiPhi() > gioiHanChiphi) {
                 a[i].xuat();
             }
         }
@@ -205,7 +220,7 @@ public class DSKS {
         System.out.format("Cac khu vui choi co chi phi lon hon %.2f:%n", gioiHanChiphi);
         System.out.format("%10s | %10s | %10s | %15s%n", "Ma Khu", "Dia Diem", "Ten", "Chi Phi");
         for (int i = 0; i < n; i++) {
-            if (a[i].getChiphi() > gioiHanChiphi) {
+            if (a[i].getChiPhi() > gioiHanChiphi) {
                 a[i].xuat();
             }
         }
@@ -231,9 +246,11 @@ public class DSKS {
         }
     }
     
-    public void timKiemTheoTen(String tenCanTim) {
+    public void timKiemTheoTen() {
+        String tenCanTim=sc.nextLine();
         System.out.println("Ket qua tim kiem theo ten: " + tenCanTim);
         System.out.format("%10s | %10s | %10s | %15s%n", "Ma ", "Dia Diem", "Ten", "Chi Phi");
+        n=a.length;
         boolean result = false;
         
         for (int i = 0; i < n; i++) {
@@ -250,12 +267,11 @@ public class DSKS {
     
      public void ghiFile() throws IOException {
         n=a.length;
-        DataOutputStream  output = new DataOutputStream(new FileOutputStream("doan/dataks.txt"));
+        DataOutputStream  output = new DataOutputStream(new FileOutputStream("dataks.txt"));
         for (int i=0;i<n;i++){
             output.writeUTF(a[i].getMakhachsan());
-            output.writeUTF(a[i].getDiadiem());
             output.writeUTF(a[i].getTen());
-            output.writeDouble(a[i].getChiphi());
+            output.writeDouble(a[i].getChiPhi());
         }
         output.close();
     }
@@ -264,14 +280,13 @@ public class DSKS {
        a= new KhachSan[100];
        int i=0;
        try {
-            DataInputStream input =new DataInputStream(new FileInputStream("doan/dataks.txt"));
+            DataInputStream input =new DataInputStream(new FileInputStream("dataks.txt"));
             try{
                 while ( true ){
                     a[i]=new KhachSan();
                     a[i].setMakhachsan(input.readUTF());
-                    a[i].setDiadiem(input.readUTF());
                     a[i].setTen(input.readUTF());
-                    a[i].setChiphi(input.readDouble());
+                    a[i].setChiPhi(input.readInt());
                     i++;
 
                 }
@@ -285,6 +300,96 @@ public class DSKS {
     } 
        catch (IOException e){}
 
+    }
+    
+    public void showMenu() {
+        System.out.println("===========-Option-==========");
+        System.out.println("|| 1. Them khach san  .   ||");
+        System.out.println("|| 2. Xoa khach san  .    ||");
+        System.out.println("|| 3. Sua thong tin .     ||");
+        System.out.println("|| 4. Tim kiem khach san .||");
+        System.out.println("|| 5. Xem danh sach .     ||");
+        System.out.println("|| 0. Thoat .             ||");
+        System.out.println("=============================");
+    }
+    public void showMenutimkiem()
+    {
+        System.out.println("============-Option-==========");
+        System.out.println("||   1. Tim kiem ma khach san     ||");
+        System.out.println("||   2. Tim kiem ten khach san    ||");
+        System.out.println("||   3. Tim kiem chi phi lon hon  ||");
+     System.out.println("||   0. Thoát                     ||");
+        System.out.println("==============================");
+    }
+    public void MenuTimKiem()
+    {
+        String choose = null;
+        boolean exit = false;
+        showMenutimkiem();
+        while (true) {
+            System.out.print("Nhap so de lam viec: ");
+            choose = sc.nextLine();
+            switch (choose) {
+            case "1":
+                timkiem();
+                break;
+            case "2":
+                timKiemTheoTen();
+                break;
+            case "3":
+                timKiemChiPhiLonHon();
+                break;
+            case "0":
+                System.out.println("Da thoat!");
+                exit = true;
+                break;
+            default:
+                System.err.println("Loi! Hay chon lai:");
+                break;
+            }
+            if (exit) {
+                break;
+            }
+            showMenutimkiem();
+        }
+    }
+    public void Menu() throws IOException{
+        String choose = null;
+        boolean exit = false;
+        showMenu();
+        while (true) {
+            System.out.print("Nhap so de lam viec: ");
+            choose = sc.nextLine();
+            switch (choose) {
+            case "1":
+                them();
+                break;
+            case "2":
+                xoa();
+                break;
+            case "3":
+                sua();
+                break;
+            case "4":
+                MenuTimKiem();
+                break;
+     
+              case "5":
+                xuat();
+                break;
+            case "0":
+                System.out.println("Da thoat!");
+                exit = true;
+                break;
+            default:
+                System.err.println("Loi! Hay chon lai:");
+                break;
+            }
+            if (exit) {
+                break;
+            }
+            showMenu();
+        }
     }
 }
 
