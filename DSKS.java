@@ -1,5 +1,6 @@
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -37,13 +38,13 @@ public class DSKS {
     }
 
     public void xuat() {
-        System.out.println("===============================Danh sach khach san================================");
+        System.out.println("===================Danh sach khach san===================");
         System.out.format("|| %5s | %12s | %15s | %10s ||\n", "Stt", "Ma khach san", "Ten", "Chi phi");
         for(int i = 0; i < n; i++) {
             System.out.format("|| %5d |", i + 1);
             a[i].xuat();
         }
-        System.out.println("==================================================================================");
+        System.out.println("=========================================================");
     }
 
     public boolean isIdExist(String id, int x) {
@@ -271,37 +272,36 @@ public class DSKS {
         for (int i=0;i<n;i++){
             output.writeUTF(a[i].getMakhachsan());
             output.writeUTF(a[i].getTen());
-            output.writeDouble(a[i].getChiPhi());
+            output.writeInt(a[i].getChiPhi());
         }
         output.close();
     }
 
     public void docFile() {
-       a= new KhachSan[100];
-       int i=0;
-       try {
-            DataInputStream input =new DataInputStream(new FileInputStream("data/dataks.txt"));
-            try{
-                while ( true ){
-                    a[i]=new KhachSan();
-                    a[i].setMakhachsan(input.readUTF());
-                    a[i].setTen(input.readUTF());
-                    a[i].setChiPhi(input.readInt());
+        a = new KhachSan[500];
+        int i = 0;
+        try {
+            DataInputStream in = new DataInputStream(new FileInputStream("data/dataks.txt"));
+            try {
+                while(true) {
+                    a[i] = new KhachSan();
+                    a[i].setMakhachsan(in.readUTF());
+                    a[i].setTen(in.readUTF());
+                    a[i].setChiPhi(in.readInt());
                     i++;
-
                 }
-            }
-            catch (IOException e){}
-            finally{
-            n=i;
-            a=Arrays.copyOf(a,n);
-            input.close();
-        }
-    } 
-       catch (IOException e){}
+            } catch (EOFException e) {
 
-    }
+            } finally {
+                n = i;
+                a = Arrays.copyOf(a, n);
+                in.close();
+            }
+        } catch (IOException e) {
     
+        }
+    }
+
     public void showMenu() {
         System.out.println("===========-Option-==========");
         System.out.println("||   1. Them khach san  .  ||");

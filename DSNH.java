@@ -68,13 +68,13 @@ public class DSNH {
     }
 
     public void xuat() {
-        System.out.println("=================================Danh sach nha hang===============================");
+        System.out.println("====================Danh sach nha hang===================");
         System.out.format("|| %5s | %15s | %12s | %10s ||\n", "Stt", "Ma nha hang", "Ten", "Chi phi");
         for(int i = 0; i < n; i++) {
             System.out.format("|| %5d |", i + 1);
             a[i].xuat();
         }
-        System.out.println("==================================================================================");
+        System.out.println("=========================================================");
     }
     public void them() throws IOException {
         n = a.length;
@@ -300,7 +300,7 @@ public class DSNH {
        catch (IOException e){}
 
     }
-
+    
     public void showMenu() {
         System.out.println("===========-Option-==========");
         System.out.println("||    1. Them nha hang.    ||");
@@ -388,6 +388,9 @@ public class DSNH {
             }
             showMenu();
         }
+    }
+
+    public void writeDataToFile() {
     }
 }
 

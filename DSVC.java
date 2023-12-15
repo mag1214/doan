@@ -69,7 +69,7 @@ public class DSVC {
 
 
     public void xuat() {
-        System.out.println("======================Danh sach vui choi=======================");
+        System.out.println("===================Danh sach vui choi====================");
         
         
         System.out.format("|| %5s | %15s | %12s | %10s ||\n", "Stt", "Ma khu vui choi", "Ten", "Chi phi");
@@ -77,7 +77,7 @@ public class DSVC {
             System.out.format("|| %5d |", i + 1);
             a[i].xuat();
         }
-        System.out.println("===============================================================");
+        System.out.println("=========================================================");
     }
 
     
