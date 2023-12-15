@@ -290,7 +290,7 @@ public class DSVe {
 
     public void writeDataToFile() throws IOException {
         n = a.length;
-        DataOutputStream out = new DataOutputStream(new FileOutputStream("doan/dataVe.txt"));
+        DataOutputStream out = new DataOutputStream(new FileOutputStream("dataVe.txt"));
         for(int i = 0; i < n; i++) {
             out.writeUTF(a[i].getMatour());
             out.writeUTF(a[i].getMave());
@@ -304,7 +304,7 @@ public class DSVe {
         a = new Ve[500];
         int i = 0;
         try {
-            DataInputStream in = new DataInputStream(new FileInputStream("doan/dataVe.txt"));
+            DataInputStream in = new DataInputStream(new FileInputStream("dataVe.txt"));
             try {
                 while(true) {
                     a[i] = new Ve();
