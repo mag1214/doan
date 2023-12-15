@@ -6,7 +6,7 @@ public class ChiTietHDT {
     private String mave;
     private String soluong;
     DSVe ve = new DSVe();
-    private int dongia = Integer.parseInt(ve.timkiem(mave).getGiave()) * Integer.parseInt(soluong);
+    private long dongia;
     
     DSHDT hd = new DSHDT();
 
@@ -85,9 +85,12 @@ public class ChiTietHDT {
             setSoluong(id);
         }
         updateTicket(mave, soluong);
+        dongia = Integer.parseInt(ve.timkiem(mave).getGiave()) * Integer.parseInt(soluong);
     }
 
     public void xuat() {
+        ve.readDataFromFile();
+        dongia = Integer.parseInt(ve.timkiem(mave).getGiave()) * Integer.parseInt(soluong);
         System.out.format(" %10s | %10s | %8s | %15s ||\n", mahd, mave, soluong, dongia);
     }
 
@@ -115,7 +118,9 @@ public class ChiTietHDT {
         return soluong;
     }
     
-    public int getDongia() {
+    public long getDongia() {
+        ve.readDataFromFile();
+        dongia = Integer.parseInt(ve.timkiem(mave).getGiave()) * Integer.parseInt(soluong);
         return dongia;
     }
 }

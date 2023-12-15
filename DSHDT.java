@@ -313,8 +313,8 @@ public class DSHDT {
 
     public void timkiemtheogia() {
         System.out.println("Nhap khung gia muon tim: ");
-        int gia1 = sc.nextInt();
-        int gia2 = sc.nextInt();
+        long gia1 = sc.nextInt();
+        long gia2 = sc.nextInt();
         sc.nextLine();
         n = a.length;
         for(int i = 0; i < n; i++) {
@@ -359,7 +359,7 @@ public class DSHDT {
     public void thongkecacquy() {
         System.out.println("Nhap nam can thong ke: ");
         String nam = sc.nextLine();
-        int sum1 = 0 , sum2 = 0, sum3 = 0, sum4 = 0;
+        long sum1 = 0 , sum2 = 0, sum3 = 0, sum4 = 0;
         for(int i = 0; i < n; i++) {
             if(changeDate(a[i].getNgaymua()).compareTo(changeDate("01/01/" + nam)) > 0 && changeDate(a[i].getNgaymua()).compareTo(changeDate("31/03/" + nam)) < 0) {
                 sum1 += a[i].getTonggia();

@@ -38,14 +38,15 @@ public class DSChiTietHDT {
         }
     }
 
-    public void nhap() throws IOException{
-        System.out.print("Nhap n chi tiet hoa don dau tien: ");
+    public void nhap(String mahd) throws IOException{
+        System.out.print("Nhap so loai ve muon mua: ");
         n = sc.nextInt();
         sc.nextLine();
         a = new ChiTietHDT[n];
         for(int i = 0; i < n; i++){
             a[i]= new ChiTietHDT();
             a[i].nhap();
+            a[i].setMahd(mahd);
         }
         writeDataToFile();
     }
@@ -77,6 +78,7 @@ public class DSChiTietHDT {
         a[n].nhap();
         a[n].setMahd(mahd);
         n++;
+        writeDataToFile();
     }
 
     public void them(ChiTietHDT x) throws IOException{
@@ -190,7 +192,7 @@ public class DSChiTietHDT {
         }
     }
 
-    public int tongtien(String mahd) {
+    public long tongtien(String mahd) {
         int sum = 0;
         n = a.length;
         for(int i = 0; i < n; i++) {

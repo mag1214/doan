@@ -6,11 +6,11 @@ public class HoaDonThu {
     private String makh;
     private String ngaymua;
     private String manv;
-    DSChiTietHDT ct = new DSChiTietHDT();
-    private int tonggia;
+    static DSChiTietHDT ct = new DSChiTietHDT();
+    private long tonggia;
 
-    DSKH kh = new DSKH();
-    DanhSachNhanVien nv = new DanhSachNhanVien();
+    static DSKH kh = new DSKH();
+    static DanhSachNhanVien nv = new DanhSachNhanVien();
 
     Scanner sc = new Scanner(System.in);
 
@@ -28,7 +28,7 @@ public class HoaDonThu {
     public HoaDonThu(HoaDonThu a) {
         mahd = a.mahd;
         makh = a.makh;
-            ngaymua = a.ngaymua;
+        ngaymua = a.ngaymua;
         manv = a.manv;
     }
 
@@ -73,7 +73,7 @@ public class HoaDonThu {
         manv = sc.nextLine();
         while(true) {
             nv.readDataFromFile();
-            if(nv.timkiemma(makh) != -1) {
+            if(nv.timkiemma(manv) != -1) {
                 break;
             }
             System.err.println("Ma nhan vien vua nhap khong ton tai!!!");
@@ -95,6 +95,8 @@ public class HoaDonThu {
     }
 
     public void xuat() {
+        ct.readDataFromFile();
+        tonggia = ct.tongtien(mahd);
         System.out.format(" %10s | %13s | %12s | %10s | %15s ||\n", mahd, makh, manv, ngaymua, tonggia); 
     }
 
@@ -130,7 +132,7 @@ public class HoaDonThu {
         return ngaymua;
     }
 
-    public int getTonggia() {
+    public long getTonggia() {
         return tonggia;
     }
 }

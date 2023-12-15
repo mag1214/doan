@@ -296,6 +296,7 @@ public class DSVe {
             out.writeUTF(a[i].getMave());
             out.writeUTF(a[i].getLoaive());
             out.writeUTF(a[i].getGiave());
+            out.writeInt(a[i].getSoluong());
         }
         out.close();
     }
@@ -312,6 +313,7 @@ public class DSVe {
                     a[i].setMave(in.readUTF());
                     a[i].setLoaive(in.readUTF());
                     a[i].setGiave(in.readUTF());
+                    a[i].setSoluong(in.readInt());
                     i++;
                 }
             } catch (EOFException e) {
