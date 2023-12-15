@@ -22,7 +22,7 @@ public class DanhSachNhanVien {
         this.a=a;
         this.n=n;
     }
-     public void nhap(){
+     public void nhap() throws IOException{
         System.out.print("Nhap n nhan vien dau tien: ");
         n = sc.nextInt();
         sc.nextLine();
@@ -31,16 +31,17 @@ public class DanhSachNhanVien {
             a[i]= new NhanVien();
             a[i].nhap();
         }
+        writeDataToFile();
     }
     public String MaNhanVienTimThay(int i)
     {
-        return a[i].getMahuongdanvien();
+        return a[i].getManhanvien();
     }
     public void xuat() {
         n=a.length;
-        System.out.println("=====================-DANH SACH HOA DON CHI-==================");
-        System.out.format("|| %9s |%9s |%7s |%12s |%12|%12||\n",
-                  "MaHuongDanVien", "Ho", "Ten", "GioiTinh", "NgaySinh", "TrinhDoNgonNgu");
+        System.out.println("=====================-DANH SACH HOA DON CHI-=====================");
+        System.out.format("|| %9s |%9s |%7s |%12s |%12s |%12s ||\n",
+                  "Manhanvien", "Ho", "Ten", "GioiTinh", "NgaySinh", "TrinhDoNgonNgu");
         try
         {
             for(int i=0; i<n; i++)
@@ -77,11 +78,11 @@ public class DanhSachNhanVien {
         boolean isExisted = false;
         n = a.length;
         for (int i = 0; i < n; i++) {
-            if(a[i].getMahuongdanvien().equals(id)) {
+            if(a[i].getManhanvien().equals(id)) {
                 isExisted = true;
                 System.out.print("Ma nhan vien duoc sua thanh: ");
                 String ma = sc.nextLine();
-                a[i].setMaHuongDanVien(ma);
+                a[i].setManhanvien(ma);
                 System.out.print("Ho duoc sua thanh: ");
                 String ho = sc.nextLine();
                 a[i].setHO(ho);
@@ -108,11 +109,11 @@ public class DanhSachNhanVien {
         boolean isExisted = false;
         n = a.length;
         for (int i = 0; i < n; i++) {
-            if(a[i].getMahuongdanvien().equals(id)) {
+            if(a[i].getManhanvien().equals(id)) {
                 isExisted = true;
                 System.out.print("Ma nhan vien duoc sua thanh: ");
                 String ma = sc.nextLine();
-                a[i].setMaHuongDanVien(ma);
+                a[i].setManhanvien(ma);
                 System.out.print("Ho duoc sua thanh: ");
                 String ho = sc.nextLine();
                 a[i].setHO(ho);
@@ -141,7 +142,7 @@ public class DanhSachNhanVien {
         boolean isExisted = false;
         n = a.length;
         for (int i = 0; i < n; i++) {
-            if(a[i].getMahuongdanvien().equals(ma)) {
+            if(a[i].getManhanvien().equals(ma)) {
                 isExisted = true;
                 System.out.println("Thong tin nhan vien can tim: ");
                 a[i].xuat();
@@ -154,7 +155,7 @@ public class DanhSachNhanVien {
        public NhanVien timkiem(String ma){
         n = a.length;
         for (int i = 0; i < n; i++) {
-            if (a[i].getMahuongdanvien().equals(ma)) {
+            if (a[i].getManhanvien().equals(ma)) {
                 return a[i];
             }
         }  
@@ -164,7 +165,7 @@ public class DanhSachNhanVien {
         n = a.length;
         int vitri = -1;
         for (int i = 0; i < n; i++) {
-            if(a[i].getMahuongdanvien().equals(ma)) {
+            if(a[i].getManhanvien().equals(ma)) {
                 vitri = i;
                 break;
             }
@@ -285,7 +286,7 @@ public class DanhSachNhanVien {
         n = a.length;
         DataOutputStream out = new DataOutputStream(new FileOutputStream("data/dataNV.txt"));
         for(int i = 0; i < n; i++) {
-            out.writeUTF(a[i].getMahuongdanvien());
+            out.writeUTF(a[i].getManhanvien());
             out.writeUTF(a[i].getHo());
             out.writeUTF(a[i].getTen());
             out.writeUTF(a[i].getGioitinh());
@@ -304,7 +305,7 @@ public class DanhSachNhanVien {
             try {
                 while(true) {
                     a[i] = new NhanVien();
-                    a[i].setMaHuongDanVien(in.readUTF());
+                    a[i].setManhanvien(in.readUTF());
                     a[i].setHO(in.readUTF());
                     a[i].setTEN(in.readUTF());
                     a[i].setGioiTinh(in.readUTF());
@@ -328,8 +329,8 @@ public class DanhSachNhanVien {
     public void MaDuyNhat(int i) throws IOException
     {
         readDataFromFile();
-        String mahuongdanvien;
-        String mhdv = a[i].getMahuongdanvien();
+        String manhanvien;
+        String mhdv = a[i].getManhanvien();
         do
         {
             if (KiemTraMNV(mhdv,i)) {
@@ -338,19 +339,19 @@ public class DanhSachNhanVien {
                 System.err.println("\nHuong Dan Vien thu " + (i+1) + "co ma " +mhdv + "bi trung voi ma huong dan vien. An enter de tiep tuc!");
                 sc.nextLine();
                 System.err.print("Nhap lai ma: ");
-                mahuongdanvien = sc.nextLine();
-                a[i].setMaHuongDanVien(mahuongdanvien);
+                manhanvien = sc.nextLine();
+                a[i].setManhanvien(manhanvien);
                 writeDataToFile();
-                mhdv = a[i].getMahuongdanvien();
+                mhdv = a[i].getManhanvien();
             }
         }
         while(KiemTraMNV(mhdv,i));
     }
 
 
-    public boolean KiemTraMNV(String mahuongdanvien, int k) {
+    public boolean KiemTraMNV(String manhanvien, int k) {
 		for(int i = v - 1; i >= 0; i--) {
-			if(a[i].getMahuongdanvien().indexOf(mahuongdanvien) != -1 && i!= k) {
+			if(a[i].getManhanvien().indexOf(manhanvien) != -1 && i!= k) {
 				return true;
 			}
 		}

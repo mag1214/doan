@@ -3,13 +3,13 @@ import java.util.Calendar;
 
 public class NhanVien
 {
-    private String mahuongdanvien,ho, ten , gioitinh , ngaysinh, trinhdongonngu;
+    private String manhanvien,ho, ten , gioitinh , ngaysinh, trinhdongonngu;
     Scanner sc = new Scanner(System.in);
     // constructor
     public NhanVien(){}
-    public NhanVien(String mahuongdanvien,String ho, String ten ,String gioitinh, String ngaysinh, String trinhdongonngu)
+    public NhanVien(String manhanvien,String ho, String ten ,String gioitinh, String ngaysinh, String trinhdongonngu)
     {
-        this.mahuongdanvien = mahuongdanvien;
+        this.manhanvien = manhanvien;
         this.ho = ho;
         this.ten = ten;
         this.gioitinh = gioitinh;
@@ -18,7 +18,7 @@ public class NhanVien
     }
     public NhanVien(NhanVien hdv)
     {
-        mahuongdanvien = hdv.mahuongdanvien;
+        manhanvien = hdv.manhanvien;
         ho = hdv.ho;
         ten = hdv.ten;
         gioitinh = hdv.gioitinh;
@@ -36,13 +36,13 @@ public class NhanVien
     }
 
     // get set
-    public String getMahuongdanvien()
+    public String getManhanvien()
     {
-        return mahuongdanvien;
+        return manhanvien;
     }
-    public void setMaHuongDanVien(String mahuongdanvien)
+    public void setManhanvien(String manhanvien)
     {
-        this.mahuongdanvien = mahuongdanvien;
+        this.manhanvien = manhanvien;
     }
     public String getHo()
     {
@@ -88,14 +88,14 @@ public class NhanVien
     {
         do
         {   
-            System.out.print("Nhap ma huong dan vien: ");
-            mahuongdanvien = sc.nextLine();
-            if(mahuongdanvien.length()==0)
+            System.out.print("Nhap ma nhan vien: ");
+            manhanvien = sc.nextLine();
+            if(manhanvien.length()==0)
                 System.out.println("Vui long khong de trong du lieu. Moi ban nhap lai!!");
-        }while(mahuongdanvien.length()==0);
+        }while(manhanvien.length()==0);
         do
         {   
-            System.out.print("Nhap ho huong dan vien: ");
+            System.out.print("Nhap ho nhan vien: ");
             ho = sc.nextLine();
             if(ho.length()==0)
                 System.out.println("Vui long khong de trong du lieu. Moi ban nhap lai!!");
@@ -103,7 +103,7 @@ public class NhanVien
         
         do
         {   
-            System.out.print("Nhap ten huong dan vien: ");
+            System.out.print("Nhap ten nhan vien: ");
             ten = sc.nextLine();
             if(ten.length()==0)
                 System.out.println("Vui long khong de trong du lieu. Moi ban nhap lai!!");
@@ -111,24 +111,32 @@ public class NhanVien
         
          do
         {   
-            System.out.print("Nhap gioi tinh huong dan vien: ");
+            System.out.print("Nhap gioi tinh nhan vien: ");
             gioitinh = sc.nextLine();
-            if(gioitinh.length()==0)
-                System.out.println("Vui long khong de trong du lieu. Moi ban nhap lai!!");
-            else if(!gioitinh.equals("Nam") || !gioitinh.equals("Nu"))
+            if(!gioitinh.equals("Nam") && !gioitinh.equals("Nu"))
                 System.out.println("Gioi vui long nhap gioi tinh 'Nam' hoac 'Nu'!!!");
-        }while(gioitinh.length()==0 && (!gioitinh.equals("Nam") || !gioitinh.equals("Nu")));
+        }while(!gioitinh.equals("Nam") && !gioitinh.equals("Nu"));
 
+        KiemTraDinhDang validator = new KiemTraDinhDang("dd/MM/yyyy");
+         do
+        {   
+            System.out.println("Nhap thoi diem di theo dinh dang dd/MM/yyyy");
+            System.out.print("Nhap ngay thang nam sinh nhan vien: ");
+            ngaysinh = sc.nextLine();
+            if(!validator.Check(ngaysinh))
+                System.out.println("Nhap sai dinh dang!!Moi ban nhap lai.");
+        }while(!validator.Check(ngaysinh));
         
-        System.out.print("Nhap ngay thang nam sinh huong dan vien: ");
-        ngaysinh = sc.nextLine();
-
-        // lamf theo mau ngay cua duy anh
-        System.out.print("Nhap trinh do ngon ngu cua huong dan vien: ");
-        trinhdongonngu = sc.nextLine();
+         do
+        {   
+           System.out.print("Nhap trinh do ngon ngu cua nhan vien: ");
+            trinhdongonngu = sc.nextLine();
+            if(trinhdongonngu.length()==0)
+                System.out.println("Vui long khong de trong du lieu. Moi ban nhap lai!!");
+        }while(trinhdongonngu.length()==0);
     }
     public void xuat() {
-        System.out.format("%13s | ", mahuongdanvien);
+        System.out.format("%13s | ", manhanvien);
         System.out.format("%10s | ", ho);
         System.out.format("%15s | ",ten);
         System.out.format("%5s | ", gioitinh);
