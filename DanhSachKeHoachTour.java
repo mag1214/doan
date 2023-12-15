@@ -29,7 +29,7 @@ public class DanhSachKeHoachTour {
             
         }
     }
-    public void Nhap()
+    public void Nhap() throws IOException
     {
         System.out.print("Nhap so danh sach ke hoach: ");
         n = sc.nextInt();
@@ -99,7 +99,7 @@ public class DanhSachKeHoachTour {
     {
         return kht[TimKiem(Ma)].getNgayVe();
     }
-    public void Them()
+    public void Them() throws IOException
     {
         int i=n;
         System.out.println("======Nhap ke hoach muon them vao======");
@@ -123,7 +123,7 @@ public class DanhSachKeHoachTour {
         MaDuyNhat(i);
         System.out.println("======Da them ke hoach vao danh sach======");
     }
-    public void Sua()
+    public void Sua() throws IOException
     {
         n=kht.length;
         int a;
@@ -146,7 +146,7 @@ public class DanhSachKeHoachTour {
         }
     }
     
-    public void Sua(String x)
+    public void Sua(String x) throws IOException
     {
         n=kht.length;
         int a=TimKiem(x);
@@ -422,7 +422,7 @@ public class DanhSachKeHoachTour {
         System.out.println("||             0. Thoat.              ||");
         System.out.println("========================================");
     }
-    public void Menu(){
+    public void Menu() throws IOException{
         String choose = null;
         boolean exit = false;
         showMenu();

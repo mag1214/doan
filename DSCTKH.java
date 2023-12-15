@@ -18,8 +18,8 @@ public class DSCTKH {
         a=new ChiTietKeHoach[n];
     }
     
-    public int Tongchiphitour(String makht){
-        int sum=0;
+    public long Tongchiphitour(String makht){
+        long sum=0;
         n = a.length;
         for (int i=0;i<n;i++){
             if(a[i].getManhahang().equals(makht)){
@@ -94,6 +94,16 @@ public class DSCTKH {
         a[n].nhap();
         ghiFile();
         n++;
+    }
+
+    public void themkh(String makh) throws IOException {
+        a = Arrays.copyOf(a, n + 1);
+        a[n] = new ChiTietKeHoach();
+        System.out.println("Nhap thong tin chi tiet ke hoach: ");
+        a[n].nhap();
+        a[n].setMakht(makh);
+        n++;
+        ghiFile();
     }
 
     public void them(ChiTietKeHoach ctkh) throws IOException{
@@ -241,34 +251,6 @@ public class DSCTKH {
         if(!isExisted) 
             System.out.println("Khong tim thay ma khu vui choi!");
     }
-
-    public void timkiemhd(){
-        System.out.print("Nhap ma hoa don muon tim: ");
-        String ma = sc.nextLine();
-        boolean isExisted = false;
-        n = a.length;
-        for(int i = 0; i < n; i++) {
-            if (a[i].getMahoadonchi().equals(ma)) {
-                isExisted = true;
-                a[i].xuat();
-            }
-        }
-        if(!isExisted) 
-            System.out.println("Khong tim thay ma hoa don !");
-    }
-    
-    public void timkiemhd(String ma){
-        boolean isExisted = false;
-        n = a.length;
-        for(int i = 0; i < n; i++) {
-            if (a[i].getMahoadonchi().equals(ma)) {
-                isExisted = true;
-                a[i].xuat();
-            }
-        }
-        if(!isExisted) 
-            System.out.println("Khong tim thay ma hoa don !");
-    }
     
     public void xoa() throws IOException{
         System.out.print("Nhap ma ke hoach muon xoa: ");
@@ -330,12 +312,10 @@ public class DSCTKH {
         DataOutputStream  output = new DataOutputStream(new FileOutputStream("data/datactkh.txt"));
         for (int i=0;i<n;i++){
             output.writeUTF(a[i].getMaKht());
-            output.writeUTF(a[i].getMahoadonchi());
             output.writeUTF(a[i].getMakhachsan());
             output.writeUTF(a[i].getMakhuvuichoi());
             output.writeUTF(a[i].getManhahang());
             output.writeUTF(a[i].getNgay());
-            output.writeInt(a[i].getTongchiphi());
         }
         output.close();
     }
@@ -349,12 +329,10 @@ public class DSCTKH {
                 while ( true ){
                     a[i]=new ChiTietKeHoach();
                     a[i].setMakht(input.readUTF());
-                    a[i].setMahoadonchi(input.readUTF());
                     a[i].setMakhachsan(input.readUTF());
                     a[i].setMakhuvuichoi(input.readUTF());
                     a[i].setManhahang(input.readUTF());
                     a[i].setNgay(input.readUTF());
-                    a[i].setTongchiphi(input.readInt());
                     i++;
                 }
             }
@@ -386,7 +364,6 @@ public class DSCTKH {
         System.out.println("||    3. Tim kiem chi phi ngay.     ||");
         System.out.println("||  4. Tim kiem theo ma khach san.  ||");
         System.out.println("||  5. Tim kiem theo ma nha hang.   ||");
-        System.out.println("||   6. Tim kiem theo ma hoa don.   ||");
         System.out.println("||             0. Thoát             ||");
         System.out.println("======================================");
     }
@@ -412,8 +389,6 @@ public class DSCTKH {
                 timkiemks();
             case "5":
                 timkiemnh();
-            case "6":
-                timkiemhd();
             case "0":
                 System.out.println("Da thoat!");
                 exit = true;

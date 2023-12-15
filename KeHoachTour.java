@@ -1,10 +1,17 @@
 
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.util.Date;
 import java.util.Scanner;
 public class KeHoachTour
 {
     private String MaKeHoach, MaTour, MaNhanVien, NgayDi, NgayVe;
     static DanhSachTour dst = new DanhSachTour();
     static DanhSachNhanVien dsnv = new DanhSachNhanVien();
+    static DSCTKH ctkh = new DSCTKH();
     Scanner sc = new Scanner(System.in);
     public KeHoachTour(){}
     public KeHoachTour(String MaKeHoach, String MaTour, String MaNhanVien, String NgayDi, String NgayVe)
@@ -63,7 +70,24 @@ public class KeHoachTour
     {
         this.NgayVe=NgayVe;
     }
-    public void Nhap()
+
+    public long findDaysBetween (String dateString1, String dateString2) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            Date date1 = dateFormat.parse(dateString1);
+
+            Date date2 = dateFormat.parse(dateString2);
+
+            LocalDate localDate1 = date1.toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
+            LocalDate localDate2 = date2.toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
+
+            return ChronoUnit.DAYS.between(localDate1, localDate2);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return -1;
+        } 
+    }
+    public void Nhap() throws IOException
     {
         do
         {
@@ -102,7 +126,11 @@ public class KeHoachTour
             if(!validator.Check(NgayVe))
                 System.out.println("Nhap sai dinh dang vui long nhap lai");
         }while (!validator.Check(NgayVe));
-       
+        ctkh.docFile();
+        long daysBetween = findDaysBetween(NgayDi, NgayVe);
+        for(int i = 0; i < daysBetween; i++) {
+            ctkh.themkh(MaKeHoach);
+        }
     }
     public void Xuat()
     {

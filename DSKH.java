@@ -338,6 +338,7 @@ public class DSKH {
             out.writeUTF(a[i].getTen());
             out.writeUTF(a[i].getPhai());
             out.writeUTF(a[i].getNgaysinh());
+            out.writeUTF(a[i].getSdt());
         }
         out.close();
     }
@@ -355,6 +356,7 @@ public class DSKH {
                     a[i].setTen(in.readUTF());
                     a[i].setPhai(in.readUTF());
                     a[i].setNgaysinh(in.readUTF());
+                    a[i].setSdt(in.readUTF());
                     i++;
                 }
             } catch (EOFException e) {

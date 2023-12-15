@@ -7,7 +7,7 @@ public class HoaDonChi {
     private String manhanvien;
     private String mahoadon;
     DSCTKH ctkh = new DSCTKH();
-    private int tongchiphi = ctkh.Tongchiphitour(makehoachtua);
+    private long tongchiphi;
     // tongchiphi: = chitietkehoach.tongchiphicuatua(makehoachtua)
 
     DanhSachKeHoachTour kht = new DanhSachKeHoachTour();
@@ -28,7 +28,7 @@ public class HoaDonChi {
     public HoaDonChi(HoaDonChi hdc)
     {
         this.mahoadon = hdc.mahoadon;
-     
+    
         this.makehoachtua = hdc.makehoachtua;
         this.manhanvien = hdc.manhanvien;
     }
@@ -56,7 +56,10 @@ public class HoaDonChi {
     {
         this.manhanvien = manhanvien;
     }
-     public static void setTongchiphi(double tongchiphi2) {
+
+    public long getTongchiphi() {
+        tongchiphi = ctkh.Tongchiphitour(makehoachtua);
+        return tongchiphi;
     }
 
     public void nhap()
@@ -100,7 +103,7 @@ public class HoaDonChi {
             setManhanvien(id);
             
         }
-
+        tongchiphi = ctkh.Tongchiphitour(makehoachtua);
     }
     public void xuat()
     {
