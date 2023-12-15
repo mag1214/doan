@@ -104,7 +104,6 @@ public class DanhSachTour {
 	}
     public void Xuat()
     {
-        readDataFromFile();
         System.out.println("====================================================DANH SACH TOUR=============================================================");
         System.out.format("||%5s |%18s        |%10s |%13s |%5s |%10s |%15s |%15s ||\n",
                   "MaTour", "TenTour", "NoiKhoiHanh", "Noiden", "ThoiDiem Di","PhuongTien", "TinhThanh/QuocGia", "ThoiHanViSa");

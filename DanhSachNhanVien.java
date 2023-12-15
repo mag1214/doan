@@ -72,37 +72,20 @@ public class DanhSachNhanVien {
         n++;
     }
     
-    public void sua(){
+    public void sua() throws IOException{
         System.out.print("Nhap ma nhan vien can duoc sua: ");
         String id = sc.nextLine();
         boolean isExisted = false;
         n = a.length;
         for (int i = 0; i < n; i++) {
             if(a[i].getManhanvien().equals(id)) {
-                isExisted = true;
-                System.out.print("Ma nhan vien duoc sua thanh: ");
-                String ma = sc.nextLine();
-                a[i].setManhanvien(ma);
-                System.out.print("Ho duoc sua thanh: ");
-                String ho = sc.nextLine();
-                a[i].setHO(ho);
-                System.out.print("Ten duoc sua thanh: ");
-                String ten = sc.nextLine();
-                a[i].setTEN(ten);
-                System.out.print("Gioi tinh duoc sua thanh: ");
-                String gioitinh = sc.nextLine();
-                a[i].setGioiTinh(gioitinh);
-                System.out.print("Ngay sinh duoc sua thanh: ");
-                String ngaysinh=sc.nextLine();
-                a[i].setNgaySinh(ngaysinh);
-                System.out.print("Trinh do ngon ngu duoc sua thanh: ");
-                String trinhdongonngu=sc.nextLine();
-                a[i].setTrinhDoNgonNgu(trinhdongonngu);
+                a[i].nhap();
                 break;
             }
         }
         if(!isExisted) 
             System.out.println("Khong tim thay ma nhan vien!");
+        writeDataToFile();
     }
 
     public void sua(String id) {
@@ -418,7 +401,7 @@ public class DanhSachNhanVien {
             showMenutimkiem();
         }
     }
-    public void Menu(){
+    public void Menu() throws IOException{
         String choose = null;
         boolean exit = false;
         showMenu();

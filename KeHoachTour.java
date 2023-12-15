@@ -88,9 +88,9 @@ public class KeHoachTour
             System.out.print("Nhap ma nhan vien: ");
             MaNhanVien=sc.nextLine();
             dsnv.readDataFromFile();
-            if(dsnv.timkiemma(MaNhanVien)!=-1)
+            if(dsnv.timkiemma(MaNhanVien)==-1)
                 System.out.println("Khong tim thay ma nhan vien trong danh sach!!Vui long nhap lai");
-        }while(dsnv.timkiemma(MaNhanVien)!=-1);
+        }while(dsnv.timkiemma(MaNhanVien)==-1);
 
         NgayThangNam validator = new KiemTraDinhDang("dd/MM/yyyy");
         NgayDi = dst.NgayDiTimThay(MaTour);
