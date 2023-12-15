@@ -329,24 +329,25 @@ public class DSVe {
     //Menu quan li
 
     public void showMenu() {
-        System.out.println("-----------Option-----------");
-        System.out.println("1. Them ve.");
-        System.out.println("2. Xoa ve.");
-        System.out.println("3. Sua thong tin ve.");
-        System.out.println("4. Tim kiem ve.");
-        System.out.println("5. Thong ke khung gia ve.");
-        System.out.println("6. Xem danh sach ve.");
-        System.out.println("0. Thoat.");
-        System.out.println("----------------------------");
+
+        System.out.println("===========-Option-============");
+        System.out.println("||        1. Them ve.        ||");
+        System.out.println("||        2. Xoa ve.         ||");
+        System.out.println("||    3. Sua thong tin ve.   ||");
+        System.out.println("||     4. Tim kiem ve.       ||");
+        System.out.println("||  5. Thong ke khung gia ve ||");
+        System.out.println("||    6. Xem danh sach ve.   ||");
+        System.out.println("||         0. Thoat.         ||");
+        System.out.println("===============================");
         System.out.print("Choose: ");
     }
 
     public void showMenutimkiem(){
-        System.out.println("-----------Option-----------");
-        System.out.println("1. Tim kiem theo ma ve.");
-        System.out.println("2. Tim kiem theo ma tour.");
-        System.out.println("0. Thoat.");
-        System.out.println("----------------------------");
+        System.out.println("===========-Option-============");
+        System.out.println("||  1. Tim kiem theo ma ve.  ||");
+        System.out.println("|| 2. Tim kiem theo ma tour. ||");
+        System.out.println("||         0. Thoat.         ||");
+        System.out.println("===============================");
         System.out.print("Choose: ");
     }
 

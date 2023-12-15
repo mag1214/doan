@@ -369,26 +369,26 @@ public class DSCTKH {
     }
 
     public void showMenu() {
-        System.out.println("===============-Option-==============");
-        System.out.println("|| 1. Them chi tiet ke hoach .     ||");
-        System.out.println("|| 2. Xoa chi tiet ke hoach  .     ||");
-        System.out.println("|| 3. Sua thong tin .              ||");
-        System.out.println("|| 4. Tim kiem thong tin .         ||");
-        System.out.println("|| 5. Xem danh sach .              ||");
-        System.out.println("|| 0. Thoat .             n    ||");
-        System.out.println("=============================");
+        System.out.println("===============-Option-=============");
+        System.out.println("||    1. Them chi tiet ke hoach.  ||");
+        System.out.println("||     2. Xoa chi tiet ke hoach.  ||");
+        System.out.println("||        3. Sua thong tin.       ||");
+        System.out.println("||      4. Tim kiem thong tin.    ||");
+        System.out.println("||       5. Xem danh sach.        ||");
+        System.out.println("||           0. Thoat.            ||");
+        System.out.println("====================================");
     }
     public void showMenutimkiem()
     {
         System.out.println("===============-Option-==============");
-        System.out.println("|| 1. Tim kiem chi tiet ke hoach .  ||");
-        System.out.println("|| 2. Tim kiem theo ma khach san .  ||");
-        System.out.println("|| 3. Tim kiem chi phi ngay .       ||");
-        System.out.println("|| 4. Tim kiem theo ma khach san .  ||");
-        System.out.println("|| 5. Tim kiem theo ma nha hang .   ||");
-        System.out.println("|| 6. Tim kiem theo ma hoa don .    ||");
-        System.out.println("|| 0. Thoát                         ||");
-        System.out.println("==============================");
+        System.out.println("||  1. Tim kiem chi tiet ke hoach.  ||");
+        System.out.println("||  2. Tim kiem theo ma khach san.  ||");
+        System.out.println("||    3. Tim kiem chi phi ngay.     ||");
+        System.out.println("||  4. Tim kiem theo ma khach san.  ||");
+        System.out.println("||  5. Tim kiem theo ma nha hang.   ||");
+        System.out.println("||   6. Tim kiem theo ma hoa don.   ||");
+        System.out.println("||             0. Thoát             ||");
+        System.out.println("======================================");
     }
     public void MenuTimKiem()
     {

@@ -311,23 +311,23 @@ public class DSVC {
     }
     
     public void showMenu() {
-        System.out.println("===========-Option-==========");
-        System.out.println("|| 1. Them khu vui choi.    ||");
-        System.out.println("|| 2. Xoa khu vui choi.     ||");
-        System.out.println("|| 3. Sua thong tin         ||");
-        System.out.println("|| 4. Tim kiem khu vui choi.||");
-        System.out.println("|| 5. Xem danh sach     .   ||");
-        System.out.println("|| 0. Thoat.                ||");
-        System.out.println("=============================");
+        System.out.println("============-Option-===========");
+        System.out.println("||  1. Them khu vui choi.    ||");
+        System.out.println("||    2. Xoa khu vui choi.   ||");
+        System.out.println("||    3. Sua thong tin       ||");
+        System.out.println("|| 4. Tim kiem khu vui choi. ||");
+        System.out.println("||    5. Xem danh sach.      ||");
+        System.out.println("||       0. Thoat.           ||");
+        System.out.println("===============================");
     }
     public void showMenutimkiem()
     {
-        System.out.println("============-Option-==========");
-        System.out.println("||   1. Tim kiem ma khu vui choi  ||");
-        System.out.println("||   2. Tim kiem ten khu vui choi ||");
-        System.out.println("||   3. Tim kiem chi phi lon hon  ||");
-        System.out.println("||   0. Thoát                     ||");
-        System.out.println("==============================");
+        System.out.println("===============-Option-==============");
+        System.out.println("||  1. Tim kiem ma khu vui choi    ||");
+        System.out.println("||  2. Tim kiem ten khu vui choi   ||");
+        System.out.println("||  3. Tim kiem chi phi lon hon    ||");
+        System.out.println("||             0. Thoát            ||");
+        System.out.println("====================================");
     }
     public void MenuTimKiem()
     {
