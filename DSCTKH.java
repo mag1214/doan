@@ -327,7 +327,7 @@ public class DSCTKH {
 
     public void ghiFile() throws IOException {
         n=a.length;
-        DataOutputStream  output = new DataOutputStream(new FileOutputStream("doan/datactkh.txt"));
+        DataOutputStream  output = new DataOutputStream(new FileOutputStream("datactkh.txt"));
         for (int i=0;i<n;i++){
             output.writeUTF(a[i].getMaKht());
             output.writeUTF(a[i].getMahoadonchi());
@@ -344,7 +344,7 @@ public class DSCTKH {
        a= new ChiTietKeHoach[100];
        int i=0;
        try {
-            DataInputStream input =new DataInputStream(new FileInputStream("doan/datactkh.txt"));
+            DataInputStream input =new DataInputStream(new FileInputStream("datactkh.txt"));
             try{
                 while ( true ){
                     a[i]=new ChiTietKeHoach();
