@@ -283,7 +283,7 @@ public class DanhSachNhanVien {
 
     public void writeDataToFile() throws IOException {
         n = a.length;
-        DataOutputStream out = new DataOutputStream(new FileOutputStream("dataNV.txt"));
+        DataOutputStream out = new DataOutputStream(new FileOutputStream("data/dataNV.txt"));
         for(int i = 0; i < n; i++) {
             out.writeUTF(a[i].getMahuongdanvien());
             out.writeUTF(a[i].getHo());
@@ -300,7 +300,7 @@ public class DanhSachNhanVien {
         a = new NhanVien[500];
         int i = 0;
         try {
-            DataInputStream in = new DataInputStream(new FileInputStream("dataNV.txt"));
+            DataInputStream in = new DataInputStream(new FileInputStream("data/dataNV.txt"));
             try {
                 while(true) {
                     a[i] = new NhanVien();

@@ -275,7 +275,7 @@ public class DSVC {
 
     public void ghiFile() throws IOException {
         n=a.length;
-        DataOutputStream  output = new DataOutputStream(new FileOutputStream("datavc.txt"));
+        DataOutputStream  output = new DataOutputStream(new FileOutputStream("data/datavc.txt"));
         for (int i=0;i<n;i++){
             output.writeUTF(a[i].getMakhuvuichoi());
             output.writeUTF(a[i].getTen());
@@ -288,7 +288,7 @@ public class DSVC {
        a= new VuiChoi[100];
        int i=0;
        try {
-            DataInputStream input =new DataInputStream(new FileInputStream("datavc.txt"));
+            DataInputStream input =new DataInputStream(new FileInputStream("data/datavc.txt"));
             try{
                 while ( true ){
                     a[i]=new VuiChoi();

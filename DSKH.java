@@ -331,7 +331,7 @@ public class DSKH {
 
     public void writeDataToFile() throws IOException {
         n = a.length;
-        DataOutputStream out = new DataOutputStream(new FileOutputStream("dataKh.txt"));
+        DataOutputStream out = new DataOutputStream(new FileOutputStream("data/dataKh.txt"));
         for(int i = 0; i < n; i++) {
             out.writeUTF(a[i].getMa());
             out.writeUTF(a[i].getHo());
@@ -346,7 +346,7 @@ public class DSKH {
         a = new KhachHang[500];
         int i = 0;
         try {
-            DataInputStream in = new DataInputStream(new FileInputStream("dataKh.txt"));
+            DataInputStream in = new DataInputStream(new FileInputStream("data/dataKh.txt"));
             try {
                 while(true) {
                     a[i] = new KhachHang();

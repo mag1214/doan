@@ -266,7 +266,7 @@ public class DSNH {
 
      public void ghiFile() throws IOException {
         n=a.length;
-        DataOutputStream  output = new DataOutputStream(new FileOutputStream("datanh.txt"));
+        DataOutputStream  output = new DataOutputStream(new FileOutputStream("data/datanh.txt"));
         for (int i=0;i<n;i++){
             output.writeUTF(a[i].getManhahang());
             output.writeUTF(a[i].getTen());
@@ -279,7 +279,7 @@ public class DSNH {
        a= new NhaHang[100];
        int i=0;
        try {
-            DataInputStream input =new DataInputStream(new FileInputStream("datanh.txt"));
+            DataInputStream input =new DataInputStream(new FileInputStream("data/datanh.txt"));
             try{
                 while ( true ){
                     a[i]=new NhaHang();

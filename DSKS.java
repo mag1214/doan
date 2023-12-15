@@ -267,7 +267,7 @@ public class DSKS {
     
      public void ghiFile() throws IOException {
         n=a.length;
-        DataOutputStream  output = new DataOutputStream(new FileOutputStream("dataks.txt"));
+        DataOutputStream  output = new DataOutputStream(new FileOutputStream("data/dataks.txt"));
         for (int i=0;i<n;i++){
             output.writeUTF(a[i].getMakhachsan());
             output.writeUTF(a[i].getTen());
@@ -280,7 +280,7 @@ public class DSKS {
        a= new KhachSan[100];
        int i=0;
        try {
-            DataInputStream input =new DataInputStream(new FileInputStream("dataks.txt"));
+            DataInputStream input =new DataInputStream(new FileInputStream("data/dataks.txt"));
             try{
                 while ( true ){
                     a[i]=new KhachSan();
