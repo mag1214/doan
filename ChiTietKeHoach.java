@@ -12,13 +12,14 @@ public class ChiTietKeHoach{
     private String makhuvuichoi;
     private String mahoadonchi;
     private String ngay;
-    private DSKS b;
-    private DSVC c;
-    private DSNH a;
-    private DanhSachKeHoachTour dskht;  
     private int tongchiphi;
-    private DSCTKH d;
-    private DanhSachHoaDonChi e;
+    
+    DSKS b = new DSKS();
+    DSVC c = new DSVC();
+    DSNH a = new DSNH();
+    DanhSachKeHoachTour dskht = new DanhSachKeHoachTour();  
+    DSCTKH d = new DSCTKH();
+    DanhSachHoaDonChi e = new DanhSachHoaDonChi();
     Scanner sc= new Scanner(System.in);
 
     public ChiTietKeHoach(){}

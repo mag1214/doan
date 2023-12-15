@@ -4,7 +4,6 @@ public class KhachSan {
     private String makhachsan;
     private int chiphi;
     private String ten;
-    DSKS dsks;
     Scanner scanner =new Scanner (System.in);
 
     public KhachSan(){

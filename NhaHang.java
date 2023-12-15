@@ -3,7 +3,6 @@ public class NhaHang {
     private String manhahang;
     private int chiphi;
     private String ten;
-    DSNH dsnh;
 
     Scanner scanner =new Scanner (System.in);
     public NhaHang(){

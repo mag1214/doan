@@ -40,7 +40,7 @@ public class KhachHang {
             System.err.println("Du lieu vua nhap la rong!!!");
             System.err.println("Nhan Enter de nhap lai!!!");
             sc.nextLine();
-            System.out.println("Nhap lai ma:");
+            System.out.print("Nhap lai ma:");
             String id = sc.nextLine();
             setMa(id);
         }
@@ -50,7 +50,7 @@ public class KhachHang {
             System.err.println("Du lieu vua nhap la rong!!!");
             System.err.println("Nhan Enter de nhap lai!!!");
             sc.nextLine();
-            System.out.println("Nhap lai ho:");
+            System.out.print("Nhap lai ho:");
             String id = sc.nextLine();
             setHo(id);
         }
@@ -60,7 +60,7 @@ public class KhachHang {
             System.err.println("Du lieu vua nhap la rong!!!");
             System.err.println("Nhan Enter de nhap lai!!!");
             sc.nextLine();
-            System.out.println("Nhap lai ten:");
+            System.out.print("Nhap lai ten:");
             String id = sc.nextLine();
             setTen(id);
         }
@@ -73,7 +73,7 @@ public class KhachHang {
             System.err.println("Gioi tinh chi duoc nhap 'Nam' hoac 'Nu'!!!");
             System.err.println("Nhan Enter de nhap lai!!!");
             sc.nextLine();
-            System.out.println("Nhap lai gioi tinh cua khach hang: ");
+            System.out.print("Nhap lai gioi tinh cua khach hang: ");
             String gt = sc.nextLine();
             setPhai(gt);
         }
@@ -84,7 +84,7 @@ public class KhachHang {
             System.err.println("Dinh dang cua ngay phai la dd/MM/yyyy!!!");
             System.err.println("Nhan Enter de nhap lai!!!");
             sc.nextLine();
-            System.out.println("Nhap lai ngay sinh cua khach hang: ");
+            System.out.print("Nhap lai ngay sinh cua khach hang: ");
             String ns = sc.nextLine();
             setNgaysinh(ns);
         }
@@ -97,7 +97,7 @@ public class KhachHang {
             System.err.println("So dien thoai khong du 10 so!!!");
             System.err.println("Nhan Enter de nhap lai!!!");
             sc.nextLine();
-            System.out.println("Nhap lai so dien thoai cua khach hang: ");
+            System.out.print("Nhap lai so dien thoai cua khach hang: ");
             String dt = sc.nextLine();
             setSdt(dt);
         }

@@ -14,7 +14,7 @@ public class DSHDT {
     static HoaDonThu[] a;
     int n;
 
-    DSChiTietHDT ct;
+    DSChiTietHDT ct = new DSChiTietHDT();
     
     Scanner sc = new Scanner(System.in);
     

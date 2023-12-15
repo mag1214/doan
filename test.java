@@ -3,10 +3,9 @@ import java.io.IOException;
 public class test {
     public static void main(String [] args) throws IOException
     {
-        DanhSachNhanVien nv = new DanhSachNhanVien();
-        //nv.nhap();
-        DanhSachTour t = new DanhSachTour();
-        t.Xuat();
+        DSVe a = new DSVe();
+        a.nhap();
+        a.xuat();
     }
 }
 

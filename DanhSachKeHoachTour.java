@@ -10,7 +10,7 @@ import java.util.Scanner;
 public class DanhSachKeHoachTour {
     int n,a=0;
     static KeHoachTour[] kht;
-    DanhSachTour dst;
+    DanhSachTour dst = new DanhSachTour();
     Scanner sc = new Scanner(System.in);
     public DanhSachKeHoachTour(){}
     public DanhSachKeHoachTour(int n) 

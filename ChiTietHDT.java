@@ -5,10 +5,10 @@ public class ChiTietHDT {
     private String mahd;
     private String mave;
     private String soluong;
-    DSVe ve;
+    DSVe ve = new DSVe();
     private int dongia = Integer.parseInt(ve.timkiem(mave).getGiave()) * Integer.parseInt(soluong);
-
-    DSHDT hd;
+    
+    DSHDT hd = new DSHDT();
 
     Scanner sc = new Scanner(System.in);
 

@@ -6,11 +6,11 @@ public class HoaDonThu {
     private String makh;
     private String ngaymua;
     private String manv;
-    DSChiTietHDT ct;
+    DSChiTietHDT ct = new DSChiTietHDT();
     private int tonggia = ct.tongtien(mahd);
 
-    DSKH kh;
-    DanhSachNhanVien nv;
+    DSKH kh = new DSKH();
+    DanhSachNhanVien nv = new DanhSachNhanVien();
 
     Scanner sc = new Scanner(System.in);
 
@@ -39,7 +39,7 @@ public class HoaDonThu {
             System.err.println("Du lieu vua nhap la rong!!!");
             System.err.println("Nhan Enter de nhap lai!!!");
             sc.nextLine();
-            System.out.println("Nhap lai ma hoa don:");
+            System.out.print("Nhap lai ma hoa don:");
             String id = sc.nextLine();
             setMahd(id);
         }
@@ -54,7 +54,7 @@ public class HoaDonThu {
             System.err.println("Nhan Enter de nhap lai!!!");
             sc.nextLine();
             kh.xuat();
-            System.out.println("Nhap lai ma khach hang:");
+            System.out.print("Nhap lai ma khach hang:");
             String id = sc.nextLine();
             setMakh(id);
         }
@@ -65,7 +65,7 @@ public class HoaDonThu {
             System.err.println("Dinh dang cua ngay phai la dd/MM/yyyy!!!");
             System.err.println("Nhan Enter de nhap lai!!!");
             sc.nextLine();
-            System.out.println("Nhap lai ngay mua: ");
+            System.out.print("Nhap lai ngay mua: ");
             String nm = sc.nextLine();
             setNgaymua(nm);
         }
@@ -80,7 +80,7 @@ public class HoaDonThu {
             System.err.println("Nhan Enter de nhap lai!!!");
             sc.nextLine();
             nv.xuat();
-            System.out.println("Nhap lai ma nhan vien:");
+            System.out.print("Nhap lai ma nhan vien:");
             String id = sc.nextLine();
             setManv(id);
         }

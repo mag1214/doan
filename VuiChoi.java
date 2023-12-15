@@ -4,7 +4,6 @@ public class VuiChoi {
     private String makhuvuichoi;
     private int chiphi;
     private String ten;
-    DSVC dsvc;
 
     Scanner scanner =new Scanner (System.in);
 
@@ -57,7 +56,7 @@ public class VuiChoi {
             System.err.println("Du lieu ban nhap khong duoc de trong");
             System.err.println("Vui long nhap lai ma");
             scanner.nextLine();
-            System.out.println("Nhap lai ma");
+            System.out.print("Nhap lai ma");
             String ma=scanner.nextLine();
             setMakhuvuichoi(ma);
         }
@@ -73,7 +72,7 @@ public class VuiChoi {
             System.err.println(" Ten khong duod de trong ");
             System.err.println(" vui long nhan Enter de nhap lai");
             scanner.nextLine();
-            System.out.println(" Nhap lai ");
+            System.out.print(" Nhap lai ");
             String name=scanner.nextLine();
             setTen(name);
         }

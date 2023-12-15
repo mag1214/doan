@@ -6,8 +6,8 @@ public class Ve {
     private String loaive;
     private String giave;
     private int soluong;
-    DanhSachTour tour;
-    DSVe ve;
+    DanhSachTour tour = new DanhSachTour();
+    DSVe ve = new DSVe();
 
     Scanner sc = new Scanner(System.in);
 
@@ -35,7 +35,7 @@ public class Ve {
         System.out.print("Nhap ma tour: ");
         matour = sc.nextLine();
         while(true) {
-            tour.readDataFromFile();;
+            tour.readDataFromFile();
             if(tour.TimKiemMaTour(matour) != -1) {
                 break;
             }
@@ -43,42 +43,42 @@ public class Ve {
             System.err.println("Nhan Enter de nhap lai!!!");
             sc.nextLine();
             tour.Xuat();
-            System.out.println("Nhap lai ma tour:");
+            System.out.print("Nhap lai ma tour:");
             String id = sc.nextLine();
             setMatour(id);
         }
-        while(true) {
-            ve.readDataFromFile();
-            if(ve.timkiemmatour(matour) != 2) {
-                break;
-            }
-            System.err.println("Ma tour vua nhap da co du loai ve!!!");
-            System.err.println("Nhan Enter de nhap lai!!!");
-            sc.nextLine();
-            System.out.println("Nhap lai ma tour:");
-            String id = sc.nextLine();
-            setMatour(id);
-        }
+        // while(true) {
+        //     ve.readDataFromFile();
+        //     if(ve.timkiemmatour(matour) != 2) {
+        //         break;
+        //     }
+        //     System.err.println("Ma tour vua nhap da co du loai ve!!!");
+        //     System.err.println("Nhan Enter de nhap lai!!!");
+        //     sc.nextLine();
+        //     System.out.print("Nhap lai ma tour:");
+        //     String id = sc.nextLine();
+        //     setMatour(id);
+        // }
         System.out.print("Nhap ma ve: ");
         mave = sc.nextLine();
         while(mave.length() == 0) {
             System.err.println("Du lieu vua nhap la rong!!!");
             System.err.println("Nhan Enter de nhap lai!!!");
             sc.nextLine();
-            System.out.println("Nhap lai ma ve:");
+            System.out.print("Nhap lai ma ve:");
             String id = sc.nextLine();
             setMave(id);
         }
         System.out.print("Nhap loai ve: ");
         loaive = sc.nextLine();
         while(true) {
-            if(loaive.equals("Tre em") || loaive.equals("Nguoi Lon")) {
+            if(loaive.equals("Tre em") || loaive.equals("Nguoi lon")) {
                 break;
             }
             System.err.println("Chi co ve 'Nguoi lon' va 'Tre em'!!!");
             System.err.println("Nhan Enter de nhap lai!!!");
             sc.nextLine();
-            System.out.println("Nhap lai loai ve: ");
+            System.out.print("Nhap lai loai ve: ");
             String lv = sc.nextLine();
             setLoaive(lv);
         }
@@ -88,11 +88,11 @@ public class Ve {
             System.err.println("Du lieu vua nhap la rong!!!");
             System.err.println("Nhan Enter de nhap lai!!!");
             sc.nextLine();
-            System.out.println("Nhap lai gia ve:");
+            System.out.print("Nhap lai gia ve:");
             String id = sc.nextLine();
             setMave(id);
         }
-        System.out.println("Nhap so luong ve: ");
+        System.out.print("Nhap so luong ve: ");
         soluong = sc.nextInt();
         sc.nextLine();
     }

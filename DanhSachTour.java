@@ -11,7 +11,7 @@ import java.util.Scanner;
 public class DanhSachTour {
     static Tour[] dst;
     int n,a=0;
-    DanhSachKeHoachTour kht = new DanhSachKeHoachTour();
+    static DanhSachKeHoachTour kht = new DanhSachKeHoachTour();
     Scanner sc = new Scanner(System.in);
     public DanhSachTour(){}
     public DanhSachTour(int n) 

@@ -72,7 +72,7 @@ public class HoaDonChi {
             System.err.println("Nhan Enter de tiep tuc: ");
             sc.nextLine();
             kht.Xuat();
-            System.out.println("Nhap lai ma ke hoach tour: ");
+            System.out.print("Nhap lai ma ke hoach tour: ");
             String id = sc.nextLine();
             setMakehoachtua(id);      
         }       
@@ -80,7 +80,7 @@ public class HoaDonChi {
         mahoadon = sc.nextLine();
         while (mahoadon.length() == 0) {
             System.err.println("Khong duoc de trong!!!");
-            System.err.println("Vui long nhap lai ma hoa don: ");
+            System.err.print("Vui long nhap lai ma hoa don: ");
             String id = sc.nextLine();
             setMahoadon(id);
         }
@@ -95,7 +95,7 @@ public class HoaDonChi {
             System.err.println("Nhan Enter de tiep tuc: ");
             sc.nextLine();
             nv.xuat();
-            System.out.println("Nhap lai ma nhan vien: ");
+            System.out.print("Nhap lai ma nhan vien: ");
             String id = sc.nextLine();
             setManhanvien(id);
             

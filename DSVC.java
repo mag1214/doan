@@ -28,7 +28,7 @@ public class DSVC {
             a[i]= new VuiChoi();
             a[i].nhap();
             if(i > 0) {
-              checkId(i);
+                checkId(i);
             }
         }
         ghiFile();
@@ -285,9 +285,9 @@ public class DSVC {
     }
 
     public void docFile() {
-       a= new VuiChoi[100];
-       int i=0;
-       try {
+        a= new VuiChoi[100];
+        int i=0;
+        try {
             DataInputStream input =new DataInputStream(new FileInputStream("data/datavc.txt"));
             try{
                 while ( true ){
