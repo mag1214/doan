@@ -459,5 +459,19 @@ public class DanhSachKeHoachTour {
             showMenu();
         }
     }
-    
+    public void Nhapcung()
+    {
+        kht = new KeHoachTour[10];
+        kht[0] = new KeHoachTour("KHT1","T3","NV1","19/08/2023","22/08/2023");
+        kht[1] = new KeHoachTour("KHT2","N2","NV7","22/02/2023","01/03/2023");
+        kht[2] = new KeHoachTour("KHT3","N5","NV2","15/05/2023","22/05/2023");
+        kht[3] = new KeHoachTour("KHT4","T1","NV4","12/05/2023","14/05/2023");
+        kht[4] = new KeHoachTour("KHT5","T2","NV6","22/11/2023","25/11/2023");
+        kht[5] = new KeHoachTour("KHT6","T4","NV10","15/06/2023","25/11/2023");
+        kht[6] = new KeHoachTour("KHT7","T3","NV7","15/03/2023","25/11/2023");
+        kht[7] = new KeHoachTour("KHT8","N4","NV5","22/11/2023","29/11/2023");
+        kht[8] = new KeHoachTour("KHT9","T1","NV8","22/11/2023","25/11/2023");
+        kht[9] = new KeHoachTour("KHT10","T4","NV4","22/11/2023","25/11/2023");   
+        writeDataToFile();
+    }  
 }

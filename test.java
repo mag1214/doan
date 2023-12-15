@@ -16,8 +16,8 @@ public class test {
         // kht.Xuat();
         // dst.readDataFromFile();
         // dst.Xuat();
-        vc.docFile();
-        vc.xuat();
+        kht.readDataFromFile();
+        kht.Xuat();
         // ks.sua();
     }
 }
