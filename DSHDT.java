@@ -13,7 +13,8 @@ import java.util.Scanner;
 public class DSHDT {
     static HoaDonThu[] a;
     int n;
-
+    DSKH kh = new DSKH();
+    DanhSachNhanVien nv = new DanhSachNhanVien();
     DSChiTietHDT ct = new DSChiTietHDT();
     
     Scanner sc = new Scanner(System.in);
@@ -112,7 +113,17 @@ public class DSHDT {
         checkId(n);
         writeDataToFile();
     }
-    
+    public void menuSua()
+    {
+        System.out.println("============-Option-===========");
+        System.out.println("||     1. Sua ma hoa don.    ||");
+        System.out.println("||    2. Sua ma khach hang.  ||");
+        System.out.println("||      3. Sua ngay mua.     ||");
+        System.out.println("||     4. Sua ma nhan vien.  ||");
+        System.out.println("||         0. Thoat.         ||");
+        System.out.println("===============================");
+        System.out.print("Chon thuoc tinh can sua: ");
+    }
     public void sua() throws IOException{
         System.out.print("Nhap ma hoa don can duoc sua: ");
         String id = sc.nextLine();
@@ -121,15 +132,88 @@ public class DSHDT {
         for (int i = 0; i < n; i++) {
             if(a[i].getMahd().equals(id)) {
                 isExisted = true;
-                a[i].nhap();
-                while(isIdExist(a[i].getMahd(), i)) {
-                    System.err.println("Ma hoa don vua nhap bi trung voi ma ve khac!!!");
-                    System.err.println("Nhan Enter de nhap lai!!!");
-                    sc.nextLine();
-                    System.out.println("Nhap lai ma hoa don:");
-                    String ma = sc.nextLine();
-                    a[i].setMahd(ma);
+                String choose;
+                boolean exit= false;
+                menuSua();
+                while(true)
+                {
+                    choose=sc.nextLine();
+                    switch (choose) 
+                    {
+                        case "1":
+                            System.out.print("Ma duoc sua thanh: ");
+                            String ma=sc.nextLine();
+                            a[i].setMahd(ma);
+                            while(isIdExist(a[i].getMahd(), n)) {
+                            System.err.println("Ma hoa don vua nhap bi trung voi ma ve khac!!!");
+                            System.err.println("Nhan Enter de nhap lai!!!");
+                            sc.nextLine();
+                            System.out.println("Nhap lai ma hoa don:");
+                            String ma1 = sc.nextLine();
+                            a[i].setMahd(ma1);
+                            }
+                            break;
+                        case "2":
+                             System.out.print("Ma khach hang duoc sua thanh: ");
+                             String makh=sc.nextLine();
+                             a[i].setMakh(makh);
+                             while(true) {
+                                kh.readDataFromFile();
+                                if(kh.timkiemma(makh) != -1) {
+                                    break;
+                                }
+                                System.err.println("Ma khach hang vua nhap khong ton tai!!!");
+                                System.err.println("Nhan Enter de nhap lai!!!");
+                                sc.nextLine();
+                                kh.xuat();
+                                System.out.print("Nhap lai ma khach hang:");
+                                String ma1 = sc.nextLine();
+                                a[i].setMakh(ma1);
+                            }
+                        case "3":
+                            System.out.print("Ngay mua duoc sua thanh: ");
+                            String ngay=sc.nextLine();
+                            a[i].setNgaymua(ngay);
+                            NgayThangNam value = new KiemTraDinhDang("dd/MM/yyyy");
+                            while(!value.Check(ngay)) {
+                                System.err.println("Dinh dang cua ngay phai la dd/MM/yyyy!!!");
+                                System.err.println("Nhan Enter de nhap lai!!!");
+                                sc.nextLine();
+                                System.out.print("Nhap lai ngay mua: ");
+                                String nm = sc.nextLine();
+                                a[i].setNgaymua(nm);
+                            }
+                        case "4":
+                            System.out.print("Ma nhan vien duoc sua thanh: ");
+                            String nv1=sc.nextLine();
+                            a[i].setManv(nv1);
+                            while(true) {
+                                nv.readDataFromFile();
+                                if(nv.timkiemma(nv1) != -1) {
+                                    break;
+                                }
+                                System.err.println("Ma nhan vien vua nhap khong ton tai!!!");
+                                System.err.println("Nhan Enter de nhap lai!!!");
+                                sc.nextLine();
+                                nv.xuat();
+                                System.out.print("Nhap lai ma nhan vien:");
+                                String nv2 = sc.nextLine();
+                                a[i].setManv(nv2);
+                            }
+                        case "0":
+                            System.out.println("Da thoat!");
+                            exit = true;
+                            break;
+                        default:
+                            System.err.println("Loi! Hay chon lai:");
+                            break;
+                        }
+                        if (exit) {
+                            break;
+                        }
+                    menuSua();
                 }
+                
                 ct.readDataFromFile();
                 ct.changeIdHd(id, a[i].getMahd());
                 ct.writeDataToFile();
