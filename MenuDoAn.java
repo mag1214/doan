@@ -5,6 +5,11 @@ import java.util.Scanner;
 public class MenuDoAn {
     DanhSachTour tour = new DanhSachTour();
     DanhSachKeHoachTour kht = new DanhSachKeHoachTour();
+    DSKH dskh = new DSKH();
+    DanhSachNhanVien dsnv = new DanhSachNhanVien();
+    DSVe  dsv = new DSVe();
+    DSHDT dshdt = new DSHDT();
+    DanhSachHoaDonChi dshdc = new DanhSachHoaDonChi();
     Scanner sc = new Scanner(System.in);
     public void showMenu()
     { 
@@ -37,14 +42,23 @@ public class MenuDoAn {
                 kht.Menu();
                 break;
             case "3":
-            
+                dskh.readDataFromFile();
+                dskh.Menu();
                 break;
             case "4":
-               
+                dsnv.readDataFromFile();
+                dsnv.Menu();
                 break;
             case "5":
-                
+                dsv.readDataFromFile();
+                dsv.Menu();
                 break;
+            case "6":
+                dshdt.readDataFromFile();
+                dshdt.Menu();
+            case "7":
+                dshdc.readDataFromFile();
+                dshdc.Menu();
             case "0":
                 System.out.println("Da thoat!");
                 exit = true;
