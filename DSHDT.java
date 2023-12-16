@@ -102,6 +102,14 @@ public class DSHDT {
         a[n].nhap();
         checkId(n);
         n++;
+        ct.readDataFromFile();
+        System.out.println("Nhap so loai ve muon mua: ");
+        int x = sc.nextInt();
+        sc.nextLine();
+        for(int i = 0; i < x; i++) {
+            ct.themhd(a[n].getMahd());
+        }
+        a[n].setTonggia(ct.tongtien(a[n].getMahd()));
         writeDataToFile();
     }
 

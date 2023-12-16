@@ -84,14 +84,14 @@ public class HoaDonThu {
             String id = sc.nextLine();
             setManv(id);
         }
-        ct.readDataFromFile();
-        System.out.println("Nhap so loai ve muon mua: ");
-        int x = sc.nextInt();
-        sc.nextLine();
-        for(int i = 0; i < x; i++) {
-            ct.themhd(mahd);
-        }
-        tonggia = ct.tongtien(mahd);
+        // ct.readDataFromFile();
+        // System.out.println("Nhap so loai ve muon mua: ");
+        // int x = sc.nextInt();
+        // sc.nextLine();
+        // for(int i = 0; i < x; i++) {
+        //     ct.themhd(mahd);
+        // }
+        // tonggia = ct.tongtien(mahd);
     }
 
     public void xuat() {
@@ -134,5 +134,8 @@ public class HoaDonThu {
 
     public long getTonggia() {
         return tonggia;
+    }
+    public void setTonggia(long tonggia) {
+        this.tonggia=tonggia;
     }
 }

@@ -52,13 +52,13 @@ public class DSChiTietHDT {
     }
 
     public void xuat() {
-        System.out.println("============================Danh sach chi tiet hoa don============================");
-        System.out.println("==================================================================================");
+        System.out.println("===================Danh sach chi tiet hoa don=====================");
 		System.out.format("|| %5s | %10s | %10s | %8s | %15s ||\n", "Stt", "Ma hoa don", "Ma ve", "So luong", "Don gia");
         for(int i = 0; i < n; i++) {
             System.out.format("|| %5d |", i + 1);
             a[i].xuat();
         }
+        System.out.println("==================================================================");
     }
 
     public void them() throws IOException{
