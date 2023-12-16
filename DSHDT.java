@@ -160,12 +160,14 @@ public class DSHDT {
                             String ma1 = sc.nextLine();
                             a[i].setMahd(ma1);
                             }
+                            ct.readDataFromFile();
+                            ct.timkiem(id).setMahd(a[i].getMahd());
                             break;
                         case "2":
-                             System.out.print("Ma khach hang duoc sua thanh: ");
-                             String makh=sc.nextLine();
-                             a[i].setMakh(makh);
-                             while(true) {
+                            System.out.print("Ma khach hang duoc sua thanh: ");
+                            String makh=sc.nextLine();
+                            a[i].setMakh(makh);
+                            while(true) {
                                 kh.readDataFromFile();
                                 if(kh.timkiemma(makh) != -1) {
                                     break;

@@ -13,7 +13,7 @@ public class DSKH {
     int n;
     static KhachHang[] a;
 
-    DSHDT hd;
+    static DSHDT hd = new DSHDT();
 
     Scanner sc = new Scanner(System.in);
 

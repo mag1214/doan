@@ -22,7 +22,7 @@ public class DSCTKH {
         long sum=0;
         n = a.length;
         for (int i=0;i<n;i++){
-            if(a[i].getManhahang().equals(makht)){
+            if(a[i].getMaKht().equals(makht)){
                 sum+=a[i].getTongchiphi();
             }
         }

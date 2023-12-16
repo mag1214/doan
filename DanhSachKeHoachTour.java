@@ -5,12 +5,18 @@ import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Scanner;
 public class DanhSachKeHoachTour {
     int n,a=0;
     static KeHoachTour[] kht;
-    DanhSachTour dst = new DanhSachTour();
+    static DanhSachTour dst = new DanhSachTour();
+    static DSCTKH ctkh = new DSCTKH();
     Scanner sc = new Scanner(System.in);
     public DanhSachKeHoachTour(){}
     public DanhSachKeHoachTour(int n) 
@@ -29,6 +35,24 @@ public class DanhSachKeHoachTour {
             
         }
     }
+
+    public long findDaysBetween (String dateString1, String dateString2) {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        try {
+            Date date1 = dateFormat.parse(dateString1);
+
+            Date date2 = dateFormat.parse(dateString2);
+
+            LocalDate localDate1 = date1.toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
+            LocalDate localDate2 = date2.toInstant().atZone(java.time.ZoneId.systemDefault()).toLocalDate();
+
+            return ChronoUnit.DAYS.between(localDate1, localDate2);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return -1;
+        } 
+    }
+    
     public void Nhap() throws IOException
     {
         System.out.print("Nhap so danh sach ke hoach: ");
@@ -76,8 +100,8 @@ public class DanhSachKeHoachTour {
     {   
         n=kht.length;
         System.out.println("======================-DANH SACH KE HOACH TOUR-===================");
-        System.out.format("|| %9s |%9s |%7s |%12s |%12s ||\n",
-                  "MaKeHoach", "MaTour", "MaNhanVien", "NgayDi", "NgayVe");
+        System.out.format("|| %9s |%9s |%7s |%12s |%12s |%10 ||\n",
+                  "MaKeHoach", "MaTour", "MaNhanVien", "NgayDi", "NgayVe", "TongTien");
         try
         {
             for(int i=0; i<n; i++)
@@ -109,6 +133,11 @@ public class DanhSachKeHoachTour {
         n++;
         writeDataToFile();
         MaDuyNhat(i);
+        ctkh.docFile();
+        long daysBetween = findDaysBetween(kht[n].getNgaydi(), kht[n].getNgayVe());
+        for(int j = 0; j < daysBetween; j++) {
+            ctkh.themkh(kht[n].getMaKeHoach());
+        }
         System.out.println("======Da them ke hoach vao danh sach======");
     } 
     public void Them(KeHoachTour x)
