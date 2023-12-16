@@ -101,7 +101,6 @@ public class DSHDT {
         System.out.println("Nhap thong tin hoa don can them: ");
         a[n].nhap();
         checkId(n);
-        n++;
         ct.readDataFromFile();
         System.out.println("Nhap so loai ve muon mua: ");
         int x = sc.nextInt();
@@ -110,6 +109,7 @@ public class DSHDT {
             ct.themhd(a[n].getMahd());
         }
         a[n].setTonggia(ct.tongtien(a[n].getMahd()));
+        n++;
         writeDataToFile();
     }
 
@@ -416,7 +416,7 @@ public class DSHDT {
         }
     }
 
-    public void xoa(){
+    public void xoa() throws IOException{
         System.out.print("Nhap ma hoa don muon xoa: ");
         String id = sc.nextLine();
         n = a.length;
@@ -431,6 +431,7 @@ public class DSHDT {
             a = Arrays.copyOf(a, n - 1);
             n--;
         }
+        writeDataToFile();
     }
     
     public void xoa(String id){

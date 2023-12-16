@@ -13,7 +13,7 @@ public class test {
         hd.Menu();
         DSChiTietHDT ct = new DSChiTietHDT();
         ct.readDataFromFile();
-        ct.xuat();
+        ct.Menu();
     }       
 }
     

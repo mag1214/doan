@@ -160,7 +160,7 @@ public class DSChiTietHDT {
         return null;
     }
 
-    public void xoa(){
+    public void xoa() throws IOException{
         System.out.print("Nhap ma hoa don muon xoa: ");
         String id = sc.nextLine();
         n = a.length;
@@ -175,6 +175,7 @@ public class DSChiTietHDT {
             a = Arrays.copyOf(a, n - 1);
             n--;
         }
+        writeDataToFile();
     }
     
     public void xoa(String id){
