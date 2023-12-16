@@ -8,12 +8,11 @@ import java.time.temporal.ChronoUnit;
 public class test {
     public static void main(String [] args) throws IOException
     {
-        DSHDT hd = new DSHDT();
-        hd.readDataFromFile();
-        hd.Menu();
-        DSChiTietHDT ct = new DSChiTietHDT();
-        ct.readDataFromFile();
-        ct.Menu();
+        DSKH kh = new DSKH();
+       // kh.nhap();
+        kh.readDataFromFile();
+        kh.Menu();
+
     }       
 }
     
