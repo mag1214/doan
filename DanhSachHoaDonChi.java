@@ -12,6 +12,7 @@ public class DanhSachHoaDonChi
     HoaDonChi[] a;
     int n;
     int v = 0;
+    static DSCTKH ctkht = new DSCTKH();
     Scanner sc = new Scanner(System.in); 
     public DanhSachHoaDonChi()
     {
@@ -348,8 +349,10 @@ public class DanhSachHoaDonChi
         System.out.println("||  3. Sua thong tin hoa don. ||");
         System.out.println("||    4. Tim kiem hoa don.    ||");
         System.out.println("||  5. Xem danh sach hoa don. ||");
+        System.out.println("||  6. Xem chi tiet hoa don.  ||");
         System.out.println("||       0. Thoat.            ||");
         System.out.println("================================");
+        System.out.print("Choose: ");
     }
     public void showMenutimkiem()
     {
@@ -358,6 +361,7 @@ public class DanhSachHoaDonChi
         System.out.println("||  2. Tim kiem ma ke hoach tua ||");
         System.out.println("||   3. Tim kiem ma nhan vien   ||");
         System.out.println("==================================");
+        System.out.print("Choose: ");
     }
     public void MenuTimKiem()
     {
@@ -412,6 +416,9 @@ public class DanhSachHoaDonChi
             case "5":
                 xuat();
                 break;
+            case "6":
+                ctkht.docFile();
+                ctkht.Menu();
             case "0":
                 System.out.println("Da thoat!");
                 exit = true;

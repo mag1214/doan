@@ -23,6 +23,7 @@ public class MenuDoAn {
         System.out.println("||      7.Lam viec voi hoa don chi  ||");
         System.out.println("||               0.Exit             ||");
         System.out.println("======================================");
+        System.out.print("Choose: ");
     }
     public void Menu() throws IOException
     {
@@ -30,7 +31,6 @@ public class MenuDoAn {
         boolean exit = false;
         showMenu();
         while (true) {
-            System.out.print("Nhap so de lam viec: ");
             choose = sc.nextLine();
             switch (choose) {
             case "1":

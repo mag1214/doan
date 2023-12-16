@@ -355,6 +355,7 @@ public class DSCTKH {
         System.out.println("||       5. Xem danh sach.        ||");
         System.out.println("||           0. Thoat.            ||");
         System.out.println("====================================");
+        System.out.print("Choose: ");
     }
     public void showMenutimkiem()
     {
@@ -366,6 +367,7 @@ public class DSCTKH {
         System.out.println("||  5. Tim kiem theo ma nha hang.   ||");
         System.out.println("||             0. Thoát             ||");
         System.out.println("======================================");
+        System.out.print("Choose: ");
     }
     public void MenuTimKiem()
     {
@@ -408,7 +410,6 @@ public class DSCTKH {
         boolean exit = false;
         showMenu();
         while (true) {
-            System.out.print("Nhap so de lam viec: ");
             choose = sc.nextLine();
             switch (choose) {
             case "1":

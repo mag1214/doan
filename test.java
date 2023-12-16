@@ -9,8 +9,11 @@ public class test {
     public static void main(String [] args) throws IOException
     {
         DSHDT hdt = new DSHDT();
+        DSChiTietHDT ct = new DSChiTietHDT();
         hdt.readDataFromFile();
         hdt.Menu();
+        ct.readDataFromFile();
+        ct.xuat();
     }       
 }
     

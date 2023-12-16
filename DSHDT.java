@@ -148,7 +148,7 @@ public class DSHDT {
                 int x = sc.nextInt();
                 sc.nextLine();
                 for(int j = 0; j < x; j++) {
-                    ct.themhd(a[j].getMahd());
+                    ct.sua((a[j].getMahd()));
                 }
                 a[i].setTonggia(ct.tongtien(a[i].getMahd()));
                 ct.readDataFromFile();
@@ -449,8 +449,10 @@ public void showMenu() {
     System.out.println("|| 3. Sua thong tin hoa don. ||");
     System.out.println("||   4. Tim kiem hoa don.    ||");
     System.out.println("|| 5. Xem danh sach hoa don. ||");
+    System.out.println("|| 6. Xem chi tiet hoa don.  ||");
     System.out.println("||         0. Thoat.         ||");
     System.out.println("===============================");
+    System.out.print("Choose: ");
 }
 public void showMenutimkiem(){
     System.out.println("==================-Option-================");
@@ -464,7 +466,7 @@ public void showMenutimkiem(){
     System.out.print("Choose: ");
 }
 
-public void Menutimkiem(){
+public void Menutimkiem() throws IOException{
     String choose = null;
     boolean exit = false;
     showMenutimkiem();
@@ -522,6 +524,10 @@ public void Menu() throws IOException {
             break;
         case "5":
             xuat();
+            break;
+        case "6":
+            ct.readDataFromFile();
+            ct.Menu();
             break;
         case "0":
             System.out.println("Da thoat!");
