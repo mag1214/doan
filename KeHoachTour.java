@@ -32,6 +32,8 @@ public class KeHoachTour
     }
 
     public long getTongtien() {
+        ctkh.docFile();
+        tongtien = ctkh.Tongchiphitour(MaKeHoach);
         return tongtien;
     }
     public String getMaKeHoach()

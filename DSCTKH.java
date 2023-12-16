@@ -95,7 +95,7 @@ public class DSCTKH {
         ghiFile();
         n++;
     }
-
+    
     public void themkh(String makh) throws IOException {
         a = Arrays.copyOf(a, n + 1);
         a[n] = new ChiTietKeHoach();

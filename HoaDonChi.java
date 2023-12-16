@@ -6,7 +6,8 @@ public class HoaDonChi {
     private String makehoachtua;//them ma duy nhat cho ma ke hoach tua
     private String manhanvien;
     private String mahoadon;
-    DSCTKH ctkh = new DSCTKH();
+    static DSCTKH ctkh = new DSCTKH();
+    static DSVe ve = new DSVe();
     private long tongchiphi;
     // tongchiphi: = chitietkehoach.tongchiphicuatua(makehoachtua)
 
@@ -58,7 +59,9 @@ public class HoaDonChi {
     }
 
     public long getTongchiphi() {
-        tongchiphi = ctkh.Tongchiphitour(makehoachtua);
+        kht.readDataFromFile();
+        ve.readDataFromFile();
+        tongchiphi = kht.TimKiemm(makehoachtua).getTongtien() * ve.veDaBan(kht.TimKiemm(makehoachtua).getMaTour());
         return tongchiphi;
     }
 
@@ -103,10 +106,15 @@ public class HoaDonChi {
             setManhanvien(id);
             
         }
-        tongchiphi = ctkh.Tongchiphitour(makehoachtua);
+        kht.readDataFromFile();
+        ve.readDataFromFile();
+        tongchiphi = kht.TimKiemm(makehoachtua).getTongtien() * ve.veDaBan(kht.TimKiemm(makehoachtua).getMaTour());
     }
     public void xuat()
     {
+        kht.readDataFromFile();
+        ve.readDataFromFile();
+        tongchiphi = kht.TimKiemm(makehoachtua).getTongtien() * ve.veDaBan(kht.TimKiemm(makehoachtua).getMaTour());
         System.out.format("%12s | ", mahoadon);
         System.out.format("%13s | ", makehoachtua);
         System.out.format("%13s ", manhanvien);

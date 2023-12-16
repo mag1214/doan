@@ -17,6 +17,7 @@ public class DanhSachKeHoachTour {
     static KeHoachTour[] kht;
     static DanhSachTour dst = new DanhSachTour();
     static DSCTKH ctkh = new DSCTKH();
+    static DanhSachNhanVien nv = new DanhSachNhanVien();
     Scanner sc = new Scanner(System.in);
     public DanhSachKeHoachTour(){}
     public DanhSachKeHoachTour(int n) 
@@ -152,22 +153,89 @@ public class DanhSachKeHoachTour {
         MaDuyNhat(i);
         System.out.println("======Da them ke hoach vao danh sach======");
     }
+
+    public void menuSua()
+    {
+        System.out.println("============-Option-===========");
+        System.out.println("||     1. Sua ma ke hoach.   ||");
+        System.out.println("||        2. Sua ma tour.    ||");
+        System.out.println("||     3. Sua ma nhan vien.  ||");
+        System.out.println("||         0. Thoat.         ||");
+        System.out.println("===============================");
+        System.out.print("Chon thuoc tinh can sua: ");
+    }
+
     public void Sua() throws IOException
     {
         n=kht.length;
         int a;
         String MaSo;
-        KeHoachTour SuaSv= new KeHoachTour();
         System.out.print("Nhap ma so can sua: ");
         MaSo=sc.nextLine();
         a=TimKiem(MaSo);
         if(a!=-1)
         {
-            System.out.println("======NHAP THONG TIN KE HOACH CAN SUA======");
-            SuaSv.Nhap();
-            kht[a]=SuaSv;
-             writeDataToFile();
-            MaDuyNhat(a);
+            String choose;
+            boolean exit= false;
+            menuSua();
+            while(true)
+            {
+                choose=sc.nextLine();
+                switch (choose) 
+                {
+                    case "1":
+                        System.out.print("Ma duoc sua thanh: ");
+                        String ma=sc.nextLine();
+                        kht[a].setMaKeHoach(ma);
+                        writeDataToFile();
+                        MaDuyNhat(a);
+                        ctkh.docFile();
+                        ctkh.timkiem(MaSo).setMakht(kht[a].getMaKeHoach());
+                        case "2":
+                            System.out.print("Ma tour duoc sua thanh: ");
+                            String matour=sc.nextLine();
+                            kht[a].setMaTour(matour);
+                            while(true) {
+                                dst.readDataFromFile();
+                                if(dst.TimKiemMaTour(matour) != -1) {
+                                    break;
+                                }
+                                System.err.println("Ma tour vua nhap khong ton tai!!!");
+                                System.err.println("Nhan Enter de nhap lai!!!");
+                                sc.nextLine();
+                                dst.Xuat();
+                                System.out.print("Nhap lai ma tour:");
+                                String ma1 = sc.nextLine();
+                                kht[a].setMaTour(ma1);
+                            }
+                        case "3":
+                            System.out.print("Ma nhan vien duoc sua thanh: ");
+                            String manv=sc.nextLine();
+                            kht[a].setMaNhanVien(manv);
+                            while(true) {
+                                nv.readDataFromFile();
+                                if(nv.timkiemma(manv) != -1) {
+                                    System.err.println("Ma nhan vien vua nhap khong ton tai!!!");
+                                    System.err.println("Nhan Enter de nhap lai!!!");
+                                    sc.nextLine();
+                                    System.out.print("Nhap lai ma nhan vien: ");
+                                    String nm = sc.nextLine();
+                                    kht[a].setMaNhanVien(nm);
+                                }
+                            }
+                        case "0":
+                            System.out.println("Da thoat!");
+                            exit = true;
+                            break;
+                        default:
+                            System.err.println("Loi! Hay chon lai:");
+                            break;
+                }
+                        if (exit) {
+                            break;
+                        }
+                    menuSua();
+                }
         }
         else
         {

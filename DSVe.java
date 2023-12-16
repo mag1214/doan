@@ -24,6 +24,16 @@ public class DSVe {
         a = new Ve[n];
     }
 
+    public int veDaBan(String matour) {
+        int soluong = 0;
+        for(int i = 0; i < n; i++) {
+            if(a[i].getMatour().equals(matour)) {
+                soluong += a[i].getSoluong();
+            }
+        }
+        return 80 - soluong;
+    }
+
     public boolean isIdExist(String id, int x) {
         for(int i = 0; i < x; i++) {
             if(a[i].getMave().equals(id)) {

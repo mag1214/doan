@@ -127,6 +127,8 @@ public class HoaDonThu {
     }
 
     public long getTonggia() {
+        ct.readDataFromFile();
+        tonggia = ct.tongtien(mahd);
         return tonggia;
     }
     public void setTonggia(long tonggia) {
