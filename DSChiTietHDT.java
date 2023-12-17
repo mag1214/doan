@@ -185,7 +185,7 @@ public class DSChiTietHDT {
         {
             int vitri = timkiemma(id);
             if(vitri == -1) {
-                    System.out.println("Khong tim thay ma hoa don!");
+                    System.out.println("Chi tiet hoa don da duoc xoa!!");
                     break;
             }
             else {

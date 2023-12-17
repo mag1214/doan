@@ -1,6 +1,7 @@
 import java.util.Scanner;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -30,7 +31,7 @@ public class DSCTKH {
     }
     
     
-    public void nhap() throws IOException{
+    public void nhap(String ma) throws IOException{
         System.out.print("Nhap n chi tiet dau tien: ");
         n = sc.nextInt();
         sc.nextLine();
@@ -38,19 +39,20 @@ public class DSCTKH {
         for(int i = 0; i < n; i++){
             a[i]= new ChiTietKeHoach();
             a[i].nhap();
+            a[i].setMakht(ma);
         }
         ghiFile();
     }
     
     public void xuat() {
-        System.out.println("===========================Danh sach chi tiet ke hoach============================");
+        System.out.println("==================================Danh sach chi tiet ke hoach===================================");
         
-		System.out.format("|| %5s | %10s | %10s | %10s | %10s | %10s | %8s | %15s ||\n", "Stt", "Makht", "manhahang", "makhachsan", "makhuvuichoi","mahoadonchi","tongchiphi","ngay");
+		System.out.format("|| %5s | %10s | %10s | %10s | %10s | %8s | %15s ||\n", "Stt", "Makht", "manhahang", "makhachsan", "makhuvuichoi","tongchiphi","ngay");
         for(int i = 0; i < n; i++) {
             System.out.format("|| %5d |", i + 1);
             a[i].xuat();
         }
-        System.out.println("==================================================================================");
+        System.out.println("================================================================================================");
     }
 
     public void sua() throws IOException{
@@ -319,32 +321,33 @@ public class DSCTKH {
         }
         output.close();
     }
-
     public void docFile() {
-       a= new ChiTietKeHoach[100];
-       int i=0;
-       try {
-            DataInputStream input =new DataInputStream(new FileInputStream("data/datactkh.txt"));
-            try{
-                while ( true ){
-                    a[i]=new ChiTietKeHoach();
-                    a[i].setMakht(input.readUTF());
-                    a[i].setMakhachsan(input.readUTF());
-                    a[i].setMakhuvuichoi(input.readUTF());
-                    a[i].setManhahang(input.readUTF());
-                    a[i].setNgay(input.readUTF());
+        a = new ChiTietKeHoach[500];
+        int i = 0;
+        try {
+            DataInputStream in = new DataInputStream(new FileInputStream("data/datactkh.txt"));
+            try {
+                while(true) {
+                    a[i] = new ChiTietKeHoach();
+                    a[i].setMakht(in.readUTF());
+                    a[i].setMakhachsan(in.readUTF());
+                    a[i].setMakhuvuichoi(in.readUTF());
+                    a[i].setManhahang(in.readUTF());
+                    a[i].setNgay(in.readUTF());
                     i++;
                 }
+            } catch (EOFException e) {
+
+            } finally {
+                n = i;
+                a = Arrays.copyOf(a, n);
+                in.close();
             }
-            catch (IOException e){}
-            finally{
-            n=i;
-            a=Arrays.copyOf(a,n);
-            input.close();
+        } catch (IOException e) {
+    
         }
-    } 
-       catch (IOException e){}
     }
+    
 
     public void showMenu() {
         System.out.println("===============-Option-=============");

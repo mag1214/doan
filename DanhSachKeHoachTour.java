@@ -65,10 +65,19 @@ public class DanhSachKeHoachTour {
             System.out.print("NHAP LAI KE HOACH THU "+(i+1)+"\n");
             kht[i]=new KeHoachTour();
             kht[i].Nhap();
-             writeDataToFile();
+            writeDataToFile();
             if(i>0)
                 MaDuyNhat(i);
+            ctkh.nhap(kht[i].getMaKeHoach());
+            
+            // long daysBetween = findDaysBetween(kht[i].getNgaydi(), kht[i].getNgayVe());
+            // for(int j = 0; j < daysBetween; j++) {
+            //     ctkh.themkh(kht[i].getMaKeHoach());
+            // }
+            System.out.println("======Da them ke hoach vao danh sach======");
+            
         }
+
     }
     public void MaDuyNhat(int i) {
 		readDataFromFile();
@@ -77,7 +86,7 @@ public class DanhSachKeHoachTour {
 		do {
 			if(KiemTraMKH(mkh, i)) {
 				System.out.println();
-				Xuat();
+				//Xuat();
 				System.err.println("\nKe hoach thu " + (i+1) + " co ma " + mkh + " bi trung ma ke hoach. An enter de tiep tuc");
 				sc.nextLine();
 				System.err.print("Nhap Lai Ma: ");
@@ -99,9 +108,10 @@ public class DanhSachKeHoachTour {
     
     public void Xuat()
     {   
+        readDataFromFile();
         n=kht.length;
-        System.out.println("======================-DANH SACH KE HOACH TOUR-===================");
-        System.out.format("|| %9s |%9s |%7s |%12s |%12s |%10 ||\n",
+        System.out.println("==========================-DANH SACH KE HOACH TOUR-=======================");
+        System.out.format("|| %9s |%9s |%7s |%12s |%12s |%10s ||\n",
                   "MaKeHoach", "MaTour", "MaNhanVien", "NgayDi", "NgayVe", "TongTien");
         try
         {
@@ -114,7 +124,7 @@ public class DanhSachKeHoachTour {
 			
 		}
         
-        System.out.println("==================================================================");
+        System.out.println("======================================================================");
     }
     public String NgayDiTimThay(String Ma)
     {

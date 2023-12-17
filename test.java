@@ -9,12 +9,27 @@ public class test {
     public static void main(String [] args) throws IOException
     {
         DanhSachKeHoachTour kht = new DanhSachKeHoachTour();
+        DSCTKH ctkh = new DSCTKH();
         DanhSachTour dst = new DanhSachTour();
-        dst.readDataFromFile();
-        dst.Xuat();
-        kht.Nhap();
-    }       
+        DSNH nh = new DSNH();
+        DSKS ks = new DSKS();
+        DSVC vc = new DSVC();
+        // nh.docFile();
+        // ks.docFile();
+        // vc.docFile();
+        // nh.xuat();
+        // ks.xuat();
+        // vc.xuat();
+        // kht.Nhap();
+        // kht.readDataFromFile();
+         
+        //ctkh.docFile();
+       kht.Xuat();
+        
+    }    
+        
 }
+
     
 
 
