@@ -119,6 +119,7 @@ public class DanhSachKeHoachTour {
             {
                 kht[i].Xuat();
                 System.out.println();
+                
             }
         }catch(NullPointerException npe) {
 			
@@ -128,28 +129,32 @@ public class DanhSachKeHoachTour {
     }
     public String NgayDiTimThay(String Ma)
     {
-        return kht[TimKiem(Ma)].getNgaydi();
+        return TimKiemm(Ma).getNgaydi();
     }
     public String NgayVeTimThay(String Ma)
     {
-        return kht[TimKiem(Ma)].getNgayVe();
+        return TimKiemm(Ma).getNgayVe();
     }
     public void Them() throws IOException
     {
         int i=n;
         System.out.println("======Nhap ke hoach muon them vao======");
         kht = Arrays.copyOf(kht,n+1);
-        kht[n]= new KeHoachTour();
-        kht[n].Nhap();
-        n++;
+        kht[i]= new KeHoachTour();
+        kht[i].Nhap();
         writeDataToFile();
         MaDuyNhat(i);
+        // Xuat();
         ctkh.docFile();
-        long daysBetween = findDaysBetween(kht[n].getNgaydi(), kht[n].getNgayVe());
+        long daysBetween = findDaysBetween(kht[i].getNgaydi(), kht[i].getNgayVe());
         for(int j = 0; j < daysBetween; j++) {
-            ctkh.themkh(kht[n].getMaKeHoach());
+            ctkh.themkh(kht[i].getMaKeHoach());
         }
+        System.out.println(ctkh.Tongchiphitour(kht[i].getMaKeHoach()));
+        
         System.out.println("======Da them ke hoach vao danh sach======");
+         n++;
+        
     } 
     public void Them(KeHoachTour x)
     {
@@ -351,20 +356,12 @@ public class DanhSachKeHoachTour {
     public KeHoachTour TimKiemm(String Ma)
     {
         n=kht.length;
-        KeHoachTour flag=null;
-        System.out.println("==================DANH SACH KE HOACH TOUR TIM THAY===============");
-        System.out.format("|| %9s |%9s |%7s |%12s |%12s ||\n",
-        "MaKeHoach", "MaTour", "MaNhanVien", "NgayDi", "NgayVe");
         for(int i=0; i<n; i++)
         {
             if(kht[i].getMaKeHoach().equals(Ma))
-            {
-                kht[i].Xuat();
-                flag=kht[i];
-            }
+                return kht[i];
         }
-        System.out.println("==================================================================");
-        return flag;
+        return null;
     }
     public String TachNgay(String s)
     {

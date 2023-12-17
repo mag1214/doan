@@ -20,7 +20,7 @@ public class DSCTKH {
     }
     
     public long Tongchiphitour(String makht){
-        long sum=0;
+        long sum=-1;
         n = a.length;
         for (int i=0;i<n;i++){
             if(a[i].getMaKht().equals(makht)){
@@ -102,8 +102,8 @@ public class DSCTKH {
         a = Arrays.copyOf(a, n + 1);
         a[n] = new ChiTietKeHoach();
         System.out.println("Nhap thong tin chi tiet ke hoach: ");
-        a[n].nhap();
         a[n].setMakht(makh);
+        a[n].nhap();
         n++;
         ghiFile();
     }

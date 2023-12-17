@@ -6,7 +6,8 @@ public class KeHoachTour
     private String MaKeHoach, MaTour, MaNhanVien, NgayDi, NgayVe;
     static DanhSachTour dst = new DanhSachTour();
     static DanhSachNhanVien dsnv = new DanhSachNhanVien();
-    static DSCTKH ctkh = new DSCTKH();
+    DSCTKH ctkh = new DSCTKH();
+    
     private long tongtien;
     Scanner sc = new Scanner(System.in);
     public KeHoachTour(){}
@@ -116,8 +117,8 @@ public class KeHoachTour
             if(!validator.Check(NgayVe))
                 System.out.println("Nhap sai dinh dang vui long nhap lai");
         }while (!validator.Check(NgayVe));
-    //    ctkh.docFile();
-    //     tongtien = ctkh.Tongchiphitour(MaKeHoach);
+        // ctkh.docFile();
+        // tongtien = ctkh.Tongchiphitour(MaKeHoach);
     }
     public void Xuat()
     {   

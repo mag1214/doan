@@ -101,7 +101,8 @@ public class ChiTietKeHoach{
             System.err.println(" Nhan Enter de nhap lai: ");
             sc.nextLine();
             System.out.println("nhap lai ngay ");
-            setNgay(ngay);
+            String Ngay1=sc.nextLine();
+            setNgay(Ngay1);
         }
         while (true){
             dskht.readDataFromFile();
@@ -112,9 +113,10 @@ public class ChiTietKeHoach{
             System.err.println("Nhan Enter de nhap lai:");
             sc.nextLine();
             System.out.println("Nhap lai ngay :");
-            setNgay(ngay);
+            String Ngay1=sc.nextLine();
+            setNgay(Ngay1);
         }
-    
+        
         while(true) {
             d.docFile();
             if(d.FindDay(ngay)==-1){
@@ -166,6 +168,7 @@ public class ChiTietKeHoach{
             
         }while(c.timkiemma(makhuvuichoi)==-1);
             tongchiphi = a.timkiem(manhahang).getChiPhi() + b.timkiem(makhachsan).getChiPhi() + c.timkiem(makhuvuichoi).getChiphi();
+            setMakht(makht);
         }
 
     

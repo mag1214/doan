@@ -24,7 +24,8 @@ public class test {
         // kht.readDataFromFile();
          
         //ctkh.docFile();
-       kht.Xuat();
+        kht.readDataFromFile();
+        kht.Menu();
         
     }    
         
