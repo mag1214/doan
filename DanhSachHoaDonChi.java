@@ -4,7 +4,10 @@ import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.Scanner;
 
 public class DanhSachHoaDonChi
@@ -57,6 +60,58 @@ public class DanhSachHoaDonChi
             }
         }
         return false;
+    }
+
+    private Date changeDate(String dateString) {
+        String pattern = "dd/MM/yyyy"; 
+        SimpleDateFormat sdf = new SimpleDateFormat(pattern);
+        try {
+            return sdf.parse(dateString);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+
+    public long tongtienqui1(String nam) {
+        long sum = 0;
+        for(int i = 0; i < n; i++) {
+            if(changeDate(a[i].getNgay()).compareTo(changeDate("01/01/" + nam)) > 0 && changeDate(a[i].getNgay()).compareTo(changeDate("31/03/" + nam)) < 0) {
+                sum += a[i].getTongchiphi();
+            }
+        }
+        return sum;
+    }
+
+    public long tongtienqui2(String nam) {
+        long sum = 0;
+        for(int i = 0; i < n; i++) {
+            if(changeDate(a[i].getNgay()).compareTo(changeDate("01/04/" + nam)) > 0 && changeDate(a[i].getNgay()).compareTo(changeDate("30/06/" + nam)) < 0) {
+                sum += a[i].getTongchiphi();
+            }
+        }
+        return sum;
+    }
+
+    public long tongtienqui3(String nam) {
+        long sum = 0;
+        for(int i = 0; i < n; i++) {
+            if(changeDate(a[i].getNgay()).compareTo(changeDate("01/07/" + nam)) > 0 && changeDate(a[i].getNgay()).compareTo(changeDate("30/09/" + nam)) < 0) {
+                sum += a[i].getTongchiphi();
+            }
+        }
+        return sum;
+    }
+
+    public long tongtienqui4(String nam) {
+        long sum = 0;
+        for(int i = 0; i < n; i++) {
+            if(changeDate(a[i].getNgay()).compareTo(changeDate("01/10/" + nam)) > 0 && changeDate(a[i].getNgay()).compareTo(changeDate("31/12/" + nam)) < 0) {
+                sum += a[i].getTongchiphi();
+            }
+        }
+        return sum;
     }
 
     public void nhap()

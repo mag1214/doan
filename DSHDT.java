@@ -199,6 +199,8 @@ public class DSHDT {
                 isExisted = true;
                 System.out.println("Thong tin hoa don can tim: ");
                 a[i].xuat();
+                ct.readDataFromFile();
+                ct.timkiem(a[i].getMahd()).xuat();
                 break;
             }
         }
@@ -237,6 +239,8 @@ public class DSHDT {
             if (a[i].getMakh().equals(makh)) {
                 isExisted = true;
                 a[i].xuat();
+                ct.readDataFromFile();
+                ct.timkiem(a[i].getMahd()).xuat();
             }
         }
         if(!isExisted) 
@@ -265,6 +269,8 @@ public class DSHDT {
             if (a[i].getManv().equals(manv)) {
                 isExisted = true;
                 a[i].xuat();
+                ct.readDataFromFile();
+                ct.timkiem(a[i].getMahd()).xuat();
             }
         }
         if(!isExisted) 
@@ -329,6 +335,8 @@ public class DSHDT {
         for(int i = 0; i < n; i++) {
             if(changeDate(a[i].getNgaymua()).compareTo(changeDate(time1)) > 0 && changeDate(a[i].getNgaymua()).compareTo(changeDate(time2)) < 0) {
                 a[i].xuat();
+                ct.readDataFromFile();
+                ct.timkiem(a[i].getMahd()).xuat();
             }
         }
     }
@@ -342,6 +350,8 @@ public class DSHDT {
         for(int i = 0; i < n; i++) {
             if(a[i].getTonggia() > gia1 && a[i].getTonggia() < gia2) {
                 a[i].xuat();
+                ct.readDataFromFile();
+                ct.timkiem(a[i].getMahd()).xuat();
             }
         }
     }
@@ -380,28 +390,53 @@ public class DSHDT {
         }
     }
 
+    public long tongtienqui1(String nam) {
+        long sum = 0;
+        for(int i = 0; i < n; i++) {
+            if(changeDate(a[i].getNgaymua()).compareTo(changeDate("01/01/" + nam)) > 0 && changeDate(a[i].getNgaymua()).compareTo(changeDate("31/03/" + nam)) < 0) {
+                sum += a[i].getTonggia();
+            }
+        }
+        return sum;
+    }
+
+    public long tongtienqui2(String nam) {
+        long sum = 0;
+        for(int i = 0; i < n; i++) {
+            if(changeDate(a[i].getNgaymua()).compareTo(changeDate("01/04/" + nam)) > 0 && changeDate(a[i].getNgaymua()).compareTo(changeDate("30/06/" + nam)) < 0) {
+                sum += a[i].getTonggia();
+            }
+        }
+        return sum;
+    }
+
+    public long tongtienqui3(String nam) {
+        long sum = 0;
+        for(int i = 0; i < n; i++) {
+            if(changeDate(a[i].getNgaymua()).compareTo(changeDate("01/07/" + nam)) > 0 && changeDate(a[i].getNgaymua()).compareTo(changeDate("30/09/" + nam)) < 0) {
+                sum += a[i].getTonggia();
+            }
+        }
+        return sum;
+    }
+
+    public long tongtienqui4(String nam) {
+        long sum = 0;
+        for(int i = 0; i < n; i++) {
+            if(changeDate(a[i].getNgaymua()).compareTo(changeDate("01/10/" + nam)) > 0 && changeDate(a[i].getNgaymua()).compareTo(changeDate("31/12/" + nam)) < 0) {
+                sum += a[i].getTonggia();
+            }
+        }
+        return sum;
+    }
+
     public void thongkecacquy() {
         System.out.println("Nhap nam can thong ke: ");
         String nam = sc.nextLine();
-        long sum1 = 0 , sum2 = 0, sum3 = 0, sum4 = 0;
-        for(int i = 0; i < n; i++) {
-            if(changeDate(a[i].getNgaymua()).compareTo(changeDate("01/01/" + nam)) > 0 && changeDate(a[i].getNgaymua()).compareTo(changeDate("31/03/" + nam)) < 0) {
-                sum1 += a[i].getTonggia();
-            }
-            if(changeDate(a[i].getNgaymua()).compareTo(changeDate("01/04/" + nam)) > 0 && changeDate(a[i].getNgaymua()).compareTo(changeDate("30/06/" + nam)) < 0) {
-                sum2 += a[i].getTonggia();
-            }
-            if(changeDate(a[i].getNgaymua()).compareTo(changeDate("01/07/" + nam)) > 0 && changeDate(a[i].getNgaymua()).compareTo(changeDate("30/09/" + nam)) < 0) {
-                sum3 += a[i].getTonggia();
-            }
-            if(changeDate(a[i].getNgaymua()).compareTo(changeDate("01/10/" + nam)) > 0 && changeDate(a[i].getNgaymua()).compareTo(changeDate("31/12/" + nam)) < 0) {
-                sum4 += a[i].getTonggia();
-            }
-        }
-        System.out.println("Tong tien thu quy 1 nam " + nam + ": " + sum1);
-        System.out.println("Tong tien thu quy 2 nam " + nam + ": " + sum2);
-        System.out.println("Tong tien thu quy 3 nam " + nam + ": " + sum3);
-        System.out.println("Tong tien thu quy 4 nam " + nam + ": " + sum4);
+        System.out.println("Tong tien thu quy 1 nam " + nam + ": " + tongtienqui1(nam));
+        System.out.println("Tong tien thu quy 2 nam " + nam + ": " + tongtienqui2(nam));
+        System.out.println("Tong tien thu quy 3 nam " + nam + ": " + tongtienqui3(nam));
+        System.out.println("Tong tien thu quy 4 nam " + nam + ": " + tongtienqui4(nam));
     }
 
     public void writeDataToFile() throws IOException {

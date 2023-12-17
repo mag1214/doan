@@ -11,8 +11,8 @@ public class HoaDonChi {
     private long tongchiphi;
     // tongchiphi: = chitietkehoach.tongchiphicuatua(makehoachtua)
 
-    DanhSachKeHoachTour kht = new DanhSachKeHoachTour();
-    DanhSachNhanVien nv = new DanhSachNhanVien();
+    static DanhSachKeHoachTour kht = new DanhSachKeHoachTour();
+    static DanhSachNhanVien nv = new DanhSachNhanVien();
     
 
     Scanner sc = new Scanner(System.in);
@@ -56,6 +56,11 @@ public class HoaDonChi {
     public void setManhanvien(String manhanvien)
     {
         this.manhanvien = manhanvien;
+    }
+
+    public String getNgay() {
+        kht.readDataFromFile();
+        return kht.NgayDiTimThay(makehoachtua);
     }
 
     public long getTongchiphi() {
