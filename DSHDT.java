@@ -85,6 +85,7 @@ public class DSHDT {
     }
 
     public void xuat() {
+        readDataFromFile();
         System.out.println("=================================-Danh sach hoa don-==================================");
 		System.out.format("|| %5s | %10s | %13s | %12s | %10s | %15s ||\n", "Stt", "Ma hoa don", "Ma khach hang", "Ma nhan vien", "Ngay mua", "Tong tien");
         for(int i = 0; i < n; i++) {
@@ -359,6 +360,7 @@ public class DSHDT {
             }
             a = Arrays.copyOf(a, n - 1);
             n--;
+            ct.xoa(id);
         }
         writeDataToFile();
     }

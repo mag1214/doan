@@ -52,6 +52,7 @@ public class DSChiTietHDT {
     }
 
     public void xuat() {
+        readDataFromFile();
         System.out.println("===================Danh sach chi tiet hoa don=====================");
 		System.out.format("|| %5s | %10s | %10s | %8s | %15s ||\n", "Stt", "Ma hoa don", "Ma ve", "So luong", "Don gia");
         for(int i = 0; i < n; i++) {
@@ -178,19 +179,25 @@ public class DSChiTietHDT {
         writeDataToFile();
     }
     
-    public void xoa(String id){
+    public void xoa(String id) throws IOException{
         n = a.length;
-        int vitri = timkiemma(id);
-        if(vitri == -1) 
-            System.out.println("Khong tim thay ma hoa don!");
-        else {
-            a = Arrays.copyOf(a, n + 2);
-            for(int i = vitri; i < n; i++) {
-                a[i] = a[i + 1];
+        while(true)
+        {
+            int vitri = timkiemma(id);
+            if(vitri == -1) {
+                    System.out.println("Khong tim thay ma hoa don!");
+                    break;
             }
-            a = Arrays.copyOf(a, n - 1);
-            n--;
+            else {
+                a = Arrays.copyOf(a, n + 2);
+                for(int i = vitri; i < n; i++) {
+                    a[i] = a[i + 1];
+                }
+                a = Arrays.copyOf(a, n - 1);
+                n--;
+            }
         }
+       writeDataToFile();
     }
 
     public long tongtien(String mahd) {
