@@ -14,7 +14,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
 public class DanhSachKeHoachTour {
-    static int n,a=0;
+    int n,a=0;
     static KeHoachTour[] kht;
     static DanhSachTour dst = new DanhSachTour();
     static DSCTKH ctkh = new DSCTKH();
