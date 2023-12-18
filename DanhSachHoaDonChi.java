@@ -113,7 +113,7 @@ public class DanhSachHoaDonChi
         }
         return sum;
     }
-
+    
     public void nhap() throws IOException
     {
         System.out.print("Nhap n danh sach hoa don chi dau tien: ");

@@ -43,7 +43,14 @@ public class DSCTKH {
         }
         ghiFile();
     }
-    
+    public void changeMaKHT(String id, String idnew)
+    {
+        for(int i=0; i<n; i++)
+        {
+            if(a[i].getMaKht().equals(id))
+                a[i].setMakht(idnew);
+        }
+    }
     public void xuat() {
         System.out.println("==================================Danh sach chi tiet ke hoach===================================");
         
@@ -56,6 +63,7 @@ public class DSCTKH {
     }
 
     public void sua() throws IOException{
+        docFile();
         System.out.print("Nhap ma ke hoach can duoc sua: ");
         String id = sc.nextLine();
         boolean isExisted = false;
@@ -73,13 +81,16 @@ public class DSCTKH {
         }
     
 
-    public void sua(String id) throws IOException{
+    public void sua(String id, String ngaydi) throws IOException{
         boolean isExisted = false;
         n = a.length;
+        System.out.println("sua chi tiet ke hoach voi ma so la"+id);
         for (int i = 0; i < n; i++) {
             if(a[i].getMaKht().equals(id)) {
                 isExisted = true;
                 a[i].nhap();
+                a[i].setNgay(ngaydi);
+                //a[i].setMakht(id);
                 ghiFile();
                 break;     
             }
@@ -393,8 +404,10 @@ public class DSCTKH {
                 break;
             case "4":
                 timkiemks();
+                break;
             case "5":
                 timkiemnh();
+                break;
             case "0":
                 System.out.println("Da thoat!");
                 exit = true;
