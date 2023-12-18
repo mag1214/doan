@@ -72,21 +72,18 @@ public class HoaDonChi {
 
     public void nhap()
     {
-        System.out.print("Nhap ma ke hoach tour: ");
-        makehoachtua = sc.nextLine();
-        while (true) {
+        
+        do
+        {
             kht.readDataFromFile();
-            if (kht.TimKiem(makehoachtua) != -1) {
-                break;
+            System.out.print("Nhap ma ke hoach tour: ");
+            makehoachtua = sc.nextLine();
+            if (kht.TimKiem(makehoachtua) == -1) {
+                System.err.println("Ma ke hoach tour vua nhap khong ton tai!!");
+                System.err.println("Nhan Enter de tiep tuc: ");
+                sc.nextLine();
             }
-            System.err.println("Ma ke hoach tour vua nhap khong ton tai!!");
-            System.err.println("Nhan Enter de tiep tuc: ");
-            sc.nextLine();
-            kht.Xuat();
-            System.out.print("Nhap lai ma ke hoach tour: ");
-            String id = sc.nextLine();
-            setMakehoachtua(id);      
-        }       
+        }while(kht.TimKiem(makehoachtua) == -1);
         System.out.print("Nhap ma hoa don: ");
         mahoadon = sc.nextLine();
         while (mahoadon.length() == 0) {

@@ -308,7 +308,7 @@ public class DanhSachKeHoachTour {
     public int TimKiem(String Ma)
     {
         n=kht.length;
-        int flag=0;
+        int flag=-1;
         for(int i=0; i<n; i++)
         {
             if(kht[i].getMaKeHoach().equals(Ma))
@@ -428,7 +428,7 @@ public class DanhSachKeHoachTour {
         System.out.println("||     2. Tim kiem ngay di   ||");
         System.out.println("||           0.Thoat         ||");
         System.out.println("===============================");
-        System.out.println("choose: ");
+        System.out.print("Choose: ");
     }
     public void MenuTimKiem()
     {
@@ -468,7 +468,7 @@ public class DanhSachKeHoachTour {
         System.out.println("||      6. Xem chi tiet hoach tour.   ||");
         System.out.println("||             0. Thoat.              ||");
         System.out.println("========================================");
-        System.out.println("choose: ");
+        System.out.print("Choose: ");
     }
     public void Menu() throws IOException{
         String choose = null;
