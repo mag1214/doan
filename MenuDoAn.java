@@ -69,11 +69,14 @@ public class MenuDoAn {
             case "6":
                 dshdt.readDataFromFile();
                 dshdt.Menu();
+                break;
             case "7":
                 dshdc.readDataFromFile();
                 dshdc.Menu();
+                break;
             case "8":
                 thongkelaisuat();
+                break;
             case "0":
                 System.out.println("Da thoat!");
                 exit = true;

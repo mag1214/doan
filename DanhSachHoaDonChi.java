@@ -136,21 +136,20 @@ public class DanhSachHoaDonChi
         //     a[i].xuat();
         // }
         n=a.length;
-        System.out.println("=====================-DANH SACH HOA DON CHI-==================");
-        System.out.format("|| %9s |%9s |%7s |%12s||\n",
+        System.out.println("======================-DANH SACH HOA DON CHI-====================");
+        System.out.format("|| %11s |%14s |%14s |%15s||\n",
                   "MaHoaDon", "MaKeHoachTour", "MaNhanVien", "TongChiPhi");
         try
         {
             for(int i=0; i<n; i++)
             {
                 a[i].xuat();
-                System.out.println();
             }
         }catch(NullPointerException npe) {
 			
 		}
         
-        System.out.println("================================================================");
+        System.out.println("=================================================================");
     }
     public void them() throws IOException
     {
@@ -181,7 +180,7 @@ public class DanhSachHoaDonChi
             {
                 isExisted = true;
                 a[i].nhap();
-                writeDataToFile();
+                writeDataToFile();;
                 break;
             }
 
@@ -406,8 +405,7 @@ public class DanhSachHoaDonChi
         System.out.println("||  3. Sua thong tin hoa don. ||");
         System.out.println("||    4. Tim kiem hoa don.    ||");
         System.out.println("||  5. Xem danh sach hoa don. ||");
-        System.out.println("||  6. Xem chi tiet hoa don.  ||");
-        System.out.println("||       0. Thoat.            ||");
+        System.out.println("||          0. Thoat.         ||");
         System.out.println("================================");
         System.out.print("Choose: ");
     }
@@ -473,9 +471,6 @@ public class DanhSachHoaDonChi
             case "5":
                 xuat();
                 break;
-            case "6":
-                ctkht.docFile();
-                ctkht.Menu();
             case "0":
                 System.out.println("Da thoat!");
                 exit = true;

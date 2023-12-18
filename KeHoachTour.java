@@ -123,11 +123,12 @@ public class KeHoachTour
     public void Xuat()
     {   
         ctkh.docFile();
+        tongtien=ctkh.Tongchiphitour(MaKeHoach);
         System.out.format("|| %9s | ", MaKeHoach);
         System.out.format("%8s | ", MaTour);
         System.out.format("%9s | ", MaNhanVien);
         System.out.format("%11s | ", NgayDi);
         System.out.format("%11s | ", NgayVe);
-        System.out.format("%10d ||", tongtien=ctkh.Tongchiphitour(MaKeHoach));
+        System.out.format("%10d ||", tongtien);
     }
 }

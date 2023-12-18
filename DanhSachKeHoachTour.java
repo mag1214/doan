@@ -111,8 +111,8 @@ public class DanhSachKeHoachTour {
     {   
         readDataFromFile();
         n=kht.length;
-        System.out.println("==========================-DANH SACH KE HOACH TOUR-=======================");
-        System.out.format("|| %9s |%9s |%7s |%12s |%12s |%10s ||\n",
+        System.out.println("==========================-DANH SACH KE HOACH TOUR-============================");
+        System.out.format("|| %9s |%9s |%7s |%12s |%12s |%11s ||\n",
                   "MaKeHoach", "MaTour", "MaNhanVien", "NgayDi", "NgayVe", "TongTien");
         try
         {
@@ -126,7 +126,7 @@ public class DanhSachKeHoachTour {
 			
 		}
         
-        System.out.println("======================================================================");
+        System.out.println("===============================================================================");
     }
     public String NgayDiTimThay(String Ma)
     {
@@ -547,6 +547,7 @@ public class DanhSachKeHoachTour {
         System.out.println("||    3. Sua thong tin ke hoach tour. ||");
         System.out.println("||      4. Tim kiem ke hoach tour.    ||");
         System.out.println("||    5. Xem danh sach ke hoach tour. ||");
+        System.out.println("||      6. Xem chi tiet hoach tour.   ||");
         System.out.println("||             0. Thoat.              ||");
         System.out.println("========================================");
     }
@@ -573,6 +574,8 @@ public class DanhSachKeHoachTour {
             case "5":
                 Xuat();
                 break;
+            case "6":
+                ctkh.Menu();
             case "0":
                 System.out.println("Da thoat!");
                 exit = true;

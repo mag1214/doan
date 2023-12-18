@@ -490,6 +490,7 @@ public void showMenu() {
     System.out.println("||   4. Tim kiem hoa don.    ||");
     System.out.println("|| 5. Xem danh sach hoa don. ||");
     System.out.println("|| 6. Xem chi tiet hoa don.  ||");
+    System.out.println("||  7.Xem doanh thu cac quy  ||");
     System.out.println("||         0. Thoat.         ||");
     System.out.println("===============================");
     System.out.print("Choose: ");
@@ -526,7 +527,7 @@ public void Menutimkiem() throws IOException{
             timkiemtheogia();
             break;
         case "5":
-            thongkecacquy();
+            xuat();
             break;
         case "0":
             System.out.println("Da thoat!");
@@ -568,6 +569,9 @@ public void Menu() throws IOException {
         case "6":
             ct.readDataFromFile();
             ct.Menu();
+            break;
+        case "7":
+            thongkecacquy();
             break;
         case "0":
             System.out.println("Da thoat!");

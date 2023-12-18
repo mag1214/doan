@@ -282,11 +282,15 @@ public class DSVe {
         int gia2 = sc.nextInt();
         sc.nextLine();
         n = a.length;
+        System.out.println("==================================Danh sach ve=================================");
+		System.out.format("|| %5s | %10s | %10s | %10s | %15s | %8s ||\n", "Stt", "Ma tour", "Ma ve", "Loai ve", "Gia ve", "So luong");
         for(int i = 0; i < n; i++) {
             if(Integer.parseInt(a[i].getGiave()) > gia1 && Integer.parseInt(a[i].getGiave()) < gia2) {
+                System.out.format("|| %5d |", i + 1);
                 a[i].xuat();
             }
         }
+        System.out.println("===============================================================================");
     }
 
     public boolean didIdExist(String id) {

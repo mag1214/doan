@@ -414,6 +414,7 @@ public class DSCTKH {
         boolean exit = false;
         showMenu();
         while (true) {
+            docFile();
             choose = sc.nextLine();
             switch (choose) {
             case "1":

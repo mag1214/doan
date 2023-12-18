@@ -120,9 +120,9 @@ public class HoaDonChi {
         kht.readDataFromFile();
         ve.readDataFromFile();
         tongchiphi = kht.TimKiemm(makehoachtua).getTongtien() * ve.veDaBan(kht.TimKiemm(makehoachtua).getMaTour());
-        System.out.format("%12s | ", mahoadon);
+        System.out.format("||%12s | ", mahoadon);
         System.out.format("%13s | ", makehoachtua);
-        System.out.format("%13s ", manhanvien);
-        System.out.format("%15d%n", tongchiphi);  // Hiển thị tổng chi phí
+        System.out.format("%13s |", manhanvien);
+        System.out.format("%15d||%n", tongchiphi);  // Hiển thị tổng chi phí
     }
 }
