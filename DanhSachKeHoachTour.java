@@ -176,8 +176,6 @@ public class DanhSachKeHoachTour {
             System.err.println("Nhap ke hoach ngay thu " + (j+1) + ": ");
             ctkh.themkh(kht[i].getMaKeHoach(), day);
         }
-        System.out.println(ctkh.Tongchiphitour(kht[i].getMaKeHoach()));
-        
         System.out.println("======Da them ke hoach vao danh sach======");
         n++;
         
