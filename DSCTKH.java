@@ -131,6 +131,8 @@ public class DSCTKH {
     
 
     public void timkiem(){
+        docFile();
+        xuat();
         System.out.print("Nhap ma ke hoach tour muon tim: ");
         String ma = sc.nextLine();
         boolean isExisted = false;
@@ -183,18 +185,25 @@ public class DSCTKH {
     }
 
     public void timkiemks(){
+        docFile();
+        xuat();
         System.out.print("Nhap ma khach san muon tim: ");
         String ma = sc.nextLine();
         boolean isExisted = false;
         n = a.length;
+        System.out.println("==================================Danh sach chi tiet tim thay===================================");
+        
+		System.out.format("|| %5s | %10s | %10s | %10s | %10s | %8s | %15s ||\n", "Stt", "Makht", "manhahang", "makhachsan", "makhuvuichoi","tongchiphi","ngay");
         for(int i = 0; i < n; i++) {
             if (a[i].getMakhachsan().equals(ma)) {
                 isExisted = true;
+                System.out.format("|| %5d |", i + 1);
                 a[i].xuat();
             }
         }
         if(!isExisted) 
             System.out.println("Khong tim thay ma khach san!");
+        System.out.println("================================================================================================");
     }
 
     public void timkiemks(String ma){
@@ -215,14 +224,19 @@ public class DSCTKH {
         String ma = sc.nextLine();
         boolean isExisted = false;
         n = a.length;
+        System.out.println("==================================Danh sach chi tiet tim thay===================================");
+        
+		System.out.format("|| %5s | %10s | %10s | %10s | %10s | %8s | %15s ||\n", "Stt", "Makht", "manhahang", "makhachsan", "makhuvuichoi","tongchiphi","ngay");
         for(int i = 0; i < n; i++) {
             if (a[i].getManhahang().equals(ma)) {
+                System.out.format("|| %5d |", i + 1);
                 isExisted = true;
                 a[i].xuat();
             }
         }
         if(!isExisted) 
             System.out.println("Khong tim thay ma nha hang!");
+        System.out.println("================================================================================================");
     }
 
     public void timkiemnh(String ma){
@@ -315,16 +329,21 @@ public class DSCTKH {
         }
     }
     public void timKiemChiPhiNgay() {
+        docFile();
+        xuat();
+        boolean flag=false;
         System.out.print("Nhap chi phi tu ban phim: ");
         double Chiphi = sc.nextDouble();
-
         System.out.format("Cac chi tiet co chi phi bang %.2f:%n",Chiphi);
         System.out.format("%10s | %10s | %10s | %15s%n", "Ma Khu", "Dia Diem", "Ten", "Chi Phi");
         for (int i = 0; i < n; i++) {
             if (a[i].getTongchiphi() == Chiphi) {
                 a[i].xuat();
+                flag=true;
             }
         }
+        if(flag==false)
+            System.out.println("Khong tim thay");
     }
 
     public void ghiFile() throws IOException {
@@ -384,8 +403,7 @@ public class DSCTKH {
         System.out.println("||  1. Tim kiem chi tiet ke hoach.  ||");
         System.out.println("||  2. Tim kiem theo ma khach san.  ||");
         System.out.println("||    3. Tim kiem chi phi ngay.     ||");
-        System.out.println("||  4. Tim kiem theo ma khach san.  ||");
-        System.out.println("||  5. Tim kiem theo ma nha hang.   ||");
+        System.out.println("||  4. Tim kiem theo ma nha hang.   ||");
         System.out.println("||             0. Thoát             ||");
         System.out.println("======================================");
         System.out.print("Choose: ");
@@ -396,7 +414,6 @@ public class DSCTKH {
         boolean exit = false;
         showMenutimkiem();
         while (true) {
-            System.out.print("Nhap so de lam viec: ");
             choose = sc.nextLine();
             switch (choose) {
             case "1":
@@ -409,9 +426,6 @@ public class DSCTKH {
                 timKiemChiPhiNgay();
                 break;
             case "4":
-                timkiemks();
-                break;
-            case "5":
                 timkiemnh();
                 break;
             case "0":

@@ -76,6 +76,7 @@ public class DSKH {
     }
 
     public void xuat() {
+        readDataFromFile();
         System.out.println("======================================Danh sach khach hang=======================================");
         
 		System.out.format("|| %5s | %10s | %8s | %20s | %10s | %9s | %11s ||\n", "Stt", "Ma", "Ho", "Ten", "Ngay sinh", "Gioi Tinh", "Sdt");
@@ -107,6 +108,8 @@ public class DSKH {
     }
     
     public void sua() throws IOException {
+        readDataFromFile();
+        xuat();
         System.out.print("Nhap ma khach hang can duoc sua: ");
         String id = sc.nextLine();
         boolean isExisted = false;
@@ -161,20 +164,25 @@ public class DSKH {
     }
     
     public void timkiem(){
+        xuat();
         System.out.print("Nhap ma khach hang muon tim: ");
         String ma = sc.nextLine();
         boolean isExisted = false;
         n = a.length;
+        System.out.println("======================================Danh sach khach hang=======================================");
+        
+		System.out.format("|| %5s | %10s | %8s | %20s | %10s | %9s | %11s ||\n", "Stt", "Ma", "Ho", "Ten", "Ngay sinh", "Gioi Tinh", "Sdt");
         for (int i = 0; i < n; i++) {
             if(a[i].getMa().equals(ma)) {
+                System.out.format("|| %5d |", i + 1);
                 isExisted = true;
-                System.out.println("Thong tin khach hang can tim: ");
                 a[i].xuat();
                 break;
             }
         }
         if(!isExisted) 
             System.out.println("Khong tim thay ma khach hang!");
+        System.out.println("=================================================================================================");
     }
     
     public int timkiemma(String ma){
@@ -200,18 +208,23 @@ public class DSKH {
     }
     
     public void timkiemho(){
+        xuat();
         System.out.print("Nhap ho khach hang muon tim: ");
         String ho = sc.nextLine();
         boolean isExisted = false;
         n = a.length;
+        System.out.println("======================================Danh sach khach hang=======================================");
+		System.out.format("|| %5s | %10s | %8s | %20s | %10s | %9s | %11s ||\n", "Stt", "Ma", "Ho", "Ten", "Ngay sinh", "Gioi Tinh", "Sdt");
         for(int i = 0; i < n; i++) {
             if (a[i].getHo().contains(ho)) {
+                System.out.format("|| %5d |", i + 1);
                 isExisted = true;
                 a[i].xuat();
             }
         }
         if(!isExisted) 
             System.out.println("Khong co khach hang nao mang ho "+ho+"!");
+        System.out.println("=================================================================================================");
     }
 
     public void timkiemho(String ho){
@@ -228,18 +241,24 @@ public class DSKH {
     }
     
     public void timkiemten(){
+        xuat();
         System.out.print("Nhap ten khach hang muon tim: ");
         String ten = sc.nextLine();
         boolean isExisted = false;
         n = a.length;
+        
+        System.out.println("======================================Danh sach khach hang=======================================");
+		System.out.format("|| %5s | %10s | %8s | %20s | %10s | %9s | %11s ||\n", "Stt", "Ma", "Ho", "Ten", "Ngay sinh", "Gioi Tinh", "Sdt");
         for (int i = 0; i < n; i++) {
             if (a[i].getTen().contains(ten)) {
+                System.out.format("|| %5d |", i + 1);
                 isExisted = true;
                 a[i].xuat();
             }
         }
         if (!isExisted) 
             System.out.println("Khong co khach hang nao mang ten "+ten+"!");
+        System.out.println("=================================================================================================");
     }
     public void timkiemten(String ten){
         boolean isExisted = false;
@@ -255,6 +274,8 @@ public class DSKH {
     }
 
     public void xoa() throws IOException {
+        readDataFromFile();
+        xuat();
         System.out.print("Nhap ma khach hang muon xoa: ");
         String id = sc.nextLine();
         n = a.length;

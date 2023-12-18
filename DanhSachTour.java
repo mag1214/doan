@@ -104,6 +104,7 @@ public class DanhSachTour {
 	}
     public void Xuat()
     {
+        readDataFromFile();
         System.out.println("====================================================DANH SACH TOUR=============================================================");
         System.out.format("||%5s |%18s        |%10s |%13s |%5s |%10s |%15s |%15s ||\n",
                   "MaTour", "TenTour", "NoiKhoiHanh", "Noiden", "ThoiDiem Di","PhuongTien", "TinhThanh/QuocGia", "ThoiHanViSa");
@@ -149,7 +150,7 @@ public class DanhSachTour {
                         n++;
                         writeDataToFile();
                         MaDuyNhat(i);
-                        System.out.println("dA THEM TOUR VAO DANH SACH");
+                        System.out.println("DA THEM TOUR VAO DANH SACH");
                     break;
                 case 2:
                         dst = Arrays.copyOf(dst,n+1);
@@ -189,8 +190,10 @@ public class DanhSachTour {
     }
     public void XoaMa()
     {
+        readDataFromFile();
         n=dst.length;
         int a;
+        Xuat();
         String MaSo;
         System.out.print("Nhap ma so tour can xoa: ");
         MaSo=sc.nextLine();
@@ -229,6 +232,7 @@ public class DanhSachTour {
         int number=-1;
         int ViTri;
         String MaSo;
+        Xuat();
         System.out.print("Nhap ma so tour can sua: ");
         MaSo=sc.nextLine();
         ViTri=TimKiemMaTour(MaSo);
@@ -458,7 +462,7 @@ public class DanhSachTour {
                 flag=1;
             }
         }
-        System.out.println("========================================================================================================");
+        System.out.println("===============================================================================================================================");
         if(flag==0)
             System.out.println("Khong tim thay tour nao!!!");
     }
@@ -573,6 +577,7 @@ public class DanhSachTour {
         System.out.println("|| 5. Xem danh sach tour.  ||");
         System.out.println("||       0. Thoat.         ||");
         System.out.println("=============================");
+        System.out.print("choose: ");
     }
     public void showMenutimkiem()
     {
@@ -580,7 +585,9 @@ public class DanhSachTour {
         System.out.println("||   1. Tim kiem ma tour    ||");
         System.out.println("||   2. Tim kiem ten tour   ||");
         System.out.println("||      3. Tim noi den      ||");
+        System.out.println("||       0. Thoat.          ||");
         System.out.println("==============================");
+        System.out.print("choose: ");
     }
     public void MenuTimKiem()
     {
@@ -588,7 +595,6 @@ public class DanhSachTour {
         boolean exit = false;
         showMenutimkiem();
         while (true) {
-            System.out.print("Nhap so de lam viec: ");
             choose = sc.nextLine();
             switch (choose) {
             case "1":
@@ -619,7 +625,6 @@ public class DanhSachTour {
         boolean exit = false;
         showMenu();
         while (true) {
-            System.out.print("Nhap so de lam viec: ");
             choose = sc.nextLine();
             switch (choose) {
             case "1":

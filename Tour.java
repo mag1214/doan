@@ -81,12 +81,12 @@ public abstract class Tour implements Serializable{
         }while(MaTour.length()==0);
         do
         {   
-            System.out.println("Khong duoc de trong ten tour va nhap be hon 24 ky tu");
+            System.out.println("Khong duoc de trong ten tour");
             System.out.print("Nhap ten tour: ");
             TenTour=sc.nextLine();
-            if(TenTour.length()==0 && TenTour.length()>24)
+            if(TenTour.length()==0)
                 System.out.println("Vui long khong de trong du lieu. Moi ban nhap lai!!");
-        }while(TenTour.length()==0 && TenTour.length()>24);
+        }while(TenTour.length()==0);
         do
         {   
             System.out.print("Nhap noi khoi hanh: ");
@@ -106,7 +106,7 @@ public abstract class Tour implements Serializable{
         do
         {
             System.out.println("Nhap thoi diem di theo dinh dang dd/MM/yyyy");
-            System.out.print("Nhap noi di: ");
+            System.out.print("Nhap thoi diem di: ");
             ThoiDiemDi=sc.nextLine();
             if(!validator.Check(ThoiDiemDi))
                 System.out.println("Nhap sai dinh dang!!!Vui long nhap lai");
