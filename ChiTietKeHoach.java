@@ -1,7 +1,5 @@
 import java.util.Scanner;
-import java.util.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+
 
 
 
@@ -90,45 +88,9 @@ public class ChiTietKeHoach{
     }
     
     public void nhap() {
-         a.docFile();
-         c.docFile();
-         b.docFile();
-        System.out.print("Nhap ngay :");
-        ngay=sc.nextLine();
-        NgayThangNam validator = new KiemTraDinhDang("dd/MM/yyyy");
-        while(!validator.Check(ngay)){
-            System.err.println("Nhap sai dinh dang ngay . Dinh dang ngay dung la : dd/MM/yyyy");
-            System.err.println(" Nhan Enter de nhap lai: ");
-            sc.nextLine();
-            System.out.println("nhap lai ngay ");
-            String Ngay1=sc.nextLine();
-            setNgay(Ngay1);
-        }
-        while (true){
-            dskht.readDataFromFile();
-            if(changeday(ngay).compareTo(changeday(dskht.NgayDiTimThay((makht))))>0 && changeday(ngay).compareTo(changeday(dskht.NgayVeTimThay(makht)))<=0){
-                break;
-            }
-            System.err.println("Ngay ban nhap khong ton tai hoac khong dung");
-            System.err.println("Nhan Enter de nhap lai:");
-            sc.nextLine();
-            System.out.println("Nhap lai ngay :");
-            String Ngay1=sc.nextLine();
-            setNgay(Ngay1);
-        }
-        
-        while(true) {
-            d.docFile();
-            if(d.FindDay(ngay)==-1){
-                break;
-            }
-            System.err.println("Ngay ban nhap da trung ");
-            System.err.println(" Vui long nhan Enter de nhap lai :");
-            sc.nextLine();
-            System.out.println("Nhap lai ngay :");
-            setNgay(ngay);
-        }
-        
+        a.docFile();
+        c.docFile();
+        b.docFile();
         System.out.println("Chon nha hang");
         manhahang=sc.nextLine();
         while (true){
@@ -168,23 +130,10 @@ public class ChiTietKeHoach{
             
         }while(c.timkiemma(makhuvuichoi)==-1);
             tongchiphi = a.timkiem(manhahang).getChiPhi() + b.timkiem(makhachsan).getChiPhi() + c.timkiem(makhuvuichoi).getChiphi();
-            setMakht(makht);
         }
 
     
-    public Date changeday(String day){
-        String pattern ="dd/MM/yyyy";
-        SimpleDateFormat sdf=new SimpleDateFormat(pattern);
-        try{
-
-            return sdf.parse(day);
-
-        } catch (ParseException e){
-            e.printStackTrace();
-            return null;
-        }
-
-    }
+    
     public void xuat() {
          a.docFile();
          c.docFile();

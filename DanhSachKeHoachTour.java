@@ -10,6 +10,7 @@ import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
 public class DanhSachKeHoachTour {
@@ -135,6 +136,28 @@ public class DanhSachKeHoachTour {
     {
         return TimKiemm(Ma).getNgayVe();
     }
+    public static Date changeday(String day){
+        String pattern ="dd/MM/yyyy";
+        SimpleDateFormat sdf=new SimpleDateFormat(pattern);
+        try{
+
+            return sdf.parse(day);
+
+        } catch (ParseException e){
+            e.printStackTrace();
+            return null;
+        }
+
+    }
+    public String addOneDay(String day) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(changeday(day));
+        calendar.add(Calendar.DAY_OF_MONTH, 1);
+        Date newDate = calendar.getTime();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        day = dateFormat.format(newDate);
+        return day;
+    }
     public void Them() throws IOException
     {
         int i=n;
@@ -147,13 +170,16 @@ public class DanhSachKeHoachTour {
         // Xuat();
         ctkh.docFile();
         long daysBetween = findDaysBetween(kht[i].getNgaydi(), kht[i].getNgayVe());
+        String day = kht[i].getNgaydi();
         for(int j = 0; j < daysBetween; j++) {
-            ctkh.themkh(kht[i].getMaKeHoach());
+            day = addOneDay(day);
+            System.err.println("Nhap ke hoach ngay thu " + (j+1) + ": ");
+            ctkh.themkh(kht[i].getMaKeHoach(), day);
         }
         System.out.println(ctkh.Tongchiphitour(kht[i].getMaKeHoach()));
         
         System.out.println("======Da them ke hoach vao danh sach======");
-         n++;
+        n++;
         
     } 
     public void Them(KeHoachTour x)

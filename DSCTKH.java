@@ -98,12 +98,13 @@ public class DSCTKH {
         n++;
     }
     
-    public void themkh(String makh) throws IOException {
+    public void themkh(String makh, String ngaydi) throws IOException {
         a = Arrays.copyOf(a, n + 1);
         a[n] = new ChiTietKeHoach();
         System.out.println("Nhap thong tin chi tiet ke hoach: ");
-        a[n].setMakht(makh);
         a[n].nhap();
+        a[n].setNgay(ngaydi);
+        a[n].setMakht(makh);
         n++;
         ghiFile();
     }
