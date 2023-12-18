@@ -38,6 +38,7 @@ public class DanhSachNhanVien {
         return a[i].getManhanvien();
     }
     public void xuat() {
+        readDataFromFile();
         n=a.length;
         System.out.println("==================================-DANH SACH NHAN VIEN-=====================================");
         System.out.format("|| %9s |%9s |%20s |%10s |%12s |%12s ||\n",
@@ -47,7 +48,6 @@ public class DanhSachNhanVien {
             for(int i=0; i<n; i++)
             {
                 a[i].xuat();
-                System.out.println();
             }
         }catch(NullPointerException npe) {
 			
@@ -73,12 +73,14 @@ public class DanhSachNhanVien {
     }
     
     public void sua() throws IOException{
+        xuat();
         System.out.print("Nhap ma nhan vien can duoc sua: ");
         String id = sc.nextLine();
         boolean isExisted = false;
         n = a.length;
         for (int i = 0; i < n; i++) {
             if(a[i].getManhanvien().equals(id)) {
+                isExisted = true;
                 a[i].nhap();
                 break;
             }
@@ -120,6 +122,7 @@ public class DanhSachNhanVien {
     }
      
     public void timkiem(){
+        xuat();
         System.out.print("Nhap ma nhan vien muon tim: ");
         String ma = sc.nextLine();
         boolean isExisted = false;
@@ -130,7 +133,6 @@ public class DanhSachNhanVien {
         for (int i = 0; i < n; i++) {
             if(a[i].getManhanvien().equals(ma)) {
                 isExisted = true;
-                System.out.println("Thong tin nhan vien can tim: ");
                 a[i].xuat();
                 break;
             }
@@ -163,6 +165,7 @@ public class DanhSachNhanVien {
  
     
     public void timkiemho(){
+        xuat();
         System.out.print("Nhap ho nhan vien muon tim: ");
         String ho = sc.nextLine();
         boolean isExisted = false;
@@ -194,6 +197,7 @@ public class DanhSachNhanVien {
             System.out.println("Khong co nhan vien nao mang ho "+ho+"!");
     }
     public void timkiemten(){
+        xuat();
         System.out.print("Nhap ten nhan vien muon tim: ");
         String ten = sc.nextLine();
         boolean isExisted = false;
@@ -233,7 +237,8 @@ public class DanhSachNhanVien {
         return tuoi;
     }
 
-    public void xoa(){
+    public void xoa() throws IOException{
+        xuat();
         System.out.print("Nhap ma nhan vien muon xoa: ");
         String id = sc.nextLine();
         n = a.length;
@@ -248,6 +253,7 @@ public class DanhSachNhanVien {
             a = Arrays.copyOf(a, n - 1);
             n--;
         }
+        writeDataToFile();
     }
     
     public void xoa(String id){
@@ -361,6 +367,7 @@ public class DanhSachNhanVien {
         System.out.println("||  5. Xem danh sach nhan vien. ||");
         System.out.println("||          0. Thoat.           ||");
         System.out.println("==================================");
+        System.out.print("choose: ");
     }
     public void showMenutimkiem()
     {
@@ -368,7 +375,9 @@ public class DanhSachNhanVien {
         System.out.println("||  1. Tim kiem ma nhan vien  ||");
         System.out.println("||  2. Tim kiem ho nhan vien  ||");
         System.out.println("||  3. Tim kiem ten nhan vien ||");
+        System.out.println("||          0. Thoat.         ||");
         System.out.println("================================");
+        System.out.print("choose: ");
     }
     public void MenuTimKiem()
     {
@@ -418,7 +427,7 @@ public class DanhSachNhanVien {
                 sua();
                 break;
             case "4":
-                showMenutimkiem();
+                MenuTimKiem();
                 break;
             case "5":
                 xuat();

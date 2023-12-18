@@ -156,7 +156,7 @@ public class DanhSachHoaDonChi
         n = a.length;
         a = Arrays.copyOf(a, n+1);
         a[n] = new HoaDonChi();
-        System.out.print("Nhap thong tin hoa don chi can them: ");
+        System.out.println("Nhap thong tin hoa don chi can them");
         a[n].nhap();
         n++;
         writeDataToFile();
@@ -184,11 +184,11 @@ public class DanhSachHoaDonChi
                 break;
             }
 
-            if(!isExisted)
-            {
-                System.out.print("Khong tim thay ma hoa don.");
-            }
             
+        }
+        if(!isExisted)
+        {
+            System.out.println("Khong tim thay ma hoa don.");
         }
 
     }
@@ -405,6 +405,7 @@ public class DanhSachHoaDonChi
         System.out.println("||  3. Sua thong tin hoa don. ||");
         System.out.println("||    4. Tim kiem hoa don.    ||");
         System.out.println("||  5. Xem danh sach hoa don. ||");
+        System.out.println("||  6. Xem chi tiet hoa don.  ||");
         System.out.println("||          0. Thoat.         ||");
         System.out.println("================================");
         System.out.print("Choose: ");
@@ -470,6 +471,9 @@ public class DanhSachHoaDonChi
                 break;
             case "5":
                 xuat();
+                break;
+            case "6":
+                ctkht.xuat();
                 break;
             case "0":
                 System.out.println("Da thoat!");

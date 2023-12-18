@@ -141,7 +141,7 @@ public class NhanVien
         System.out.format("%20s |",ten);
         System.out.format("%10s |", gioitinh);
         System.out.format("%12s |", ngaysinh);
-        System.out.format("%14s ||", trinhdongonngu);
+        System.out.format("%14s ||\n", trinhdongonngu);
 
     }   
      

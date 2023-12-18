@@ -172,9 +172,13 @@ public class DSVe {
         String ma = sc.nextLine();
         boolean isExisted = false;
         n = a.length;
-        for (int i = 0; i < n; i++) {
-            if(a[i].getMave().equals(ma)) {
-                isExisted = true;
+        System.out.println("==================================Danh sach ve=================================");
+       
+		System.out.format("|| %5s | %10s | %10s | %10s | %15s | %8s ||\n", "Stt", "Ma tour", "Ma ve", "Loai ve", "Gia ve", "So luong");
+            for (int i = 0; i < n; i++) {
+                if(a[i].getMave().equals(ma)) {
+                    System.out.format("|| %5d |", i + 1);
+                    isExisted = true;
                 System.out.println("Thong tin ve can tim: ");
                 a[i].xuat();
                 break;
@@ -182,6 +186,7 @@ public class DSVe {
         }
         if(!isExisted) 
             System.out.println("Khong tim thay ma ve!");
+        System.out.println("===============================================================================");
     }
     
     public int timkiemma(String ma){
@@ -211,9 +216,13 @@ public class DSVe {
         String ma = sc.nextLine();
         boolean isExisted = false;
         n = a.length;
+        System.out.println("==================================Danh sach ve=================================");
+       
+		System.out.format("|| %5s | %10s | %10s | %10s | %15s | %8s ||\n", "Stt", "Ma tour", "Ma ve", "Loai ve", "Gia ve", "So luong");
         for(int i = 0; i < n; i++) {
             if (a[i].getMatour().equals(ma)) {
                 isExisted = true;
+                System.out.format("|| %5d |", i + 1);
                 a[i].xuat();
             }
         }

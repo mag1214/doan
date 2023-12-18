@@ -421,38 +421,6 @@ public class DanhSachKeHoachTour {
        
         }
     }
-
-    public void NamToChuc()
-    {
-        int Count1=0, Count2=0, Count3=0, Count4=0;
-        
-        for(int i=0; i<n; i++)
-        {
-            String nam=TachNam(kht[i].getNgaydi());
-            int Nam= Integer.parseInt(nam);
-            if(Nam>=2000 && Nam<2005)
-                Count1++;
-            else if (Nam>=2005 && Nam<2010)
-                Count2++;
-            else if(Nam>=2010 && Nam<2015)
-                Count3++;
-            else if(Nam>=2015 && Nam<=2020)
-                Count4++;
-        }
-        System.out.println("===========Cac_Nam_To_Chuc===========");
-        System.out.println("| So Tour tu nam 2000 den 2004 | " +Count1+ " |");
-        System.out.println("| So Tour tu nam 2005 den 2009 | " +Count2+ " |");
-        System.out.println("| So Tour tu nam 2010 den 2014 | " +Count3+ " |");
-        System.out.println("| So Tour tu nam 2015 den 2020 | " +Count4+ " |");
-        System.out.println("=====================================");
-    }
-    public String TachNam(String s)
-    {
-        String[] NgayThangNam = s.split("/");
-        String Nam=NgayThangNam[NgayThangNam.length-1];
-        return Nam;
-    }
-    
     public void showMenutimkiem()
     {
         System.out.println("==============-Option-=========");

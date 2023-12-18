@@ -52,6 +52,7 @@ public class DSCTKH {
         }
     }
     public void xuat() {
+        docFile();
         System.out.println("==================================Danh sach chi tiet ke hoach===================================");
         
 		System.out.format("|| %5s | %10s | %10s | %10s | %10s | %8s | %15s ||\n", "Stt", "Makht", "manhahang", "makhachsan", "makhuvuichoi","tongchiphi","ngay");
