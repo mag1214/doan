@@ -114,7 +114,7 @@ public class DanhSachHoaDonChi
         return sum;
     }
 
-    public void nhap()
+    public void nhap() throws IOException
     {
         System.out.print("Nhap n danh sach hoa don chi dau tien: ");
         n = sc.nextInt();
@@ -125,6 +125,7 @@ public class DanhSachHoaDonChi
             a[i] = new HoaDonChi();
             a[i].nhap();
         }
+        writeDataToFile();
     }
     public void xuat()
     {
@@ -151,7 +152,7 @@ public class DanhSachHoaDonChi
         
         System.out.println("================================================================");
     }
-    public void them()
+    public void them() throws IOException
     {
         n = a.length;
         a = Arrays.copyOf(a, n+1);
@@ -159,6 +160,7 @@ public class DanhSachHoaDonChi
         System.out.print("Nhap thong tin hoa don chi can them: ");
         a[n].nhap();
         n++;
+        writeDataToFile();
     } 
     public void them(HoaDonChi x)
     {
@@ -364,7 +366,7 @@ public class DanhSachHoaDonChi
 
     public void writeDataToFile() throws IOException {
         n = a.length;
-        DataOutputStream out = new DataOutputStream(new FileOutputStream("data/dataHDT.txt"));
+        DataOutputStream out = new DataOutputStream(new FileOutputStream("data/datahdc.txt"));
         for(int i = 0; i < n; i++) {
             out.writeUTF(a[i].getMaHoaDon());
             out.writeUTF(a[i].getMaKeHoachTua());
@@ -377,7 +379,7 @@ public class DanhSachHoaDonChi
         a = new HoaDonChi[500];
         int i = 0;
         try {
-            DataInputStream in = new DataInputStream(new FileInputStream("data/dataHDT.txt"));
+            DataInputStream in = new DataInputStream(new FileInputStream("data/datahdc.txt"));
             try {
                 while(true) {
                     a[i] = new HoaDonChi();

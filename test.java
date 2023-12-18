@@ -14,6 +14,10 @@ public class test {
         DSNH nh = new DSNH();
         DSKS ks = new DSKS();
         DSVC vc = new DSVC();
+        DanhSachHoaDonChi hdc = new DanhSachHoaDonChi();
+       // hdc.nhap();
+        hdc.readDataFromFile();
+        hdc.xuat();
         // nh.docFile();
         // ks.docFile();
         // vc.docFile();
@@ -24,8 +28,6 @@ public class test {
         // kht.readDataFromFile();
          
         //ctkh.docFile();
-        kht.readDataFromFile();
-        kht.Menu();
         
     }    
         

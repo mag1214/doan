@@ -15,7 +15,7 @@ public class MenuDoAn {
     public void thongkelaisuat() {
         dshdc.readDataFromFile();
         dshdt.readDataFromFile();
-        System.out.print("Nhap nam can thong ke");
+        System.out.print("Nhap nam can thong ke: ");
         String nam = sc.nextLine();
         System.out.println("Lai suat quy 1 nam " + nam + ": " + (dshdt.tongtienqui1(nam) - dshdc.tongtienqui1(nam)));
         System.out.println("Lai suat quy 2 nam " + nam + ": " + (dshdt.tongtienqui2(nam) - dshdc.tongtienqui2(nam)));

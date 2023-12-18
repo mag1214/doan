@@ -290,15 +290,18 @@ public class DSHDT {
             System.out.println("Khong tim thay ma nhan vien!");
     }
 
-    private Date changeDate(String dateString) {
-        String pattern = "dd/MM/yyyy"; 
-        SimpleDateFormat sdf = new SimpleDateFormat(pattern);
-        try {
-            return sdf.parse(dateString);
-        } catch (ParseException e) {
+    public static Date changeDate(String day){
+        String pattern ="dd/MM/yyyy";
+        SimpleDateFormat sdf=new SimpleDateFormat(pattern);
+        try{
+
+            return sdf.parse(day);
+
+        } catch (ParseException e){
             e.printStackTrace();
             return null;
         }
+
     }
 
     private void swapDate(String date1, String date2) {
@@ -523,7 +526,7 @@ public void Menutimkiem() throws IOException{
             timkiemtheogia();
             break;
         case "5":
-            timkiemtheongay();
+            thongkecacquy();
             break;
         case "0":
             System.out.println("Da thoat!");
