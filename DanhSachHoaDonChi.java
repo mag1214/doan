@@ -37,7 +37,7 @@ public class DanhSachHoaDonChi
             {
                 System.out.println();
                 xuat();
-                System.err.println("Hoa don thu " + (i+1) + "co ma " + mhd +"bi trung ma ke hoach. Vui long nhan Enter de nhap lai!!");
+                System.err.println("Hoa don thu " + (i+1) + " co ma " + mhd +" bi trung ma ke hoach. Vui long nhan Enter de nhap lai!!");
                 sc.nextLine();
                 System.err.println("Nhap lai ma: ");
                 mahoadon = sc.nextLine();
@@ -52,7 +52,7 @@ public class DanhSachHoaDonChi
 
     public boolean KiemTraMHD(String mahoadon , int k )
     {
-        for (int i = v-1; v >= 0 ; i--)
+        for (int i = v-1; i >= 0 ; i--)
         {
             if(a[i].getMaHoaDon().indexOf(mahoadon) != -1 && i!= k)
             {
@@ -153,14 +153,16 @@ public class DanhSachHoaDonChi
     }
     public void them() throws IOException
     {
-        n = a.length;
+        int i=n;
         a = Arrays.copyOf(a, n+1);
         a[n] = new HoaDonChi();
         System.out.println("Nhap thong tin hoa don chi can them");
         a[n].nhap();
-        n++;
         writeDataToFile();
-    } 
+        MaDuyNhat(i);
+        n++;
+        writeDataToFile ();
+     } 
     public void them(HoaDonChi x)
     {
         n = a.length;
@@ -391,6 +393,7 @@ public class DanhSachHoaDonChi
 
             } finally {
                 n = i;
+                v  = i;
                 a = Arrays.copyOf(a, n);
                 in.close();
             }
