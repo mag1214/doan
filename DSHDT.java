@@ -122,17 +122,6 @@ public class DSHDT {
         checkId(n);
         writeDataToFile();
     }
-    public void menuSua()
-    {
-        System.out.println("============-Option-===========");
-        System.out.println("||     1. Sua ma hoa don.    ||");
-        System.out.println("||    2. Sua ma khach hang.  ||");
-        System.out.println("||      3. Sua ngay mua.     ||");
-        System.out.println("||     4. Sua ma nhan vien.  ||");
-        System.out.println("||         0. Thoat.         ||");
-        System.out.println("===============================");
-        System.out.print("Chon thuoc tinh can sua: ");
-    }
     public void sua() throws IOException{
         xuat();
         System.out.print("Nhap ma hoa don can duoc sua: ");

@@ -9,7 +9,7 @@ import java.util.Arrays;
 public class DSCTKH {
     static ChiTietKeHoach [] a;
     private int n;
-
+    static DanhSachKeHoachTour dskht = new DanhSachKeHoachTour();
     Scanner sc= new Scanner (System.in);
 
     DSCTKH(){}
@@ -285,19 +285,25 @@ public class DSCTKH {
     }
     
     public void xoa(String id) throws IOException{
-        n = a.length;
-        int vitri = timkiemma(id);
-        if(vitri == -1) 
-            System.out.println("Khong tim thay ma hoa don!");
-        else {
-            a = Arrays.copyOf(a, n + 2);
-            for(int i = vitri; i < n; i++) {
-                a[i] = a[i + 1];
+        while(true)
+        {
+            int vitri = timkiemma(id);
+            if(vitri == -1)
+            {   
+                System.out.println("Da xoa chi tiet ke hoach!");
+                break;
+            }
+            else {
+                a = Arrays.copyOf(a, n + 2);
+                for(int i = vitri; i < n; i++) {
+                    a[i] = a[i + 1];
             }
             a = Arrays.copyOf(a, n - 1);
             n--;
             ghiFile();
         }
+    }
+        
     }
     public void timKiemChiPhiLonHon(double Chiphi) {
         System.out.format("Cac chi tiet co chi phi bang  %.2f:%n", Chiphi);

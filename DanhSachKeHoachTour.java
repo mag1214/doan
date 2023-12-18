@@ -214,9 +214,9 @@ public class DanhSachKeHoachTour {
             ctkh.changeMaKHT(MaSo, kht[vitri].getMaKeHoach());
             ctkh.ghiFile();
             for(int j = 0; j < daysBetween; j++) {
-            day = addOneDay(day);
-            System.err.println("Nhap ke hoach ngay thu " + (j+1) + ": ");
-            ctkh.sua((kht[vitri].getMaKeHoach()),day);
+                day = addOneDay(day);
+                System.err.println("Nhap ke hoach ngay thu " + (j+1) + ": ");
+                ctkh.sua((kht[vitri].getMaKeHoach()),day);
             }   
         }
         else
@@ -241,18 +241,19 @@ public class DanhSachKeHoachTour {
         else
             System.out.println("Khong tim thay");
     }
-    public void XoaMa()
+    public void XoaMa() throws IOException
     {
-        n=kht.length;
-        int a;
+        ctkh.docFile();
         String MaSo;
+        Xuat();
         System.out.print("Nhap ma so can xoa: ");
         MaSo=sc.nextLine();
-        a=TimKiem(MaSo);
-        if(a!=-1)
+        int vitri=TimKiem(MaSo);
+        if(vitri!=-1)
         {
-            for(int i=a; i<n-1; i++)
+            for(int i=vitri; i<n-1; i++)
                 kht[i]=kht[i+1];
+            ctkh.xoa(MaSo);
             kht = Arrays.copyOf(kht,n-1);
             n--;
              writeDataToFile();
