@@ -356,9 +356,9 @@ public class DanhSachKeHoachTour {
                 System.out.println("Nhap sai dinh dang vui long nhap lai!!");
         }while(!validator.Check(Ngay));
         
-        System.out.println("==================DANH SACH KE HOACH TOUR TIM THAY===============");
-        System.out.format("|| %9s |%9s |%7s |%12s |%12s ||\n",
-        "MaKeHoach", "MaTour", "MaNhanVien", "NgayDi", "NgayVe");
+        System.out.println("==========================-DANH SACH KE HOACH TOUR-============================");
+        System.out.format("|| %9s |%9s |%7s |%12s |%12s |%11s ||\n",
+                  "MaKeHoach", "MaTour", "MaNhanVien", "NgayDi", "NgayVe", "TongTien");
         for(int i=0; i<n; i++)
         {
             if(kht[i].getNgaydi().contains(Ngay))
@@ -372,7 +372,7 @@ public class DanhSachKeHoachTour {
         {
             System.out.println("khong tim thay ");
         }
-        System.out.println("================================================================");
+        System.out.println("===============================================================================");
     }
     public void writeDataToFile()
     {
