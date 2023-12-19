@@ -304,12 +304,12 @@ public class DSKS {
 
     public void showMenu() {
         System.out.println("===========-Option-==========");
-        System.out.println("||   1. Them khach san  .  ||");
-        System.out.println("||    2. Xoa khach san  .  ||");
-        System.out.println("||   3. Sua thong tin .    ||");
-        System.out.println("|| 4. Tim kiem khach san . ||");
-        System.out.println("||   5. Xem danh sach .    ||");
-        System.out.println("||     0. Thoat .          ||");
+        System.out.println("||   1. Them khach san.  ||");
+        System.out.println("||    2. Xoa khach san.  ||");
+        System.out.println("||   3. Sua thong tin.    ||");
+        System.out.println("|| 4. Tim kiem khach san. ||");
+        System.out.println("||   5. Xem danh sach.    ||");
+        System.out.println("||     0. Thoat.          ||");
         System.out.println("=============================");
     }
     public void showMenutimkiem()

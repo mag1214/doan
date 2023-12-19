@@ -281,7 +281,7 @@ public class DanhSachKeHoachTour {
     }
     public void TimKiem()
     {
-        int flag=0;
+        int flag=-1;
         String MaSo;
         Xuat();
         System.out.print("Nhap ma so can tim: ");
@@ -298,7 +298,7 @@ public class DanhSachKeHoachTour {
                 flag=1;
             }
         }
-        if(flag==0)
+        if(flag==-1)
         {
             System.out.println("khong tim thay ");
         }

@@ -187,9 +187,12 @@ public class DSHDT {
             if(a[i].getMahd().equals(ma)) {
                 isExisted = true;
                 System.out.println("Thong tin hoa don can tim: ");
+		        System.out.format("|| %10s | %13s | %12s | %10s | %15s ||\n", "Ma hoa don", "Ma khach hang", "Ma nhan vien", "Ngay mua", "Tong tien");
+                System.out.format("||");
                 a[i].xuat();
+                System.out.println("Hoa don bao gom: ");
                 ct.readDataFromFile();
-                ct.timkiem(a[i].getMahd()).xuat();
+                ct.timkiemmahd(a[i].getMahd());
                 break;
             }
         }
@@ -227,9 +230,14 @@ public class DSHDT {
         for(int i = 0; i < n; i++) {
             if (a[i].getMakh().equals(makh)) {
                 isExisted = true;
+                System.out.println("Thong tin hoa don can tim: ");
+		        System.out.format("|| %10s | %13s | %12s | %10s | %15s ||\n", "Ma hoa don", "Ma khach hang", "Ma nhan vien", "Ngay mua", "Tong tien");
+                System.out.format("||");
                 a[i].xuat();
+                System.out.println("Hoa don bao gom: ");
                 ct.readDataFromFile();
-                ct.timkiem(a[i].getMahd()).xuat();
+                ct.timkiemmahd(a[i].getMahd());
+                break;
             }
         }
         if(!isExisted) 
@@ -257,9 +265,14 @@ public class DSHDT {
         for(int i = 0; i < n; i++) {
             if (a[i].getManv().equals(manv)) {
                 isExisted = true;
+                System.out.println("Thong tin hoa don can tim: ");
+		        System.out.format("|| %10s | %13s | %12s | %10s | %15s ||\n", "Ma hoa don", "Ma khach hang", "Ma nhan vien", "Ngay mua", "Tong tien");
+                System.out.format("||");
                 a[i].xuat();
+                System.out.println("Hoa don bao gom: ");
                 ct.readDataFromFile();
-                ct.timkiem(a[i].getMahd()).xuat();
+                ct.timkiemmahd(a[i].getMahd());
+                break;
             }
         }
         if(!isExisted) 

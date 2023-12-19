@@ -10,6 +10,9 @@ public class MenuDoAn {
     DSVe  dsv = new DSVe();
     DSHDT dshdt = new DSHDT();
     DanhSachHoaDonChi dshdc = new DanhSachHoaDonChi();
+    DSNH nh = new DSNH();
+    DSKS ks = new DSKS();
+    DSVC vc = new DSVC();
     Scanner sc = new Scanner(System.in);
 
     public void thongkelaisuat() {
@@ -33,7 +36,10 @@ public class MenuDoAn {
         System.out.println("||          5.Lam viec voi Ve       ||");
         System.out.println("||      6.Lam viec voi hoa don thu  ||");
         System.out.println("||      7.Lam viec voi hoa don chi  ||");
-        System.out.println("||            8.Xem lai suat        ||");
+        System.out.println("||       8.Lam viec voi nha hang    ||");
+        System.out.println("||       9.Lam viec voi khach san   ||");
+        System.out.println("||       10.Lam viec voi vui choi   ||");
+        System.out.println("||           11.Xem lai suat        ||");
         System.out.println("||               0.Exit             ||");
         System.out.println("======================================");
         System.out.print("Choose: ");
@@ -75,6 +81,18 @@ public class MenuDoAn {
                 dshdc.Menu();
                 break;
             case "8":
+                nh.docFile();
+                nh.Menu();
+                break;
+            case "9":
+                ks.docFile();
+                ks.Menu();
+                break;
+            case "10":
+                vc.docFile();
+                vc.Menu();
+                break;
+            case "11":
                 thongkelaisuat();
                 break;
             case "0":

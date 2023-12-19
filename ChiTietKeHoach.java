@@ -100,6 +100,7 @@ public class ChiTietKeHoach{
             System.err.println("Ma nha hang ban nhap chua chinh xac :");
             System.err.println(" Vui long nhan Enter để nhập lại ");
             sc.nextLine();
+            a.xuat();
             System.out.println("Nhap lai ma nha hang:");
             String manh=sc.nextLine();
             setManhahang(manh);
@@ -113,6 +114,7 @@ public class ChiTietKeHoach{
             System.err.println("ma khach san ban chon chua dung");
             System.err.println("Vui long nhan Entern de nhap lai ma khach san");
             sc.nextLine();
+            b.xuat();
             System.out.println("Nhap lai ma khach san");
             String maks=sc.nextLine();
             setMakhachsan(maks);
@@ -126,6 +128,7 @@ public class ChiTietKeHoach{
                 System.err.println("ma khach san ban chon chua dung");
                 System.err.println("Vui long nhan Entern de nhap lai ma vui choi");
                 sc.nextLine(); 
+                c.xuat();
             }
             
         }while(c.timkiemma(makhuvuichoi)==-1);

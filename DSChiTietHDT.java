@@ -138,6 +138,17 @@ public class DSChiTietHDT {
         if(!isExisted) 
             System.out.println("Khong tim thay ma hoa don!");
     }
+
+    public void timkiemmahd(String mahd){
+        n = a.length;
+        System.out.format("|| %10s | %10s | %8s | %15s ||\n", "Ma hoa don", "Ma ve", "So luong", "Don gia");
+        for (int i = 0; i < n; i++) {
+            if(a[i].getMahd().equals(mahd)) {
+                System.out.format("||");
+                a[i].xuat();
+            }
+        }
+    }
     
     public int timkiemma(String ma){
         n = a.length;

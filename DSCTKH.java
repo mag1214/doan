@@ -389,11 +389,9 @@ public class DSCTKH {
 
     public void showMenu() {
         System.out.println("===============-Option-=============");
-        System.out.println("||    1. Them chi tiet ke hoach.  ||");
-        System.out.println("||     2. Xoa chi tiet ke hoach.  ||");
-        System.out.println("||        3. Sua thong tin.       ||");
-        System.out.println("||      4. Tim kiem thong tin.    ||");
-        System.out.println("||       5. Xem danh sach.        ||");
+        System.out.println("||        1. Sua thong tin.       ||");
+        System.out.println("||      2. Tim kiem thong tin.    ||");
+        System.out.println("||       3. Xem danh sach.        ||");
         System.out.println("||           0. Thoat.            ||");
         System.out.println("====================================");
         System.out.print("Choose: ");
@@ -452,18 +450,12 @@ public class DSCTKH {
             choose = sc.nextLine();
             switch (choose) {
             case "1":
-                them();
-                break;
-            case "2":
-                xoa();
-                break;
-            case "3":
                 sua();
                 break;
-            case "4":
+            case "2":
                 MenuTimKiem();
                 break;
-            case "5":
+            case "3":
                 xuat();
                 break;
             case "0":

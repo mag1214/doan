@@ -419,6 +419,7 @@ public class DanhSachHoaDonChi
         System.out.println("||    1. Tim kiem ma hoa don    ||");
         System.out.println("||  2. Tim kiem ma ke hoach tua ||");
         System.out.println("||   3. Tim kiem ma nhan vien   ||");
+        System.out.println("||           0. Thoat.          ||");
         System.out.println("==================================");
         System.out.print("Choose: ");
     }
@@ -470,7 +471,7 @@ public class DanhSachHoaDonChi
                 sua();
                 break;
             case "4":
-                showMenutimkiem();
+                MenuTimKiem();
                 break;
             case "5":
                 xuat();
