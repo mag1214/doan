@@ -286,6 +286,8 @@ public class DanhSachKeHoachTour {
         Xuat();
         System.out.print("Nhap ma so can tim: ");
         MaSo=sc.nextLine();
+        ChiTietKeHoach ct=ctkh.timkIem(MaSo);
+        System.out.println(MaSo);
         System.out.println("==========================-DANH SACH KE HOACH TOUR-============================");
         System.out.format("|| %9s |%9s |%7s |%12s |%12s |%11s ||\n",
                   "MaKeHoach", "MaTour", "MaNhanVien", "NgayDi", "NgayVe", "TongTien");
@@ -306,7 +308,10 @@ public class DanhSachKeHoachTour {
         System.out.println("==================================Danh sach chi tiet ke hoach===================================");
         
 		System.out.format("|| %5s | %10s | %10s | %10s | %10s | %8s | %15s ||\n", "Stt", "Makht", "manhahang", "makhachsan", "makhuvuichoi","tongchiphi","ngay");
-        ctkh.timkiem(MaSo).xuat();
+        if(ct!=null)
+            ctkh.timkiem(MaSo).xuat();
+        else
+            System.out.println("khong tim thay");
         System.out.println("================================================================================================");
     }
     //Tim kiem  theo ma so co tham so int

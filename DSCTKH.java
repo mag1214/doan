@@ -173,7 +173,16 @@ public class DSCTKH {
         }  
         return null;
     }
-    
+    public ChiTietKeHoach timkIem(String ma){
+        n = a.length;
+        for (int i = 0; i < n; i++) {
+            if (a[i].getMaKht().equals(ma)) {
+                return a[i];
+            }
+        }  
+        return null;
+    }
+
     public int FindDay(String day){
         n=a.length;
         int location=-1;
