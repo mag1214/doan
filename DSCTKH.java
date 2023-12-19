@@ -167,6 +167,7 @@ public class DSCTKH {
         n = a.length;
         for (int i = 0; i < n; i++) {
             if (a[i].getMaKht().equals(ma)) {
+                System.out.format("|| %5d |", i + 1);
                 return a[i];
             }
         }  

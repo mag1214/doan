@@ -286,9 +286,9 @@ public class DanhSachKeHoachTour {
         Xuat();
         System.out.print("Nhap ma so can tim: ");
         MaSo=sc.nextLine();
-        System.out.println("==================DANH SACH KE HOACH TOUR TIM THAY===============");
-        System.out.format("|| %9s |%9s |%7s |%12s |%12s ||\n",
-        "MaKeHoach", "MaTour", "MaNhanVien", "NgayDi", "NgayVe");
+        System.out.println("==========================-DANH SACH KE HOACH TOUR-============================");
+        System.out.format("|| %9s |%9s |%7s |%12s |%12s |%11s ||\n",
+                  "MaKeHoach", "MaTour", "MaNhanVien", "NgayDi", "NgayVe", "TongTien");
         for(int i=0; i<n; i++)
         {
             if(kht[i].getMaKeHoach().equals(MaSo))
@@ -302,7 +302,12 @@ public class DanhSachKeHoachTour {
         {
             System.out.println("khong tim thay ");
         }
-        System.out.println("=================================================================");
+        System.out.println("===============================================================================");
+        System.out.println("==================================Danh sach chi tiet ke hoach===================================");
+        
+		System.out.format("|| %5s | %10s | %10s | %10s | %10s | %8s | %15s ||\n", "Stt", "Makht", "manhahang", "makhachsan", "makhuvuichoi","tongchiphi","ngay");
+        ctkh.timkiem(MaSo).xuat();
+        System.out.println("================================================================================================");
     }
     //Tim kiem  theo ma so co tham so int
     public int TimKiem(String Ma)
